@@ -55,7 +55,8 @@ const SendMenu = (props) => {
                 accesso ai controlpanel non avrebbe la url per arrivarci */}
         <Plug pluggable="toolbar-more-manage-content" id="manage-channels-menu">
           <li>
-            <Link to={`/controlpanel/ufficiostampa-managechannels`}>
+            <Link to={`/controlpanel/ufficiostampa-managechannels`} 
+                  target="_blank">
               <div>
                 <span className="pastanaga-menu-label">
                   {intl.formatMessage(messages.manageChannels)}
@@ -68,7 +69,8 @@ const SendMenu = (props) => {
         </Plug>
         <Plug pluggable="toolbar-more-manage-content" id="manage-history-menu">
           <li>
-            <Link to={`/controlpanel/ufficiostampa-managehistory`}>
+            <Link to={`/controlpanel/ufficiostampa-managehistory`} 
+                  target="_blank" >
               <div>
                 <span className="pastanaga-menu-label">
                   {intl.formatMessage(messages.manageHistory)}

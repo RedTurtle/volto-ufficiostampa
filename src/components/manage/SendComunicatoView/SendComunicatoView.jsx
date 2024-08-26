@@ -210,7 +210,7 @@ const SendComunicatoView = (props) => {
               schema={schema}
               onSubmit={onSubmit}
               //   onCancel={this.onCancel}
-              //   hideActions
+              hideActions
               //   loading={this.props.updateRequest.loading}
             />
           )}

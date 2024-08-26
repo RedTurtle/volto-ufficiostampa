@@ -271,7 +271,7 @@ const SendHistoryPanel = () => {
                         />
                       </Table.Cell> */}
                       <Table.Cell>
-                        <Link to={item.url} title={item.title}>{item.title}</Link>
+                        <a href={item.url} title={item.title}>{item.title}</a>
                       </Table.Cell>
                       <Table.Cell>
                         {item.channels && item.channels.join(', ')}
