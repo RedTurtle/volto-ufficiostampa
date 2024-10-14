@@ -37,26 +37,34 @@ const SendMenu = (props) => {
   return (
     content?.['@type'] === 'ComunicatoStampa' && (
       <>
-        <Plug pluggable="toolbar-more-manage-content" id="send-comunicato-menu">
-          <li>
-            <Link to={`${path}/@send-comunicato`}>
-              <div>
-                <span className="pastanaga-menu-label">
-                  {intl.formatMessage(messages.sendComunicato)}
-                </span>
-                <span className="pastanaga-menu-value" />
-              </div>
-              <Icon name={rightArrowSVG} size="24px" />
-            </Link>
-          </li>
-        </Plug>
+        {/* // TODO: anzichè nasconderlo completamente sarebbe meglio disabilitarlo */}
+        {content?.review_state === 'published' && (
+          <Plug
+            pluggable="toolbar-more-manage-content"
+            id="send-comunicato-menu"
+          >
+            <li>
+              <Link to={`${path}/@send-comunicato`}>
+                <div>
+                  <span className="pastanaga-menu-label">
+                    {intl.formatMessage(messages.sendComunicato)}
+                  </span>
+                  <span className="pastanaga-menu-value" />
+                </div>
+                <Icon name={rightArrowSVG} size="24px" />
+              </Link>
+            </li>
+          </Plug>
+        )}
         {/* Questi controlpanel sarebbero a livello di sito e non di contenuto,
                 sono messi anche tra i controlpanel, ma ripetuti qui, altrimenti chi non ha
                 accesso ai controlpanel non avrebbe la url per arrivarci */}
         <Plug pluggable="toolbar-more-manage-content" id="manage-channels-menu">
           <li>
-            <Link to={`/controlpanel/ufficiostampa-managechannels`} 
-                  target="_blank">
+            <Link
+              to={`/controlpanel/ufficiostampa-managechannels`}
+              target="_blank"
+            >
               <div>
                 <span className="pastanaga-menu-label">
                   {intl.formatMessage(messages.manageChannels)}
@@ -69,8 +77,10 @@ const SendMenu = (props) => {
         </Plug>
         <Plug pluggable="toolbar-more-manage-content" id="manage-history-menu">
           <li>
-            <Link to={`/controlpanel/ufficiostampa-managehistory`} 
-                  target="_blank" >
+            <Link
+              to={`/controlpanel/ufficiostampa-managehistory`}
+              target="_blank"
+            >
               <div>
                 <span className="pastanaga-menu-label">
                   {intl.formatMessage(messages.manageHistory)}
