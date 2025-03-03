@@ -5,9 +5,6 @@
     "after:release": "rm .changelog.draft"
   },
   "git": {
-    "changelog": "pipx run towncrier build --draft --yes --version 0.0.0",
-    "requireUpstream": false,
-    "requireCleanWorkingDir": true,
     "commitMessage": "chore: Release ${version}",
     "tagName": "${version}",
     "tagAnnotation": "Release ${version}"
