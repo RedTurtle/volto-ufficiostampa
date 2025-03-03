@@ -1,152 +1,150 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2025-03-03T09:39:39.480Z\n"
-"Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
-"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"MIME-Version: 1.0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
-"Preferred-Encodings: utf-8\n"
-"Domain: volto\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language: \n"
+"Language-Team: \n"
+"Content-Type: \n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
 #. Default: "Back"
 #: components/manage/SendComunicatoView/SendComunicatoView
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "Back"
-msgstr ""
+msgstr "Indietro"
 
 #. Default: "Cancel"
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. Default: "Edit {title}"
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "Edit {title}"
-msgstr ""
+msgstr "Modifica {title}"
 
 #. Default: "Error"
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "Error"
-msgstr ""
+msgstr "Errore"
 
 #. Default: "Save"
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "Save"
-msgstr ""
+msgstr "Salva"
 
 #. Default: "Invia"
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "Send"
-msgstr ""
+msgstr "Invia"
 
 #. Default: "Send history"
 #: components/manage/SendHistoryPanel/messages
 msgid "Send history"
-msgstr ""
+msgstr "Invia storico"
 
 #. Default: "There are some errors."
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "There are some errors."
-msgstr ""
+msgstr "Si sono verificati degli errori."
 
 #. Default: "Cancel"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "button_cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. Default: "Confirm"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "button_confirm"
-msgstr ""
+msgstr "Conferma"
 
 #. Default: "Channels"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "channels"
-msgstr ""
+msgstr "Canali"
 
 #. Default: "Replace file"
 #: components/manage/SubscriptionsPanel/messages
 msgid "dropzone_replace_file"
-msgstr ""
+msgstr "Sostituisci file"
 
 #. Default: "Select a file"
 #: components/manage/SubscriptionsPanel/messages
 msgid "dropzone_select_file"
-msgstr ""
+msgstr "Seleziona un file"
 
 #. Default: "Error"
 #: components/manage/SendHistoryPanel/messages
 msgid "error_label"
-msgstr ""
+msgstr "Errore"
 
 #. Default: "Possible values are "," or ";"."
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_csv_separator_help"
-msgstr ""
+msgstr "I valori possibli sono ',' o ';'."
 
 #. Default: "CSV separator"
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_csv_separator_label"
-msgstr ""
+msgstr "Separatore CSV"
 
 #. Default: "Import subscriptions from a csv file. The CSV file must have a columns named "email", ..."
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_description"
-msgstr ""
+msgstr "Importa le iscrizioni da un file CSV. Il file CSV deve avere una colonna chiamata 'email', ..."
 
 #. Default: "Source file"
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_file_label"
-msgstr ""
+msgstr "File sorgente"
 
 #. Default: "Check this field if the uploaded file has an header row."
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_has_header_help"
-msgstr ""
+msgstr "Seleziona questo campo se il file caricato ha una riga di intestazione."
 
 #. Default: "File has header"
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_has_header_label"
-msgstr ""
+msgstr "Il file ha un'intestazione"
 
 #. Default: "Upload a file with a list of subscriptions that need to be removed."
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_remove_from_list_help"
-msgstr ""
+msgstr "Carica un file contenente l'elenco delle iscrizioni che devono essere rimosse."
 
 #. Default: "Remove subscriptions from file"
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_remove_from_list_label"
-msgstr ""
+msgstr "Rimuovi le iscrizioni dal file"
 
 #. Default: "Reset subscriptions before import."
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_reset_list_help"
-msgstr ""
+msgstr "Cancella tutte le iscrizioni prima dell'importazione."
 
 #. Default: "Reset list"
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_reset_list_label"
-msgstr ""
+msgstr "Lista deglie elementi che verrano eliminati"
 
 #. Default: "Import subscriptions"
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_subscriptions"
-msgstr ""
+msgstr "Importa iscrizioni"
 
 #. Default: "Loading"
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "loading"
-msgstr ""
+msgstr "Caricamento"
 
 #. Default: "Comunicati Stampa: Gestione Canali"
 #: components/Menu/Menu
@@ -161,12 +159,12 @@ msgstr ""
 #. Default: "Add subscription"
 #: components/manage/SubscriptionsPanel/messages
 msgid "modal_add_subscription"
-msgstr ""
+msgstr "Aggiungi iscrizione"
 
 #. Default: "Manually add a subscription to this newsletter."
 #: components/manage/SubscriptionsPanel/messages
 msgid "modal_add_subscription_description"
-msgstr ""
+msgstr "Inserisci una iscrizione manualmente a questa newsletter."
 
 #. Default: "Email"
 #: components/manage/SubscriptionsPanel/messages
@@ -176,149 +174,149 @@ msgstr ""
 #. Default: "Error adding subscription."
 #: components/manage/SubscriptionsPanel/messages
 msgid "modal_add_subscription_error"
-msgstr ""
+msgstr "Errore durante l'aggiunta dell'iscrizione."
 
 #. Default: "Subscriber added."
 #: components/manage/SubscriptionsPanel/messages
 msgid "modal_add_subscription_success"
-msgstr ""
+msgstr "Iscritto aggiunto."
 
 #. Default: "Import subscriptions from a csv file."
 #: components/manage/SubscriptionsPanel/messages
 msgid "modal_import_subscriptions_description"
-msgstr ""
+msgstr "Importa iscrizioni da un file CSV."
 
 #. Default: "All"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "newsletter_panel_all"
-msgstr ""
+msgstr "Tutti"
 
 #. Default: "Are you sure you want to reset the following history?"
 #: components/manage/SendHistoryPanel/messages
 msgid "newsletter_panel_confirm_delete_selected"
-msgstr ""
+msgstr "Sei sicuro di voler eliminare la seguente cronologia?"
 
 #. Default: "Are you sure you want to delete the following subscriptions?"
 #: components/manage/SubscriptionsPanel/messages
 msgid "newsletter_panel_confirm_delete_selected_subscriptions"
-msgstr ""
+msgstr "Sei sicuro di voler eliminare le seguenti iscrizioni?"
 
 #. Default: "An error has occurred while trying to delete history for {element}"
 #: components/manage/SendHistoryPanel/messages
 msgid "newsletter_panel_delete_error"
-msgstr ""
+msgstr "Si è verificato un errore durante l'eliminazione della cronologia per {element}"
 
 #. Default: "Delete history"
 #: components/manage/SendHistoryPanel/messages
 msgid "newsletter_panel_delete_send_history"
-msgstr ""
+msgstr "Cancella cronologia"
 
 #. Default: "Delete subscriptions"
 #: components/manage/SubscriptionsPanel/messages
 msgid "newsletter_panel_delete_send_subscriptions"
-msgstr ""
+msgstr "Cancella iscrizioni"
 
 #. Default: "An error has occurred while trying to delete subscriptions"
 #: components/manage/SubscriptionsPanel/messages
 msgid "newsletter_panel_delete_subscriptions_error"
-msgstr ""
+msgstr "Si è verificato un errore durante l'eliminazione delle iscrizioni"
 
 #. Default: "Subscriptions deleted successfully!"
 #: components/manage/SubscriptionsPanel/messages
 msgid "newsletter_panel_delete_subscriptions_success"
-msgstr ""
+msgstr "Iscrizioni cancellate con successo!"
 
 #. Default: "Selected history deleted successfully!"
 #: components/manage/SendHistoryPanel/messages
 msgid "newsletter_panel_delete_success"
-msgstr ""
+msgstr "Cronologia selezionata eliminata con successo!"
 
 #. Default: "End send"
 #: components/manage/SendHistoryPanel/messages
 msgid "newsletter_panel_end_send"
-msgstr ""
+msgstr "Termina invio"
 
 #. Default: "Filter title"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "newsletter_panel_filter_title"
-msgstr ""
+msgstr "Filtra per titolo"
 
 #. Default: "items selected."
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "newsletter_panel_items_selected"
-msgstr ""
+msgstr "elementi selezionati."
 
 #. Default: "Loading..."
 #: components/manage/SendHistoryPanel/messages
 msgid "newsletter_panel_loading"
-msgstr ""
+msgstr "Caricamento..."
 
 #. Default: "Message"
 #: components/manage/SendHistoryPanel/messages
 msgid "newsletter_panel_message"
-msgstr ""
+msgstr "Messaggio"
 
 #. Default: "No results found"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "newsletter_panel_no_results"
-msgstr ""
+msgstr "Nessun risultato trovato"
 
 #. Default: "Select/Deselect all"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "newsletter_panel_select_all"
-msgstr ""
+msgstr "Seleziona/Deseleziona tutto"
 
 #. Default: "Select item"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "newsletter_panel_select_item"
-msgstr ""
+msgstr "Seleziona elemento"
 
 #. Default: "Start send"
 #: components/manage/SendHistoryPanel/messages
 msgid "newsletter_panel_start_send"
-msgstr ""
+msgstr "Inizia invio"
 
 #. Default: "Status"
 #: components/manage/SendHistoryPanel/messages
 msgid "newsletter_panel_status"
-msgstr ""
+msgstr "Stato"
 
 #. Default: "Error"
 #: components/manage/SendHistoryPanel/messages
 msgid "newsletter_panel_status_error"
-msgstr ""
+msgstr "Errore"
 
 #. Default: "In progress"
 #: components/manage/SendHistoryPanel/messages
 msgid "newsletter_panel_status_in_progress"
-msgstr ""
+msgstr "In corso"
 
 #. Default: "Sent"
 #: components/manage/SendHistoryPanel/messages
 msgid "newsletter_panel_status_sent"
-msgstr ""
+msgstr "Inviato"
 
 #. Default: "Active subscribers"
 #: components/manage/SendHistoryPanel/messages
 msgid "newsletter_panel_subscribers"
-msgstr ""
+msgstr "Iscritti attivi"
 
 #. Default: "Error"
 #: components/manage/SubscriptionsPanel/messages
 msgid "panel_error"
-msgstr ""
+msgstr "Errore"
 
 #. Default: "Select channel"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "select_channel"
-msgstr ""
+msgstr "Seleziona un canale"
 
 #. Default: "Invia Comunicato Stampa"
 #: components/Menu/Menu
@@ -328,47 +326,47 @@ msgstr ""
 #. Default: "An error has occurred trying to add subscription."
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscribe_add_error"
-msgstr ""
+msgstr "Si è verificato un errore durante l'aggiunta dell'iscrizione."
 
 #. Default: "Subscription added."
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscribe_add_success"
-msgstr ""
+msgstr "Iscrizione aggiunta."
 
 #. Default: "An error has occurred trying to import subscriptions."
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscribe_import_error"
-msgstr ""
+msgstr "Si è verificato un errore durante l'importazione delle iscrizioni."
 
 #. Default: "Subscriptions imported."
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscribe_import_success"
-msgstr ""
+msgstr "Iscrizioni importate"
 
 #. Default: "Active"
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscription_state_active"
-msgstr ""
+msgstr "Attivo"
 
 #. Default: "Inactive"
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscription_state_inactive"
-msgstr ""
+msgstr "Inattivo"
 
 #. Default: "Add subscriber"
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscriptions_add_subscriber"
-msgstr ""
+msgstr "Aggiungi iscritto"
 
 #. Default: "Creation date"
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscriptions_creation_date"
-msgstr ""
+msgstr "Data di creazione"
 
 #. Default: "Download"
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscriptions_download_list"
-msgstr ""
+msgstr "Scarica"
 
 #. Default: "Email"
 #: components/manage/SubscriptionsPanel/messages
@@ -378,17 +376,17 @@ msgstr ""
 #. Default: "Loading..."
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscriptions_loading"
-msgstr ""
+msgstr "Caricamento..."
 
 #. Default: "State"
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscriptions_state"
-msgstr ""
+msgstr "Stato"
 
 #. Default: "Manage subscriptions"
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscriptions_title"
-msgstr ""
+msgstr "Gestisci iscrizioni"
 
 #. Default: "Success"
 #: components/manage/SendHistoryPanel/messages
@@ -400,10 +398,10 @@ msgstr ""
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "tot_results_filtered"
-msgstr ""
+msgstr "{totResults} risultati (filtrati)."
 
 #. Default: "{totResults} results."
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "tot_results_unfiltered"
-msgstr ""
+msgstr "{totResults} risultati."
