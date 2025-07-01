@@ -16,6 +16,8 @@ import {
   deleteSendHistoryReducer,
 } from './reducers';
 
+import { LegislatureWidget } from 'volto-ufficiostampa/components/manage/widgets';
+
 const applyConfig = (config) => {
   config.settings.appExtras = [
     ...config.settings.appExtras,
@@ -25,7 +27,7 @@ const applyConfig = (config) => {
     },
   ];
   config.settings.contextualVocabularies = [
-    ...config.settings.contextualVocabularies || [],
+    ...(config.settings.contextualVocabularies || []),
     'rer.ufficiostampa.vocabularies.attachments',
   ];
   config.addonRoutes = [
@@ -60,6 +62,11 @@ const applyConfig = (config) => {
     // manageHistory
     getSendHistory: getSendHistoryReducer,
     deleteSendHistory: deleteSendHistoryReducer,
+  };
+
+  config.widgets.id = {
+    ...config.widgets.id,
+    legislatures: LegislatureWidget,
   };
   return config;
 };
