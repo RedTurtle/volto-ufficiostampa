@@ -16,7 +16,6 @@ const SendMenu = (props) => {
   const filteredActions = actionIds
     .map((id) => actions.find((action) => action.id === id))
     .filter(Boolean);
-  console.log(filteredActions);
 
   return (
     <>
