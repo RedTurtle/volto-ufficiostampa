@@ -146,16 +146,6 @@ msgstr "Importa iscrizioni"
 msgid "loading"
 msgstr "Caricamento"
 
-#. Default: "Comunicati Stampa: Gestione Canali"
-#: components/Menu/Menu
-msgid "manageChannels"
-msgstr ""
-
-#. Default: "Comunicati Stampa: Storico Invio Comunicati"
-#: components/Menu/Menu
-msgid "manageHistory"
-msgstr ""
-
 #. Default: "Add subscription"
 #: components/manage/SubscriptionsPanel/messages
 msgid "modal_add_subscription"
@@ -169,7 +159,7 @@ msgstr "Inserisci una iscrizione manualmente a questa newsletter."
 #. Default: "Email"
 #: components/manage/SubscriptionsPanel/messages
 msgid "modal_add_subscription_email_label"
-msgstr ""
+msgstr "Email"
 
 #. Default: "Error adding subscription."
 #: components/manage/SubscriptionsPanel/messages
@@ -185,6 +175,115 @@ msgstr "Iscritto aggiunto."
 #: components/manage/SubscriptionsPanel/messages
 msgid "modal_import_subscriptions_description"
 msgstr "Importa iscrizioni da un file CSV."
+
+#. Default: "Error"
+#: components/manage/SubscriptionsPanel/messages
+msgid "panel_error"
+msgstr "Errore"
+
+#. Default: "Select channel"
+#: components/manage/SendHistoryPanel/messages
+#: components/manage/SubscriptionsPanel/messages
+msgid "select_channel"
+msgstr "Seleziona un canale"
+
+#. Default: "Sending"
+#: components/manage/SendHistoryPanel/messages
+msgid "sending_label"
+msgstr "In invio"
+
+#. Default: "Message"
+#: components/manage/SendHistoryPanel/messages
+msgid "status_message_header"
+msgstr "Messaggio"
+
+#. Default: "An error has occurred trying to add subscription."
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscribe_add_error"
+msgstr "Si è verificato un errore durante l'aggiunta dell'iscrizione."
+
+#. Default: "Subscription added."
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscribe_add_success"
+msgstr "Iscrizione aggiunta."
+
+#. Default: "An error has occurred trying to import subscriptions."
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscribe_import_error"
+msgstr "Si è verificato un errore durante l'importazione delle iscrizioni."
+
+#. Default: "Subscriptions imported."
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscribe_import_success"
+msgstr "Iscrizioni importate"
+
+#. Default: "Active"
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscription_state_active"
+msgstr "Attivo"
+
+#. Default: "Inactive"
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscription_state_inactive"
+msgstr "Inattivo"
+
+#. Default: "Add subscriber"
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscriptions_add_subscriber"
+msgstr "Aggiungi iscritto"
+
+#. Default: "Creation date"
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscriptions_creation_date"
+msgstr "Data di creazione"
+
+#. Default: "Download"
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscriptions_download_list"
+msgstr "Scarica"
+
+#. Default: "Email"
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscriptions_email"
+msgstr "Email"
+
+#. Default: "Loading..."
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscriptions_loading"
+msgstr "Caricamento..."
+
+#. Default: "State"
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscriptions_state"
+msgstr "Stato"
+
+#. Default: "Manage subscriptions"
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscriptions_title"
+msgstr "Gestisci iscrizioni"
+
+#. Default: "Success"
+#: components/manage/SendHistoryPanel/messages
+#: components/manage/SubscriptionsPanel/messages
+msgid "success_label"
+msgstr "Completato"
+
+#. Default: "{totResults} results (filtered)."
+#: components/manage/SendHistoryPanel/messages
+#: components/manage/SubscriptionsPanel/messages
+msgid "tot_results_filtered"
+msgstr "{totResults} risultati (filtrati)."
+
+#. Default: "{totResults} results."
+#: components/manage/SendHistoryPanel/messages
+#: components/manage/SubscriptionsPanel/messages
+msgid "tot_results_unfiltered"
+msgstr "{totResults} risultati."
+
+#. Default: "Title"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_comunicato_title"
+msgstr "Titolo"
 
 #. Default: "All"
 #: components/manage/SendHistoryPanel/messages
@@ -235,7 +334,7 @@ msgstr "Cronologia selezionata eliminata con successo!"
 #. Default: "End send"
 #: components/manage/SendHistoryPanel/messages
 msgid "ufficiostampa_panel_end_send"
-msgstr "Termina invio"
+msgstr "Concluso"
 
 #. Default: "Filter title"
 #: components/manage/SendHistoryPanel/messages
@@ -253,11 +352,6 @@ msgstr "elementi selezionati."
 #: components/manage/SendHistoryPanel/messages
 msgid "ufficiostampa_panel_loading"
 msgstr "Caricamento..."
-
-#. Default: "Message"
-#: components/manage/SendHistoryPanel/messages
-msgid "ufficiostampa_panel_message"
-msgstr "Messaggio"
 
 #. Default: "No results found"
 #: components/manage/SendHistoryPanel/messages
@@ -280,7 +374,7 @@ msgstr "Seleziona elemento"
 #. Default: "Start send"
 #: components/manage/SendHistoryPanel/messages
 msgid "ufficiostampa_panel_start_send"
-msgstr "Inizia invio"
+msgstr "Data di invio"
 
 #. Default: "Status"
 #: components/manage/SendHistoryPanel/messages
@@ -307,101 +401,12 @@ msgstr "Inviato"
 msgid "ufficiostampa_panel_subscribers"
 msgstr "Iscritti attivi"
 
-#. Default: "Error"
-#: components/manage/SubscriptionsPanel/messages
-msgid "panel_error"
-msgstr "Errore"
-
-#. Default: "Select channel"
+#. Default: "Sending to {recipients} recipients"
 #: components/manage/SendHistoryPanel/messages
-#: components/manage/SubscriptionsPanel/messages
-msgid "select_channel"
-msgstr "Seleziona un canale"
+msgid "ufficiostampa_status_message_sending"
+msgstr "In invio a {recipients} destinatari"
 
-#. Default: "Invia Comunicato Stampa"
-#: components/Menu/Menu
-msgid "sendComunicato"
-msgstr ""
-
-#. Default: "An error has occurred trying to add subscription."
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscribe_add_error"
-msgstr "Si è verificato un errore durante l'aggiunta dell'iscrizione."
-
-#. Default: "Subscription added."
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscribe_add_success"
-msgstr "Iscrizione aggiunta."
-
-#. Default: "An error has occurred trying to import subscriptions."
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscribe_import_error"
-msgstr "Si è verificato un errore durante l'importazione delle iscrizioni."
-
-#. Default: "Subscriptions imported."
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscribe_import_success"
-msgstr "Iscrizioni importate"
-
-#. Default: "Active"
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscription_state_active"
-msgstr "Attivo"
-
-#. Default: "Inactive"
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscription_state_inactive"
-msgstr "Inattivo"
-
-#. Default: "Add subscriber"
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscriptions_add_subscriber"
-msgstr "Aggiungi iscritto"
-
-#. Default: "Creation date"
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscriptions_creation_date"
-msgstr "Data di creazione"
-
-#. Default: "Download"
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscriptions_download_list"
-msgstr "Scarica"
-
-#. Default: "Email"
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscriptions_email"
-msgstr ""
-
-#. Default: "Loading..."
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscriptions_loading"
-msgstr "Caricamento..."
-
-#. Default: "State"
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscriptions_state"
-msgstr "Stato"
-
-#. Default: "Manage subscriptions"
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscriptions_title"
-msgstr "Gestisci iscrizioni"
-
-#. Default: "Success"
+#. Default: "Sent to {recipients} recipients"
 #: components/manage/SendHistoryPanel/messages
-#: components/manage/SubscriptionsPanel/messages
-msgid "success_label"
-msgstr ""
-
-#. Default: "{totResults} results (filtered)."
-#: components/manage/SendHistoryPanel/messages
-#: components/manage/SubscriptionsPanel/messages
-msgid "tot_results_filtered"
-msgstr "{totResults} risultati (filtrati)."
-
-#. Default: "{totResults} results."
-#: components/manage/SendHistoryPanel/messages
-#: components/manage/SubscriptionsPanel/messages
-msgid "tot_results_unfiltered"
-msgstr "{totResults} risultati."
+msgid "ufficiostampa_status_message_success"
+msgstr "Inviato a {recipients} destinatari"

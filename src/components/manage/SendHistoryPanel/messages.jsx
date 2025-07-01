@@ -17,9 +17,9 @@ const messages = defineMessages({
     id: 'ufficiostampa_panel_all',
     defaultMessage: 'All',
   },
-  message: {
-    id: 'ufficiostampa_panel_message',
-    defaultMessage: 'Message',
+  comunicato_title: {
+    id: 'ufficiostampa_comunicato_title',
+    defaultMessage: 'Title',
   },
   subscribers: {
     id: 'ufficiostampa_panel_subscribers',
@@ -36,6 +36,14 @@ const messages = defineMessages({
   status: {
     id: 'ufficiostampa_panel_status',
     defaultMessage: 'Status',
+  },
+  status_message_success: {
+    id: 'ufficiostampa_status_message_success',
+    defaultMessage: 'Sent to {recipients} recipients',
+  },
+  status_message_sending: {
+    id: 'ufficiostampa_status_message_sending',
+    defaultMessage: 'Sending to {recipients} recipients',
   },
   filter_title: {
     id: 'ufficiostampa_panel_filter_title',
@@ -60,6 +68,14 @@ const messages = defineMessages({
   success: {
     id: 'success_label',
     defaultMessage: 'Success',
+  },
+  sending: {
+    id: 'sending_label',
+    defaultMessage: 'Sending',
+  },
+  status_message_header: {
+    id: 'status_message_header',
+    defaultMessage: 'Message',
   },
   delete_success: {
     id: 'ufficiostampa_panel_delete_success',

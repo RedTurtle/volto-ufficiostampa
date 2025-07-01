@@ -2,7 +2,7 @@ import {
   Icon as IconNext,
   Pagination,
   Toolbar,
-  Unauthorized
+  Unauthorized,
 } from '@plone/volto/components';
 import { BodyClass, Helmet, getBaseUrl } from '@plone/volto/helpers';
 import backSVG from '@plone/volto/icons/back.svg';
@@ -12,18 +12,16 @@ import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import {
-  Checkbox,
   Container,
   Dropdown,
   Form,
   FormField,
   Loader,
   Segment,
-  Table
+  Table,
+  Popup,
 } from 'semantic-ui-react';
-import {
-  getSendHistory
-} from '../../../actions';
+import { getSendHistory } from '../../../actions';
 import ModalDelete from './ModalDelete';
 import messages from './messages';
 
@@ -32,7 +30,7 @@ import '@plone/components/src/styles/basic/Dialog.css';
 import '@plone/components/src/styles/basic/Form.css';
 import '@plone/components/src/styles/basic/Modal.css';
 import '../modals.css';
-// import './send-history-panel.css';
+import './send-history-panel.css';
 
 const SendHistoryPanel = () => {
   const intl = useIntl();
@@ -55,7 +53,7 @@ const SendHistoryPanel = () => {
   // const deleteSendHistoryState = useSelector(
   //   (state) => state?.deleteSendHistory,
   // );
-  
+
   const isUnauthorized = useMemo(
     () => history?.error?.status === 401,
     [history?.error],
@@ -74,72 +72,16 @@ const SendHistoryPanel = () => {
     );
   }, [dispatch, b_size, currentPage, selectedChannel]);
 
-  // useEffect(() => {
-  //   const delayDebounceFn = setTimeout(() => {
-  //     setText(searchableText);
-  //   }, 1200);
-  //   return () => clearTimeout(delayDebounceFn);
-  // }, [searchableText]);
-
   // load initial data
   useEffect(() => {
     doSearch();
   }, [doSearch]);
 
-  // TODO: remove await/async
-  // const resetSelectedSendHistory = async () => {
-  //   // eslint-disable-next-line no-unused-expressions
-  //   try {
-
-  //     await dispatch(deleteSendHistory({ uids: itemsSelected }));
-  //     setShowConfirmDelete(false);
-  //     toastify.toast.success(
-  //       <Toast
-  //         success
-  //         title={intl.formatMessage(messages.success)}
-  //         content={intl.formatMessage(messages.delete_success)}
-  //       />,
-  //     );
-  //   } catch (e) {
-  //     console.error(e);
-  //     toastify.toast.error(
-  //       <Toast
-  //         error
-  //         title={intl.formatMessage(messages.error)}
-  //         content={intl.formatMessage(messages.delete_error, {
-  //           element: e?.item?.title ?? '',
-  //         })}
-  //       />,
-  //     );
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (deleteSendHistoryEnd) {
-  //     doSearch().then(() => {
-  //       setItemsSelected([]);
-  //     });
-  //     dispatch(resetDeleteSendHistory());
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [deleteSendHistoryEnd]);
-
-  // const getItemStatus = (item) => {
-  //   if (item.running) {
-  //     return intl.formatMessage(messages.statusInProgress);
-  //   }
-  //   return item.completed
-  //     ? intl.formatMessage(messages.statusSent)
-  //     : intl.formatMessage(messages.statusError);
-  // };
-
   const totResults = history.result?.items_total || 0;
 
-  return   isUnauthorized ?
-   <Unauthorized />
-  :
-
-(
+  return isUnauthorized ? (
+    <Unauthorized />
+  ) : (
     <>
       <BodyClass className="newsletter-management" />
       <Container id="page-send-history" className="controlpanel-send-history">
@@ -152,34 +94,8 @@ const SendHistoryPanel = () => {
           </Segment>
 
           <Segment>
-            {/* {history.result?.items ? (
-              <p>
-                {searchableText.length
-                  ? intl.formatMessage(messages.tot_filtered, { totResults })
-                  : intl.formatMessage(messages.tot_unfiltered, { totResults })}
-              </p>
-            ) : (
-              ''
-            )} */}
-            {/* {itemsSelected.length > 0 && (
-              <Message className="selected-items" color="teal">
-                <div className="text">
-                  {itemsSelected?.length}{' '}
-                  {intl.formatMessage(messages.items_selected)}
-                </div>
-                <div className="actions">
-                  <Button
-                    type="button"
-                    className="react-aria-Button cancel"
-                    onClick={() => setShowModalDelete(true)}
-                  >
-                    {intl.formatMessage(messages.delete_send_history)}
-                  </Button>
-                </div>
-              </Message>
-            )} */}
             <Form className="search-form">
-            <FormField>
+              <FormField>
                 <label>{intl.formatMessage(messages.channels)}</label>
                 <Dropdown
                   placeholder={intl.formatMessage(messages.selectChannel)}
@@ -197,43 +113,12 @@ const SendHistoryPanel = () => {
                   )}
                 />
               </FormField>
-              {/* <Input
-                fluid
-                icon="search"
-                value={searchableText}
-                onChange={(e) => {
-                  setSearchableText(e.target.value);
-                }}
-                placeholder={intl.formatMessage(messages.filter_title)}
-              /> */}
             </Form>
             <Table selectable compact singleLine attached fixed striped>
               <Table.Header>
                 <Table.Row>
-                  {/* <Table.HeaderCell
-                    width={1}
-                    textAlign="center"
-                    verticalAlign="middle"
-                  >
-                    <Checkbox
-                      title={intl.formatMessage(messages.select_all)}
-                      checked={
-                        history?.result?.items?.length !== 0 &&
-                        itemsSelected?.length === history?.result?.items?.length
-                      }
-                      onChange={(e, o) => {
-                        if (o.checked) {
-                          // TODO: attenzione che in paginazione vengono filtrati solo
-                          // quelli visibili
-                          setItemsSelected(history?.result?.items);
-                        } else {
-                          setItemsSelected([]);
-                        }
-                      }}
-                    />
-                  </Table.HeaderCell> */}
                   <Table.HeaderCell width={6}>
-                    {intl.formatMessage(messages.message)}
+                    {intl.formatMessage(messages.comunicato_title)}
                   </Table.HeaderCell>
                   <Table.HeaderCell width={2}>
                     {intl.formatMessage(messages.channels)}
@@ -251,40 +136,61 @@ const SendHistoryPanel = () => {
               </Table.Header>
               <Table.Body>
                 {history?.loaded &&
-                  history.result?.items?.map((item, i) => (
-                    <Table.Row key={item.uid}>
-                      {/* <Table.Cell textAlign="center">
-                        <Checkbox
-                          title={intl.formatMessage(messages.select_item)}
-                          checked={itemsSelected.includes(item)}
-                          onChange={(e, o) => {
-                            if (o.checked) {
-                              itemsSelected.includes(item) ||
-                                setItemsSelected([item, ...itemsSelected]);
-                            } else {
-                              setItemsSelected(
-                                itemsSelected.includes(item) &&
-                                  itemsSelected.filter((i) => i !== item),
-                              );
+                  history.result?.items?.map((item, i) => {
+                    const statusLabel = `{intl.formatMessage(messages.status)}: {intl.formatMessage(messages[item.status])}`;
+                    let popupMessage = '';
+                    switch (item.status) {
+                      case 'success':
+                        popupMessage = intl.formatMessage(
+                          messages.status_message_success,
+                          { recipients: item.recipients },
+                        );
+                        break;
+                      case 'sending':
+                        popupMessage = intl.formatMessage(
+                          messages.status_message_sending,
+                          { recipients: item.recipients },
+                        );
+                        break;
+                      case 'error':
+                        popupMessage = item.status_message;
+                      default:
+                        break;
+                    }
+                    return (
+                      <Table.Row key={item.uid}>
+                        <Table.Cell>
+                          <a href={item.url} title={item.title}>
+                            {item.title}
+                          </a>
+                        </Table.Cell>
+                        <Table.Cell>
+                          {item.channels && item.channels.join(', ')}
+                        </Table.Cell>
+                        <Table.Cell>{item.date}</Table.Cell>
+                        <Table.Cell>{item.completed_date}</Table.Cell>
+                        <Table.Cell
+                          className="history-status"
+                          textAlign="center"
+                        >
+                          <Popup
+                            content={popupMessage}
+                            key={item.id}
+                            header={intl.formatMessage(
+                              messages.status_message_header,
+                            )}
+                            trigger={
+                              <span
+                                className={item.status}
+                                aria-label={statusLabel}
+                                role="status"
+                              ></span>
                             }
-                          }}
-                        />
-                      </Table.Cell> */}
-                      <Table.Cell>
-                        <a href={item.url} title={item.title}>{item.title}</a>
-                      </Table.Cell>
-                      <Table.Cell>
-                        {item.channels && item.channels.join(', ')}
-                      </Table.Cell>
-                      <Table.Cell>
-                        {item.date}
-                      </Table.Cell>
-                      <Table.Cell>
-                        {item.completed_date}
-                      </Table.Cell>
-                      <Table.Cell>{item.status}</Table.Cell>
-                    </Table.Row>
-                  ))}
+                          />
+                        </Table.Cell>
+                      </Table.Row>
+                    );
+                  })}
               </Table.Body>
             </Table>
             {history?.loading && <Loader active inline="centered" />}
