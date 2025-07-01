@@ -16,6 +16,8 @@ import {
   deleteSendHistoryReducer,
 } from './reducers';
 
+import TokenWidget from '@plone/volto/components/manage/Widgets/TokenWidget';
+
 import { LegislatureWidget } from 'volto-ufficiostampa/components/manage/widgets';
 
 const applyConfig = (config) => {
@@ -67,6 +69,7 @@ const applyConfig = (config) => {
   config.widgets.id = {
     ...config.widgets.id,
     legislatures: LegislatureWidget,
+    subscription_channels: TokenWidget,
   };
   return config;
 };
