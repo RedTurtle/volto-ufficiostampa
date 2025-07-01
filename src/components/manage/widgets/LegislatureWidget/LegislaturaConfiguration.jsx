@@ -3,6 +3,7 @@ import { defineMessages, useIntl } from 'react-intl';
 import { Button } from 'semantic-ui-react';
 import TextWidget from '@plone/volto/components/manage/Widgets/TextWidget';
 import TokenWidget from '@plone/volto/components/manage/Widgets/TokenWidget';
+import ArrayWidget from '@plone/volto/components/manage/Widgets/ArrayWidget';
 
 import { usePreventClick } from 'volto-ufficiostampa/helpers/widgetHooks';
 
@@ -45,7 +46,7 @@ const LegislaturaConfiguration = ({ item, index, onChange, deleteItem }) => {
         }}
       />
 
-      <TokenWidget
+      <ArrayWidget
         id="arguments"
         title={intl.formatMessage(messages.arguments)}
         value={item.arguments}
@@ -53,6 +54,7 @@ const LegislaturaConfiguration = ({ item, index, onChange, deleteItem }) => {
           onChangeFormData(f, v);
         }}
         placeholder={intl.formatMessage(messages.arguments_placeholder)}
+        creatable={true}
       />
 
       <div className="delete-item-wrapper">
