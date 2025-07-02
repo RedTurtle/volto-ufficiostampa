@@ -17,6 +17,7 @@ import {
 } from './reducers';
 
 import { LegislatureWidget } from 'volto-ufficiostampa/components/manage/widgets';
+import { CartellaStampaView } from 'volto-ufficiostampa/components/View';
 
 const applyConfig = (config) => {
   config.settings.appExtras = [
@@ -67,6 +68,11 @@ const applyConfig = (config) => {
   config.widgets.id = {
     ...config.widgets.id,
     legislatures: LegislatureWidget,
+  };
+
+  config.views.contentTypesViews = {
+    ...config.views.contentTypesViews,
+    CartellaStampa: CartellaStampaView,
   };
   return config;
 };
