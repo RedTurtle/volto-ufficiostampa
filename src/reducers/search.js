@@ -41,6 +41,7 @@ export function searchComunicatiOldReducer(state = initialState, action = {}) {
             loaded: false,
           };
     case `${SEARCH_COMUNICATI_OLD}_SUCCESS`:
+      const _result = action.result;
       return action.subrequest
         ? {
             ...state,
@@ -48,22 +49,22 @@ export function searchComunicatiOldReducer(state = initialState, action = {}) {
               ...state.subrequests,
               [action.subrequest]: {
                 error: null,
-                items: action.result.items,
-                total: action.result.items_total,
+                items: _result.items,
+                total: _result.items_total,
                 loaded: true,
                 loading: false,
-                batching: { ...action.result.batching },
+                batching: { ..._result.batching },
               },
             },
           }
         : {
             ...state,
             error: null,
-            items: action.result.items,
-            total: action.result.items_total,
+            items: _result.items,
+            total: _result.items_total,
             loaded: true,
             loading: false,
-            batching: { ...action.result.batching },
+            batching: { ..._result.batching },
           };
     case `${SEARCH_COMUNICATI_OLD}_FAIL`:
       return action.subrequest
