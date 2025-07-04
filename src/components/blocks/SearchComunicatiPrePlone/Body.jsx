@@ -152,7 +152,7 @@ const Body = ({ data, id, inEditMode, onChangeBlock }) => {
   return filterOne || filterTwo || filterThree ? (
     <Container>
       <div
-        className={cx('rounded bg-primary px-4 py-2', {
+        className={cx('rounded bg-primary p-4', {
           'public-ui': inEditMode,
         })}
       >
@@ -217,11 +217,7 @@ const Body = ({ data, id, inEditMode, onChangeBlock }) => {
             aria-live="polite"
             role="region"
           >
-            <div
-              className="total-results fw-bold"
-              aria-live="assertive"
-              role="region"
-            >
+            <div className="total-results" aria-live="assertive" role="region">
               {intl.formatMessage(messages.total_results, {
                 total: searchResults.total,
               })}
