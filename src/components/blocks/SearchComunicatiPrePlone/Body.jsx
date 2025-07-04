@@ -237,8 +237,11 @@ const Body = ({ data, id, inEditMode, onChangeBlock }) => {
                     )}
                     <CardTitle tag="h3">
                       <UniversalLink
-                        item={!inEditMode ? item : null}
-                        href={inEditMode ? '#' : null}
+                        href={
+                          inEditMode
+                            ? '#'
+                            : `/dettaglio-comunicato-archive/${item.codice}`
+                        }
                         tabIndex={0}
                       >
                         {item.titolo}

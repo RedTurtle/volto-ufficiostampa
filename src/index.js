@@ -15,12 +15,14 @@ import {
   getSendHistoryReducer,
   deleteSendHistoryReducer,
   searchComunicatiOldReducer,
+  getComunicatoArchiveReducer,
 } from './reducers';
 
 import { LegislatureWidget } from 'volto-ufficiostampa/components/manage/widgets';
 import {
   CartellaStampaView,
   ComunicatoStampaView,
+  ComunicatoArchive,
 } from 'volto-ufficiostampa/components/View';
 
 import {
@@ -59,10 +61,15 @@ const applyConfig = (config) => {
       path: '/controlpanel/ufficiostampa-managehistory',
       component: ManageHistoryControlpanel,
     },
+    {
+      path: '*/dettaglio-comunicato-archive/:id',
+      component: ComunicatoArchive,
+    },
   ];
   config.settings.nonContentRoutes = [
     ...config.settings.nonContentRoutes,
     '/@send-comunicato',
+    '/dettaglio-comunicato-archive/',
   ];
   config.addonReducers = {
     ...config.addonReducers,
@@ -78,6 +85,7 @@ const applyConfig = (config) => {
     getSendHistory: getSendHistoryReducer,
     deleteSendHistory: deleteSendHistoryReducer,
     searchComunicatiOld: searchComunicatiOldReducer,
+    comunicatoArchive: getComunicatoArchiveReducer,
   };
 
   config.widgets.id = {

@@ -12,6 +12,7 @@ import {
 import { getSendHistoryReducer, deleteSendHistoryReducer } from './history';
 
 import { searchComunicatiOldReducer } from './search';
+import { getComunicatoArchiveReducer } from './comunicatoArchive';
 
 export {
   sendComunicatoSchemaReducer,
@@ -23,4 +24,5 @@ export {
   getSendHistoryReducer,
   deleteSendHistoryReducer,
   searchComunicatiOldReducer,
+  getComunicatoArchiveReducer,
 };

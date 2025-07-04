@@ -60,7 +60,7 @@ const ComunicatoStampaView = ({ content, location }) => {
 
   return (
     <>
-      <div className="container px-4 my-4 newsitem-view">
+      <div className="container px-4 my-4 comunicato-stampa-view">
         <SkipToMainContent />
         <PageHeader
           content={content}
