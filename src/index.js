@@ -14,6 +14,7 @@ import {
   deleteSubscriptionsReducer,
   getSendHistoryReducer,
   deleteSendHistoryReducer,
+  searchComunicatiOldReducer,
 } from './reducers';
 
 import { LegislatureWidget } from 'volto-ufficiostampa/components/manage/widgets';
@@ -21,6 +22,16 @@ import {
   CartellaStampaView,
   ComunicatoStampaView,
 } from 'volto-ufficiostampa/components/View';
+
+import {
+  SearchComunicatiPrePloneView,
+  SearchComunicatiPrePloneEdit,
+} from 'volto-ufficiostampa/components/blocks';
+
+import zoomOffSVG from '@plone/volto/icons/zoom-off.svg';
+
+const SEARCH_COMUNICATI_OLD =
+  process.env.RAZZLE_SEARCH_COMUNICATI_OLD === 'true' || null;
 
 const applyConfig = (config) => {
   config.settings.appExtras = [
@@ -66,6 +77,7 @@ const applyConfig = (config) => {
     // manageHistory
     getSendHistory: getSendHistoryReducer,
     deleteSendHistory: deleteSendHistoryReducer,
+    searchComunicatiOld: searchComunicatiOldReducer,
   };
 
   config.widgets.id = {
@@ -79,6 +91,27 @@ const applyConfig = (config) => {
     ComunicatoStampa: ComunicatoStampaView,
     InvitoStampa: ComunicatoStampaView,
   };
+
+  config.blocks.groupBlocksOrder = config.blocks.groupBlocksOrder.concat([
+    { id: 'comunicati', title: 'Comunicati' },
+  ]);
+
+  config.blocks.blocksConfig.searchComunicatiOld = {
+    id: 'searchComunicatiOld',
+    title: 'Ricerca comunicati pre-Plone',
+    icon: zoomOffSVG,
+    group: 'comunicati',
+    view: SearchComunicatiPrePloneView,
+    edit: SearchComunicatiPrePloneEdit,
+    restricted: !SEARCH_COMUNICATI_OLD, //questo blocco è aggiungibile solo se c'è la variabile d'ambiente RAZZLE_SEARCH_COMUNICATI_OLD
+    mostUsed: false,
+    security: {
+      addPermission: [],
+      view: [],
+    },
+    sidebarTab: 0,
+  };
+
   return config;
 };
 

@@ -1,0 +1,46 @@
+.search-comunicati-old {
+  .filter-wrapper {
+    flex: 1 1 auto;
+
+    .DateRangePickerInput_arrow,
+    .DateRangePickerInput_clearDates {
+      svg.icon.icon-white {
+        fill: var(--bs-primary) !important;
+      }
+    }
+    .DateRangePicker,
+    .DateRangePickerInput {
+      width: 100%;
+      .DateInput {
+        width: calc(50% - 12px);
+      }
+    }
+
+    .DateInput {
+      input {
+        text-align: center;
+      }
+    }
+  }
+
+  .info {
+    font-size: 0.8rem;
+    font-style: italic;
+  }
+
+  .card {
+    .card-body {
+      .card-title {
+        font-size: 1.3rem;
+        line-height: 1.2;
+      }
+      .category-top {
+        .data {
+          &::before {
+            content: none;
+          }
+        }
+      }
+    }
+  }
+}

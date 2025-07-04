@@ -9,10 +9,9 @@ import {
   addSubscriptionReducer,
 } from './subscriptions';
 
-import {
-  getSendHistoryReducer,
-  deleteSendHistoryReducer,
-} from './history';
+import { getSendHistoryReducer, deleteSendHistoryReducer } from './history';
+
+import { searchComunicatiOldReducer } from './search';
 
 export {
   sendComunicatoSchemaReducer,
@@ -23,4 +22,5 @@ export {
   addSubscriptionReducer,
   getSendHistoryReducer,
   deleteSendHistoryReducer,
+  searchComunicatiOldReducer,
 };
