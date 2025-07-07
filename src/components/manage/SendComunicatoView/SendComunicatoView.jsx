@@ -3,7 +3,7 @@ import '@plone/components/src/styles/basic/Dialog.css';
 import '@plone/components/src/styles/basic/Modal.css';
 import { getContent } from '@plone/volto/actions';
 import {
-  Form, 
+  Form,
   Icon,
   Toast,
   Toolbar,
@@ -36,7 +36,11 @@ import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Button, Container, Dimmer, Loader, Segment } from 'semantic-ui-react';
-import { getSendComunicatoSchema, resetSendComunicato, sendComunicato } from '../../../actions';
+import {
+  getSendComunicatoSchema,
+  resetSendComunicato,
+  sendComunicato,
+} from '../../../actions';
 import '../modals.css';
 import SendComunicatoPreview from './SendComunicatoPreview';
 
@@ -92,8 +96,8 @@ const SendComunicatoView = (props) => {
     shallowEqual,
   );
   const unauthorized = useSelector(
-    (state) => state.comunicatoSchemaReducer?.error === 401
-  )
+    (state) => state.comunicatoSchemaReducer?.error === 401,
+  );
   const form = useRef();
 
   useEffect(() => {
@@ -174,8 +178,9 @@ const SendComunicatoView = (props) => {
     }
   }, [updateRequest]);
 
-  return unauthorized ? <Unauthorized /> : (
-    
+  return unauthorized ? (
+    <Unauthorized />
+  ) : (
     <>
       <Container id="send-comunicato">
         {updateRequest?.loadingResults && !updateRequest?.hasError && (
@@ -197,7 +202,7 @@ const SendComunicatoView = (props) => {
             /> */}
             <pre>{updateRequest.loadingResults && 'loadingResults'}</pre>
             <pre>{updateRequest.hasError && 'hasError'}</pre>
-            </Segment>
+          </Segment>
 
           <Segment className="secondary">
             <h4>{content?.title}</h4>
@@ -215,12 +220,13 @@ const SendComunicatoView = (props) => {
             />
           )}
         </Segment.Group>
-        {showPreview && <Modal      
-          id="modal-preview"
-          className="react-aria-Modal newsletter-modal"
-          isDismissable
-          isOpen={showPreview}
-          // onOpenChange={() => toggleModal(!modalIsOpen)}
+        {showPreview && (
+          <Modal
+            id="modal-preview"
+            className="react-aria-Modal ufficiostampa-modal"
+            isDismissable
+            isOpen={showPreview}
+            // onOpenChange={() => toggleModal(!modalIsOpen)}
           >
             <Dialog>
               <div className="modal-header">
@@ -236,7 +242,7 @@ const SendComunicatoView = (props) => {
               <SendComunicatoPreview pathname={pathname} form={form.current} />
             </Dialog>
           </Modal>
-        }
+        )}
       </Container>
       {isClient && pathname && (
         <Portal node={document.getElementById('toolbar')}>
@@ -263,14 +269,14 @@ const SendComunicatoView = (props) => {
                 <Button
                   id="toolbar-preview"
                   onClick={() => setShowPreview(true)}
-                  >
-                    <Icon
-                      name={showSVG}
-                      className="circled"
-                      size="30px"
-                      title="preview"
-                    />
-                  </Button>
+                >
+                  <Icon
+                    name={showSVG}
+                    className="circled"
+                    size="30px"
+                    title="preview"
+                  />
+                </Button>
                 <Button
                   className="cancel"
                   aria-label={intl.formatMessage(messages.cancel)}

@@ -11,7 +11,9 @@ import './subscriptions-panel.css';
 const ModalDelete = ({ items, setItems, showModal, setShowModal, onClose }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
-  const deleteSubscriptionsState = useSelector((state) => state?.deleteSubscriptions);
+  const deleteSubscriptionsState = useSelector(
+    (state) => state?.deleteSubscriptions,
+  );
 
   useEffect(() => {
     return () => {
@@ -35,7 +37,7 @@ const ModalDelete = ({ items, setItems, showModal, setShowModal, onClose }) => {
 
   return (
     <Modal
-      className="react-aria-Modal newsletter-modal"
+      className="react-aria-Modal ufficiostampa-modal"
       isDismissable
       isOpen={showModal}
       // onOpenChange={() => setShowModal(showModal)}
@@ -52,15 +54,16 @@ const ModalDelete = ({ items, setItems, showModal, setShowModal, onClose }) => {
 
         <div className="content ui ">
           <div className="content ui ">
-            {deleteSubscriptionsState?.loading && !deleteSubscriptionsState?.loaded && (
-              <Dimmer active>
-                <Loader inverted inline="centered" size="large">
-                  {intl.formatMessage(messages.loading)}
-                </Loader>
-              </Dimmer>
-            )}
+            {deleteSubscriptionsState?.loading &&
+              !deleteSubscriptionsState?.loaded && (
+                <Dimmer active>
+                  <Loader inverted inline="centered" size="large">
+                    {intl.formatMessage(messages.loading)}
+                  </Loader>
+                </Dimmer>
+              )}
             {items?.map((item, i) => (
-              <div className="confirm-delete-item" key={item}>
+              <div className="confirm-delete-item" key={item.email}>
                 {item.email}
               </div>
             ))}

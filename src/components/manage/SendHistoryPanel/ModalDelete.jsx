@@ -18,10 +18,7 @@ const ModalDelete = ({ items, setItems, showModal, setShowModal, onClose }) => {
   }, [onClose]);
 
   useEffect(() => {
-    if (
-      status?.loaded &&
-      status?.error === null
-    ) {
+    if (status?.loaded && status?.error === null) {
       // TODO: toastify
       setItems([]);
       setShowModal(false);
@@ -33,7 +30,7 @@ const ModalDelete = ({ items, setItems, showModal, setShowModal, onClose }) => {
 
   return (
     <Modal
-      className="react-aria-Modal newsletter-modal"
+      className="react-aria-Modal ufficiostampa-modal"
       isDismissable
       isOpen={showModal}
       // onOpenChange={() => setShowModal(showModal)}

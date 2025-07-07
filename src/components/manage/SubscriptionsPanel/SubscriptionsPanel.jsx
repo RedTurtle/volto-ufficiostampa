@@ -17,17 +17,22 @@ import {
   Dropdown,
   Form,
   FormField,
+  FormGroup,
   Loader,
   Message,
   Segment,
   Table,
+  Input,
 } from 'semantic-ui-react';
 import { getSubscriptions } from '../../../actions';
 import messages from './messages';
 import SubscriptionsPanelMenu from './SubscriptionsPanelMenu';
+import ModalAddSubscription from './ModalAddSubscription';
+import ModalDelete from './ModalDelete';
 
 import backSVG from '@plone/volto/icons/back.svg';
-import ModalDelete from './ModalDelete';
+import editingSVG from '@plone/volto/icons/editing.svg';
+
 // import './subscriptions-panel.css';
 import '@plone/components/src/styles/basic/Button.css';
 import '@plone/components/src/styles/basic/Dialog.css';
@@ -43,19 +48,20 @@ const SubscriptionsPanel = ({ toastify }) => {
   const subscriptions = useSelector((state) => state.getSubscriptions);
   const [b_size, setB_size] = useState(50);
   const [currentPage, setCurrentPage] = useState(0);
-  // const [searchableText, setSearchableText] = useState('');
-  // const [text, setText] = useState('');
+  const [showModalAdd, setShowModalAdd] = useState(false);
+  const [modalData, setModalData] = useState(null);
+  const [searchableText, setSearchableText] = useState('');
+  const [text, setText] = useState('');
   const [showModalDelete, setShowModalDelete] = useState(false);
   const [itemsSelected, setItemsSelected] = useState([]);
   const [selectedChannel, setSelectedChannel] = useState(null);
 
-  // useEffect(() => {
-  //   const delayDebounceFn = setTimeout(() => {
-  //     setText(searchableText);
-  //     // Send Axios request here
-  //   }, 1200);
-  //   return () => clearTimeout(delayDebounceFn);
-  // }, [searchableText]);
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      doSearch();
+    }, 1200);
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchableText]);
 
   const isUnauthorized = useMemo(
     () => subscriptions?.error?.status === 401,
@@ -63,65 +69,28 @@ const SubscriptionsPanel = ({ toastify }) => {
   );
 
   const doSearch = () => {
-    return dispatch(
-      getSubscriptions({
-        channels: selectedChannel,
-        b_size: isNaN(b_size) ? 10000000 : b_size,
-        b_start: currentPage * (isNaN(b_size) ? 10000000 : b_size),
-        // text: text && text.length > 0 ? text : null,
-      }),
-    );
+    const text =
+      searchableText && searchableText.length > 0 ? searchableText : '';
+    const options = {
+      channels: selectedChannel,
+      b_size: isNaN(b_size) ? 10000000 : b_size,
+      b_start: currentPage * (isNaN(b_size) ? 10000000 : b_size),
+    };
+    if (text.length) {
+      options.text = text;
+    }
+    return dispatch(getSubscriptions(options));
   };
 
   useEffect(() => {
     doSearch();
   }, [b_size, currentPage, selectedChannel]);
 
-  // const resetSelectedSubscriptions = async () => {
-  //   // eslint-disable-next-line no-unused-expressions
-  //   try {
-  //     await dispatch(deleteSubscriptions({ email: itemsSelected }));
-  //     setShowModalDelete(false);
-  //     toastify.toast.success(
-  //       <Toast
-  //         success
-  //         title={intl.formatMessage(messages.success)}
-  //         content={intl.formatMessage(messages.delete_subscriptions_success)}
-  //       />,
-  //     );
-  //   } catch (e) {
-  //     toastify.toast.error(
-  //       <Toast
-  //         error
-  //         title={intl.formatMessage(messages.error)}
-  //         content={intl.formatMessage(messages.delete_subscriptions_error, {
-  //           element: e?.item?.title ?? '',
-  //         })}
-  //       />,
-  //     );
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (deleteSubscriptionsEnd) {
-  //     doSearch().then(() => {
-  //       setItemsSelected([]);
-  //     });
-  //     dispatch(resetDeleteSubscriptions());
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [deleteSubscriptionsEnd]);
-
-  // const totResults =
-  //   subscriptions && subscriptions.result?.items_total
-  //     ? subscriptions.result?.items_total
-  //     : 0;
-
   return isUnauthorized ? (
     <Unauthorized />
   ) : (
     <>
-      <BodyClass className="newsletter-management" />
+      <BodyClass className="ufficiostampa-management" />
       <Container id="page-subscriptions" className="controlpanel-subscriptions">
         <Helmet
           title={intl.formatMessage(messages.subscriptions_controlpanel)}
@@ -152,33 +121,36 @@ const SubscriptionsPanel = ({ toastify }) => {
               </Message>
             )}
             <Form className="search-form">
-              <FormField>
-                <label>{intl.formatMessage(messages.channels)}</label>
-                <Dropdown
-                  placeholder={intl.formatMessage(messages.selectChannel)}
-                  fluid
-                  selection
-                  onChange={(event, data) => {
-                    setSelectedChannel(data.value);
-                  }}
-                  options={[{ key: 'all', text: 'All', value: null }].concat(
-                    subscriptions?.result?.channels?.map((c) => ({
-                      key: c,
-                      text: c,
-                      value: c,
-                    })) || [],
-                  )}
-                />
-              </FormField>
-              {/* <Input
-                fluid
-                icon="search"
-                value={searchableText}
-                onChange={(e) => {
-                  setSearchableText(e.target.value);
-                }}
-                placeholder={intl.formatMessage(messages.filter_title)}
-              /> */}
+              <FormGroup>
+                <FormField width={4}>
+                  <Dropdown
+                    placeholder={intl.formatMessage(messages.selectChannel)}
+                    fluid
+                    selection
+                    onChange={(event, data) => {
+                      setSelectedChannel(data.value);
+                    }}
+                    options={[{ key: 'all', text: 'All', value: null }].concat(
+                      subscriptions?.result?.channels?.map((c) => ({
+                        key: c,
+                        text: c,
+                        value: c,
+                      })) || [],
+                    )}
+                  />
+                </FormField>
+                <FormField width={10}>
+                  <Input
+                    fluid
+                    icon="search"
+                    value={searchableText}
+                    onChange={(e) => {
+                      setSearchableText(e.target.value);
+                    }}
+                    placeholder={intl.formatMessage(messages.filter_title)}
+                  />
+                </FormField>
+              </FormGroup>
             </Form>
             {/* {subscriptions.result?.items ? (
               <p>
@@ -218,14 +190,21 @@ const SubscriptionsPanel = ({ toastify }) => {
                     />
                   </Table.HeaderCell>
                   <Table.HeaderCell width={4}>
-                    {intl.formatMessage(messages.email)}
+                    {intl.formatMessage(messages.name_label)}
                   </Table.HeaderCell>
                   <Table.HeaderCell width={4}>
-                    {intl.formatMessage(messages.channels)}
+                    {intl.formatMessage(messages.surname_label)}
                   </Table.HeaderCell>
-                  <Table.HeaderCell textAlign="center" width={3}>
-                    {intl.formatMessage(messages.creation_date)}
+                  <Table.HeaderCell width={4}>
+                    {intl.formatMessage(messages.email_label)}
                   </Table.HeaderCell>
+                  <Table.HeaderCell width={3}>
+                    {intl.formatMessage(messages.phone_label)}
+                  </Table.HeaderCell>
+                  <Table.HeaderCell width={5}>
+                    {intl.formatMessage(messages.newspaper_label)}
+                  </Table.HeaderCell>
+                  <Table.HeaderCell width={2}></Table.HeaderCell>
                   {/* <Table.HeaderCell textAlign="center" width={3}>
                     {intl.formatMessage(messages.state)}
                   </Table.HeaderCell> */}
@@ -252,11 +231,24 @@ const SubscriptionsPanel = ({ toastify }) => {
                           }}
                         />
                       </Table.Cell>
+                      <Table.Cell>{item.name}</Table.Cell>
+                      <Table.Cell>{item.surname}</Table.Cell>
                       <Table.Cell>{item.email}</Table.Cell>
+                      <Table.Cell>{item.phone}</Table.Cell>
+                      <Table.Cell>{item.newspaper}</Table.Cell>
                       <Table.Cell>
-                        {item.channels && item.channels.join(', ')}
+                        <Button
+                          className="react-aria-Button primary"
+                          onPress={() => {
+                            setShowModalAdd(true);
+                            setModalData(item);
+                          }}
+                        >
+                          <i className="icon">
+                            <Icon name={editingSVG} size="20px" />
+                          </i>
+                        </Button>
                       </Table.Cell>
-                      <Table.Cell>{item.date}</Table.Cell>
                       {/* <Table.Cell>
                         {item.is_active
                           ? intl.formatMessage(
@@ -291,6 +283,14 @@ const SubscriptionsPanel = ({ toastify }) => {
             </div>
           </Segment>
         </Segment.Group>
+        {showModalAdd && (
+          <ModalAddSubscription
+            showModal={showModalAdd}
+            setShowModal={setShowModalAdd}
+            onClose={doSearch}
+            data={modalData}
+          />
+        )}
         {showModalDelete && (
           <ModalDelete
             onClose={doSearch}

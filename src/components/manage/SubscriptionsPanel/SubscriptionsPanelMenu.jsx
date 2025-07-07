@@ -1,6 +1,7 @@
 import { Icon } from '@plone/volto/components';
 import React, { useState } from 'react';
-import { Button, Link } from 'react-aria-components';
+import { Button, Link as AriaComponentsLink } from 'react-aria-components';
+import { Link } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import { Menu } from 'semantic-ui-react';
 import downloadSVG from '@plone/volto/icons/download.svg';
@@ -33,7 +34,7 @@ const SubscriptionsPanelMenu = ({ doSearch }) => {
           >
             {intl.formatMessage(messages.add_subscriber)}
           </Button>
-          <Link
+          <AriaComponentsLink
             className="react-aria-Button primary"
             labelPosition="right"
             icon
@@ -44,7 +45,7 @@ const SubscriptionsPanelMenu = ({ doSearch }) => {
             <i className="icon">
               <Icon name={downloadSVG} size="20px" />
             </i>
-          </Link>
+          </AriaComponentsLink>
           <Button
             className="react-aria-Button primary"
             labelPosition="right"
@@ -58,6 +59,13 @@ const SubscriptionsPanelMenu = ({ doSearch }) => {
               <Icon name={uploadSVG} size="20px" />
             </i>
           </Button>
+          <Link
+            className="react-aria-Button primary"
+            labelPosition="right"
+            to="/controlpanel/rer.ufficiostampa"
+          >
+            {intl.formatMessage(messages.ufficiostampa_settings)}
+          </Link>
         </Menu.Item>
       </Menu>
       {showModalAdd && (

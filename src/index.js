@@ -11,6 +11,7 @@ import {
   getSubscriptionsReducer,
   importSubscriptionsReducer,
   addSubscriptionReducer,
+  updateSubscriptionReducer,
   deleteSubscriptionsReducer,
   getSendHistoryReducer,
   deleteSendHistoryReducer,
@@ -79,6 +80,7 @@ const applyConfig = (config) => {
     getSubscriptions: getSubscriptionsReducer,
     deleteSubscriptions: deleteSubscriptionsReducer,
     addSubscription: addSubscriptionReducer,
+    updateSubscription: updateSubscriptionReducer,
     // exportSubscriptios: exportSubscriptionsReducer,
     importSubscriptions: importSubscriptionsReducer,
     // manageHistory

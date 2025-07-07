@@ -1,8 +1,9 @@
 import {
   DELETE_SUBSCRIPTIONS,
   GET_SUBSCRIPTIONS,
-  NEWSLETTER_IMPORT_SUBSCRIPTIONS,
-  NEWSLETTER_ADD_SUBSCRIPTION,
+  UFFICIOSTAMPA_IMPORT_SUBSCRIPTIONS,
+  UFFICIOSTAMPA_ADD_SUBSCRIPTION,
+  UFFICIOSTAMPA_UPDATE_SUBSCRIPTION,
 } from '../actions';
 
 const initialState = {
@@ -80,14 +81,14 @@ export const deleteSubscriptionsReducer = (
 
 export function importSubscriptionsReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case `${NEWSLETTER_IMPORT_SUBSCRIPTIONS}_PENDING`:
+    case `${UFFICIOSTAMPA_IMPORT_SUBSCRIPTIONS}_PENDING`:
       return {
         ...state,
         loading: true,
         loaded: false,
         error: null,
       };
-    case `${NEWSLETTER_IMPORT_SUBSCRIPTIONS}_SUCCESS`:
+    case `${UFFICIOSTAMPA_IMPORT_SUBSCRIPTIONS}_SUCCESS`:
       return {
         ...state,
         loading: false,
@@ -95,14 +96,14 @@ export function importSubscriptionsReducer(state = initialState, action = {}) {
         error: null,
         result: action.result,
       };
-    case `${NEWSLETTER_IMPORT_SUBSCRIPTIONS}_FAIL`:
+    case `${UFFICIOSTAMPA_IMPORT_SUBSCRIPTIONS}_FAIL`:
       return {
         ...state,
         loading: false,
         loaded: true,
         error: action.error,
       };
-    case `${NEWSLETTER_IMPORT_SUBSCRIPTIONS}_RESET`:
+    case `${UFFICIOSTAMPA_IMPORT_SUBSCRIPTIONS}_RESET`:
       return {
         ...initialState,
       };
@@ -113,14 +114,14 @@ export function importSubscriptionsReducer(state = initialState, action = {}) {
 
 export function addSubscriptionReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case `${NEWSLETTER_ADD_SUBSCRIPTION}_PENDING`:
+    case `${UFFICIOSTAMPA_ADD_SUBSCRIPTION}_PENDING`:
       return {
         ...state,
         loading: true,
         loaded: false,
         error: null,
       };
-    case `${NEWSLETTER_ADD_SUBSCRIPTION}_SUCCESS`:
+    case `${UFFICIOSTAMPA_ADD_SUBSCRIPTION}_SUCCESS`:
       return {
         ...state,
         loading: false,
@@ -128,14 +129,48 @@ export function addSubscriptionReducer(state = initialState, action = {}) {
         error: null,
         result: action.result,
       };
-    case `${NEWSLETTER_ADD_SUBSCRIPTION}_FAIL`:
+    case `${UFFICIOSTAMPA_ADD_SUBSCRIPTION}_FAIL`:
       return {
         ...state,
         loading: false,
         loaded: true,
         error: action.error,
       };
-    case `${NEWSLETTER_ADD_SUBSCRIPTION}_RESET`:
+    case `${UFFICIOSTAMPA_ADD_SUBSCRIPTION}_RESET`:
+      return {
+        ...initialState,
+      };
+    default:
+      return state;
+  }
+}
+
+export function updateSubscriptionReducer(state = initialState, action = {}) {
+  switch (action.type) {
+    case `${UFFICIOSTAMPA_UPDATE_SUBSCRIPTION}_PENDING`:
+      return {
+        ...state,
+        loading: true,
+        loaded: false,
+        error: null,
+      };
+    case `${UFFICIOSTAMPA_UPDATE_SUBSCRIPTION}_SUCCESS`:
+      console.log('qui');
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        error: null,
+        result: action.result,
+      };
+    case `${UFFICIOSTAMPA_UPDATE_SUBSCRIPTION}_FAIL`:
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        error: action.error,
+      };
+    case `${UFFICIOSTAMPA_UPDATE_SUBSCRIPTION}_RESET`:
       return {
         ...initialState,
       };

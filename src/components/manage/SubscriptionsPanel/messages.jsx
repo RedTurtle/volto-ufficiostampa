@@ -36,10 +36,25 @@ const messages = defineMessages({
     id: 'subscriptions_download_list',
     defaultMessage: 'Download',
   },
-  email: { id: 'subscriptions_email', defaultMessage: 'Email' },
   email_label: {
     id: 'modal_add_subscription_email_label',
     defaultMessage: 'Email',
+  },
+  name_label: {
+    id: 'modal_add_subscription_name_label',
+    defaultMessage: 'Name',
+  },
+  surname_label: {
+    id: 'modal_add_subscription_surname_label',
+    defaultMessage: 'Surname',
+  },
+  phone_label: {
+    id: 'modal_add_subscription_phone_label',
+    defaultMessage: 'Phone',
+  },
+  newspaper_label: {
+    id: 'modal_add_subscription_newspaper_label',
+    defaultMessage: 'Newspaper',
   },
   error: { id: 'panel_error', defaultMessage: 'Error' },
   filter_title: {
@@ -95,6 +110,10 @@ const messages = defineMessages({
   subscribe_add_success: {
     id: 'subscribe_add_success',
     defaultMessage: 'Subscription added.',
+  },
+  subscribe_update_success: {
+    id: 'subscribe_update_success',
+    defaultMessage: 'Subscription updated.',
   },
   subscribe_import_error: {
     id: 'subscribe_import_error',
@@ -177,6 +196,10 @@ const messages = defineMessages({
   replace_file: {
     id: 'dropzone_replace_file',
     defaultMessage: 'Replace file',
+  },
+  ufficiostampa_settings: {
+    id: 'ufficiostampa_settings',
+    defaultMessage: 'Settings',
   },
 });
 

@@ -71,6 +71,21 @@ msgstr "Conferma"
 msgid "channels"
 msgstr "Canali"
 
+#. Default: "Contenuto del comunicato"
+#: components/View/ComunicatoStampa/ComunicatoStampaView
+msgid "comunicatoContent"
+msgstr "Contenuto del comunicato"
+
+#. Default: "Allegati"
+#: components/View/ComunicatoStampa/ComunicatoStampaAllegati
+msgid "comunicato_attachments"
+msgstr "Allegati"
+
+#. Default: "Contenuto"
+#: components/View/ComunicatoStampa/ComunicatoStampaText
+msgid "comunicato_item_contenuto"
+msgstr "Contenuto"
+
 #. Default: "Replace file"
 #: components/manage/SubscriptionsPanel/messages
 msgid "dropzone_replace_file"
@@ -141,6 +156,66 @@ msgstr "Lista deglie elementi che verrano eliminati"
 msgid "import_subscriptions"
 msgstr "Importa iscrizioni"
 
+#. Default: "Legislatura"
+#: components/manage/widgets/LegislatureWidget/LegislaturaConfiguration
+msgid "legislature-widget-legislature"
+msgstr "Legislatura"
+
+#. Default: "Aggiungi una legislatura"
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_addItem"
+msgstr "Aggiungi una legislatura"
+
+#. Default: "Argomenti"
+#: components/manage/widgets/LegislatureWidget/LegislaturaConfiguration
+msgid "legislature-widget_arguments"
+msgstr "Argomenti"
+
+#. Default: "Inserisci gli argomenti..."
+#: components/manage/widgets/LegislatureWidget/LegislaturaConfiguration
+msgid "legislature-widget_arguments_placeholder"
+msgstr "Inserisci gli argomenti..."
+
+#. Default: "Elimina legislatura"
+#: components/manage/widgets/LegislatureWidget/LegislaturaConfiguration
+msgid "legislature-widget_delete_index"
+msgstr "Elimina legislatura"
+
+#. Default: "Dati della legislatura"
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_item_content"
+msgstr "Dati della legislatura"
+
+#. Default: "Seleziona la legislatura"
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_item_selection"
+msgstr "Seleziona la legislatura"
+
+#. Default: "Sposta dopo"
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_moveItemDown"
+msgstr "Sposta dopo"
+
+#. Default: "Sposta prima"
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_moveItemUp"
+msgstr "Sposta prima"
+
+#. Default: "Nessuna legislatura selezionata."
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_no_active_items"
+msgstr "Nessuna legislatura selezionata."
+
+#. Default: "Nessuna legislatura"
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_no_items"
+msgstr "Nessuna legislatura"
+
+#. Default: "Senza titolo"
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_no_title"
+msgstr "Senza titolo"
+
 #. Default: "Loading"
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "loading"
@@ -166,20 +241,75 @@ msgstr "Email"
 msgid "modal_add_subscription_error"
 msgstr "Errore durante l'aggiunta dell'iscrizione."
 
+#. Default: "Name"
+#: components/manage/SubscriptionsPanel/messages
+msgid "modal_add_subscription_name_label"
+msgstr "Nome"
+
+#. Default: "Newspaper"
+#: components/manage/SubscriptionsPanel/messages
+msgid "modal_add_subscription_newspaper_label"
+msgstr "Testata giornalistica"
+
+#. Default: "Phone"
+#: components/manage/SubscriptionsPanel/messages
+msgid "modal_add_subscription_phone_label"
+msgstr "Telefono"
+
 #. Default: "Subscriber added."
 #: components/manage/SubscriptionsPanel/messages
 msgid "modal_add_subscription_success"
 msgstr "Iscritto aggiunto."
+
+#. Default: "Surname"
+#: components/manage/SubscriptionsPanel/messages
+msgid "modal_add_subscription_surname_label"
+msgstr "Cognome"
 
 #. Default: "Import subscriptions from a csv file."
 #: components/manage/SubscriptionsPanel/messages
 msgid "modal_import_subscriptions_description"
 msgstr "Importa iscrizioni da un file CSV."
 
+#. Default: "Nessun risultato trovato"
+#: components/blocks/SearchComunicatiPrePlone/Body
+msgid "noResult"
+msgstr "Nessun risultato trovato"
+
 #. Default: "Error"
 #: components/manage/SubscriptionsPanel/messages
 msgid "panel_error"
 msgstr "Errore"
+
+#. Default: "Trovati {total} risultati"
+#: components/blocks/SearchComunicatiPrePlone/Body
+msgid "search-comunicati-total-results"
+msgstr "Trovati {total} risultati"
+
+#. Default: "Data al"
+#: components/blocks/SearchComunicatiPrePlone/DefaultFilters
+msgid "searchComunicati_al"
+msgstr "Data al"
+
+#. Default: "Data dal"
+#: components/blocks/SearchComunicatiPrePlone/DefaultFilters
+msgid "searchComunicati_dal"
+msgstr "Data dal"
+
+#. Default: "Data"
+#: components/blocks/SearchComunicatiPrePlone/DefaultFilters
+msgid "searchComunicati_data_filter"
+msgstr "Data"
+
+#. Default: "Parole chiave"
+#: components/blocks/SearchComunicatiPrePlone/DefaultFilters
+msgid "searchComunicati_parolechiave"
+msgstr "Parole chiave"
+
+#. Default: "Le parole chiave devono essere separate dal carattere " | ""
+#: components/blocks/SearchComunicatiPrePlone/DefaultFilters
+msgid "searchComunicati_parolechiave_description"
+msgstr "Le parole chiave devono essere separate dal carattere " | ""
 
 #. Default: "Select channel"
 #: components/manage/SendHistoryPanel/messages
@@ -191,6 +321,11 @@ msgstr "Seleziona un canale"
 #: components/manage/SendHistoryPanel/messages
 msgid "sending_label"
 msgstr "In invio"
+
+#. Default: "Indice della pagina"
+#: components/View/ComunicatoStampa/ComunicatoStampaView
+msgid "sideMenuIndex"
+msgstr "Indice della pagina"
 
 #. Default: "Message"
 #: components/manage/SendHistoryPanel/messages
@@ -217,6 +352,11 @@ msgstr "Si è verificato un errore durante l'importazione delle iscrizioni."
 msgid "subscribe_import_success"
 msgstr "Iscrizioni importate"
 
+#. Default: "Subscription updated."
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscribe_update_success"
+msgstr "Iscrizione aggiornata."
+
 #. Default: "Active"
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscription_state_active"
@@ -241,11 +381,6 @@ msgstr "Data di creazione"
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscriptions_download_list"
 msgstr "Scarica"
-
-#. Default: "Email"
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscriptions_email"
-msgstr "Email"
 
 #. Default: "Loading..."
 #: components/manage/SubscriptionsPanel/messages
@@ -340,7 +475,7 @@ msgstr "Concluso"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "ufficiostampa_panel_filter_title"
-msgstr "Filtra per titolo"
+msgstr "Filtra gli iscritti. Inserisci almeno 3 caratteri"
 
 #. Default: "items selected."
 #: components/manage/SendHistoryPanel/messages
@@ -400,6 +535,11 @@ msgstr "Inviato"
 #: components/manage/SendHistoryPanel/messages
 msgid "ufficiostampa_panel_subscribers"
 msgstr "Iscritti attivi"
+
+#. Default: "Settings"
+#: components/manage/SubscriptionsPanel/messages
+msgid "ufficiostampa_settings"
+msgstr "Impostazioni"
 
 #. Default: "Sending to {recipients} recipients"
 #: components/manage/SendHistoryPanel/messages

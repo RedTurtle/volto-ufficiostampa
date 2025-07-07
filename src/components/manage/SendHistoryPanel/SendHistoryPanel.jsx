@@ -29,6 +29,7 @@ import '@plone/components/src/styles/basic/Button.css';
 import '@plone/components/src/styles/basic/Dialog.css';
 import '@plone/components/src/styles/basic/Form.css';
 import '@plone/components/src/styles/basic/Modal.css';
+import '@plone/components/src/styles/basic/ComboBox.css';
 import '../modals.css';
 import './send-history-panel.css';
 
@@ -83,7 +84,7 @@ const SendHistoryPanel = () => {
     <Unauthorized />
   ) : (
     <>
-      <BodyClass className="newsletter-management" />
+      <BodyClass className="ufficiostampa-management" />
       <Container id="page-send-history" className="controlpanel-send-history">
         <Helmet
           title={intl.formatMessage(messages.send_history_controlpanel)}
@@ -226,7 +227,7 @@ const SendHistoryPanel = () => {
 
         {/* {showConfirmDelete && (
           <Modal
-            className="react-aria-Modal newsletter-modal"
+            className="react-aria-Modal ufficiostampa-modal"
             isDismissable
             isOpen={showConfirmDelete}
             onOpenChange={() => setShowConfirmDelete(showConfirmDelete)}
