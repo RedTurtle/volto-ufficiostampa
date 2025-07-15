@@ -71,7 +71,15 @@ const messages = defineMessages({
   },
   send: {
     id: 'Send',
-    defaultMessage: 'Invia',
+    defaultMessage: 'Send',
+  },
+  send_success: {
+    id: 'send_success',
+    defaultMessage: 'Comunicato sent',
+  },
+  send_success_text: {
+    id: 'send_success_text',
+    defaultMessage: 'Go to send history to check its status.',
   },
   loading: {
     id: 'loading',
@@ -169,8 +177,8 @@ const SendComunicatoView = (props) => {
       toast.success(
         <Toast
           success
-          title={intl.formatMessage(messages.send)}
-          content={intl.formatMessage(messages.send)}
+          title={intl.formatMessage(messages.send_success)}
+          content={intl.formatMessage(messages.send_success_text)}
         />,
       );
       dispatch(resetSendComunicato());

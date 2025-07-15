@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2025-07-04T13:38:42.250Z\n"
+"POT-Creation-Date: 2025-07-14T10:13:31.124Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -40,7 +40,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#. Default: "Invia"
+#. Default: "Send"
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "Send"
 msgstr ""
@@ -74,8 +74,14 @@ msgid "channels"
 msgstr ""
 
 #. Default: "Contenuto del comunicato"
+#: components/View/ComunicatoArchive/ComunicatoArchive
 #: components/View/ComunicatoStampa/ComunicatoStampaView
 msgid "comunicatoContent"
+msgstr ""
+
+#. Default: "Allegati"
+#: components/View/ComunicatoArchive/ComunicatoArchiveAttachments
+msgid "comunicato_archive_allegati"
 msgstr ""
 
 #. Default: "Allegati"
@@ -84,6 +90,7 @@ msgid "comunicato_attachments"
 msgstr ""
 
 #. Default: "Contenuto"
+#: components/View/ComunicatoArchive/ComunicatoArchiveText
 #: components/View/ComunicatoStampa/ComunicatoStampaText
 msgid "comunicato_item_contenuto"
 msgstr ""
@@ -319,12 +326,23 @@ msgstr ""
 msgid "select_channel"
 msgstr ""
 
+#. Default: "Comunicato sent"
+#: components/manage/SendComunicatoView/SendComunicatoView
+msgid "send_success"
+msgstr ""
+
+#. Default: "Go to send history to check its status."
+#: components/manage/SendComunicatoView/SendComunicatoView
+msgid "send_success_text"
+msgstr ""
+
 #. Default: "Sending"
 #: components/manage/SendHistoryPanel/messages
 msgid "sending_label"
 msgstr ""
 
 #. Default: "Indice della pagina"
+#: components/View/ComunicatoArchive/ComunicatoArchive
 #: components/View/ComunicatoStampa/ComunicatoStampaView
 msgid "sideMenuIndex"
 msgstr ""

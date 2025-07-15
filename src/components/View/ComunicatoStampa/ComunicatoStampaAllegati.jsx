@@ -15,7 +15,15 @@ const messages = defineMessages({
 
 const ComunicatoStampaAllegati = ({ content }) => {
   const intl = useIntl();
-  const attachments = content.items.filter((i) => i.id !== 'multimedia');
+  const attachments = content.items.filter((i) => {
+    if (i['@type'] === 'CartellaStampa') {
+      if (i.id === 'multimedia') {
+        return false;
+      }
+      return i.has_children;
+    }
+    return true;
+  });
   const SECTION_ID = 'allegati';
 
   return attachments.length > 0 ? (
