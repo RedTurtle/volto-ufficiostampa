@@ -20,6 +20,7 @@ import {
 } from './reducers';
 
 import { LegislatureWidget } from 'volto-ufficiostampa/components/manage/widgets';
+import RegistryImageWidget from '@plone/volto/components/manage/Widgets/RegistryImageWidget';
 import {
   CartellaStampaView,
   ComunicatoStampaView,
@@ -99,6 +100,7 @@ const applyConfig = (config) => {
   config.widgets.id = {
     ...config.widgets.id,
     legislatures: LegislatureWidget,
+    mail_logo: RegistryImageWidget,
   };
 
   config.views.contentTypesViews = {
