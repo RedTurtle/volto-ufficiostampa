@@ -176,6 +176,9 @@ const SendHistoryPanel = () => {
                         >
                           <Popup
                             content={popupMessage}
+                            position="left center"
+                            wide="very"
+                            mouseLeaveDelay={500}
                             key={item.id}
                             header={intl.formatMessage(
                               messages.status_message_header,
