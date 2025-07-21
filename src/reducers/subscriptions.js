@@ -155,7 +155,6 @@ export function updateSubscriptionReducer(state = initialState, action = {}) {
         error: null,
       };
     case `${UFFICIOSTAMPA_UPDATE_SUBSCRIPTION}_SUCCESS`:
-      console.log('qui');
       return {
         ...state,
         loading: false,

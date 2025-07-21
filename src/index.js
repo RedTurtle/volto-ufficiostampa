@@ -17,6 +17,8 @@ import {
   deleteSendHistoryReducer,
   searchComunicatiOldReducer,
   getComunicatoArchiveReducer,
+  searchComunicatiReducer,
+  searchComunicatiParametersReducer,
 } from './reducers';
 
 import { LegislatureWidget } from 'volto-ufficiostampa/components/manage/widgets';
@@ -30,6 +32,8 @@ import {
 import {
   SearchComunicatiPrePloneView,
   SearchComunicatiPrePloneEdit,
+  SearchComunicatiView,
+  SearchComunicatiEdit,
 } from 'volto-ufficiostampa/components/blocks';
 
 import zoomOffSVG from '@plone/volto/icons/zoom-off.svg';
@@ -95,6 +99,8 @@ const applyConfig = (config) => {
     deleteSendHistory: deleteSendHistoryReducer,
     searchComunicatiOld: searchComunicatiOldReducer,
     comunicatoArchive: getComunicatoArchiveReducer,
+    searchComunicatiParameters: searchComunicatiParametersReducer,
+    searchComunicati: searchComunicatiReducer,
   };
 
   config.widgets.id = {
@@ -122,6 +128,22 @@ const applyConfig = (config) => {
     view: SearchComunicatiPrePloneView,
     edit: SearchComunicatiPrePloneEdit,
     restricted: !isSearchOldEnabled, //questo blocco è aggiungibile solo se c'è la variabile d'ambiente RAZZLE_SEARCH_COMUNICATI_OLD
+    mostUsed: false,
+    security: {
+      addPermission: [],
+      view: [],
+    },
+    sidebarTab: 0,
+  };
+
+  config.blocks.blocksConfig.searchComunicati = {
+    id: 'searchComunicati',
+    title: 'Ricerca comunicati',
+    icon: zoomOffSVG,
+    group: 'comunicati',
+    view: SearchComunicatiView,
+    edit: SearchComunicatiEdit,
+    restricted: false,
     mostUsed: false,
     security: {
       addPermission: [],

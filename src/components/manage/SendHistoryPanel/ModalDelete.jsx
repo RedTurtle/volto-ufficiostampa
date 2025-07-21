@@ -23,7 +23,7 @@ const ModalDelete = ({ items, setItems, showModal, setShowModal, onClose }) => {
       setItems([]);
       setShowModal(false);
     } else if (status?.loaded) {
-      console.log(status?.error);
+      console.error(status?.error);
       // TODO: manage errors
     }
   }, [status, onClose, setItems, setShowModal]);

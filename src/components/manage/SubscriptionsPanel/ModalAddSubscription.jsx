@@ -76,7 +76,6 @@ const ModalAddSubscription = ({
           status.error?.response?.body?.message ||
           status.error?.response?.body?.error?.message ||
           intl.formatMessage(messages.subscribe_add_error);
-        console.log(msg);
         setFormSubmitError(msg);
       } else {
         setSubscriptionData({ ...defaultSubscriptionData });
