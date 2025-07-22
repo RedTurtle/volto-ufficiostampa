@@ -70,29 +70,31 @@ const Body = ({ data, id, inEditMode, onChangeBlock }) => {
   const resultsRef = createRef();
 
   const doRequest = (page = currentPage) => {
-    setCurrentPage(page);
-    let query = [];
+    if (!parameters?.loading && parameters.loaded) {
+      setCurrentPage(page);
+      let query = [];
 
-    [filterOne, filterTwo, filterThree, filterFour].forEach((f) => {
-      if (f?.widget) {
-        const value = f.widget.props.value;
+      [filterOne, filterTwo, filterThree, filterFour].forEach((f) => {
+        if (f?.widget) {
+          const value = f.widget.props.value;
 
-        if (f.query) {
-          f.query(value, query);
+          if (f.query) {
+            f.query(value, query);
+          }
         }
-      }
-    });
+      });
 
-    dispatch(
-      searchComunicati(
-        {
-          query,
-          b_size: b_size,
-        },
-        subrequest_id,
-        page,
-      ),
-    );
+      dispatch(
+        searchComunicati(
+          {
+            query,
+            b_size: b_size,
+          },
+          subrequest_id,
+          page,
+        ),
+      );
+    }
   };
 
   useEffect(() => {
