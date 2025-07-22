@@ -33,11 +33,6 @@ msgstr "Modifica {title}"
 msgid "Error"
 msgstr "Errore"
 
-#. Default: "Save"
-#: components/manage/SendComunicatoView/SendComunicatoView
-msgid "Save"
-msgstr "Salva"
-
 #. Default: "Send"
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "Send"
@@ -80,7 +75,7 @@ msgstr "Contenuto del comunicato"
 #. Default: "Allegati"
 #: components/View/ComunicatoArchive/ComunicatoArchiveAttachments
 msgid "comunicato_archive_allegati"
-msgstr ""
+msgstr "Allegati"
 
 #. Default: "Allegati"
 #: components/View/ComunicatoStampa/ComunicatoStampaAllegati
@@ -107,6 +102,11 @@ msgstr "Seleziona un file"
 #: components/manage/SendHistoryPanel/messages
 msgid "error_label"
 msgstr "Errore"
+
+#. Default: "Export"
+#: components/manage/SendHistoryPanel/messages
+msgid "export_label"
+msgstr "Esporta"
 
 #. Default: "Possible values are "," or ";"."
 #: components/manage/SubscriptionsPanel/messages
@@ -279,6 +279,7 @@ msgid "modal_import_subscriptions_description"
 msgstr "Importa iscrizioni da un file CSV."
 
 #. Default: "Nessun risultato trovato"
+#: components/blocks/SearchComunicati/Body
 #: components/blocks/SearchComunicatiPrePlone/Body
 msgid "noResult"
 msgstr "Nessun risultato trovato"
@@ -289,24 +290,38 @@ msgid "panel_error"
 msgstr "Errore"
 
 #. Default: "Trovati {total} risultati"
+#: components/blocks/SearchComunicati/Body
 #: components/blocks/SearchComunicatiPrePlone/Body
 msgid "search-comunicati-total-results"
 msgstr "Trovati {total} risultati"
 
 #. Default: "Data al"
+#: components/blocks/SearchComunicati/DefaultFilters
 #: components/blocks/SearchComunicatiPrePlone/DefaultFilters
 msgid "searchComunicati_al"
 msgstr "Data al"
 
+#. Default: "Argomenti"
+#: components/blocks/SearchComunicati/DefaultFilters
+msgid "searchComunicati_argomenti"
+msgstr "Argomenti"
+
 #. Default: "Data dal"
+#: components/blocks/SearchComunicati/DefaultFilters
 #: components/blocks/SearchComunicatiPrePlone/DefaultFilters
 msgid "searchComunicati_dal"
 msgstr "Data dal"
 
 #. Default: "Data"
+#: components/blocks/SearchComunicati/DefaultFilters
 #: components/blocks/SearchComunicatiPrePlone/DefaultFilters
 msgid "searchComunicati_data_filter"
 msgstr "Data"
+
+#. Default: "Legislatura"
+#: components/blocks/SearchComunicati/DefaultFilters
+msgid "searchComunicati_legislatura"
+msgstr "Legislatura"
 
 #. Default: "Parole chiave"
 #: components/blocks/SearchComunicatiPrePlone/DefaultFilters
@@ -317,6 +332,11 @@ msgstr "Parole chiave"
 #: components/blocks/SearchComunicatiPrePlone/DefaultFilters
 msgid "searchComunicati_parolechiave_description"
 msgstr "Le parole chiave devono essere separate dal carattere " | ""
+
+#. Default: "Ricerca testuale"
+#: components/blocks/SearchComunicati/DefaultFilters
+msgid "searchComunicati_searchable_text"
+msgstr "Ricerca testuale"
 
 #. Default: "Select channel"
 #: components/manage/SendHistoryPanel/messages
@@ -433,10 +453,25 @@ msgstr "{totResults} risultati (filtrati)."
 msgid "tot_results_unfiltered"
 msgstr "{totResults} risultati."
 
+#. Default: "Number"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_comunicato_number"
+msgstr "Numero"
+
+#. Default: "Recipients"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_comunicato_recipients"
+msgstr "Destinatari"
+
 #. Default: "Title"
 #: components/manage/SendHistoryPanel/messages
 msgid "ufficiostampa_comunicato_title"
 msgstr "Titolo"
+
+#. Default: "Type"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_comunicato_type"
+msgstr "Tipologia"
 
 #. Default: "All"
 #: components/manage/SendHistoryPanel/messages
@@ -444,10 +479,10 @@ msgstr "Titolo"
 msgid "ufficiostampa_panel_all"
 msgstr "Tutti"
 
-#. Default: "Are you sure you want to reset the following history?"
+#. Default: "Are you sure you want to reset history?"
 #: components/manage/SendHistoryPanel/messages
 msgid "ufficiostampa_panel_confirm_delete_selected"
-msgstr "Sei sicuro di voler eliminare la seguente cronologia?"
+msgstr "Sei sicuro di voler eliminare l'intera cronologia?"
 
 #. Default: "Are you sure you want to delete the following subscriptions?"
 #: components/manage/SubscriptionsPanel/messages
@@ -494,6 +529,11 @@ msgstr "Concluso"
 #: components/manage/SubscriptionsPanel/messages
 msgid "ufficiostampa_panel_filter_title"
 msgstr "Filtra gli iscritti. Inserisci almeno 3 caratteri"
+
+#. Default: "History deleted successfully"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_history_deleted"
+msgstr "Cronologia eliminata con successo"
 
 #. Default: "items selected."
 #: components/manage/SendHistoryPanel/messages

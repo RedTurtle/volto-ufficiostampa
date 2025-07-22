@@ -25,13 +25,22 @@ const CartellaStampaItem = ({ item }) => {
         ? '/@@download/image'
         : '');
 
+  //questo serve per poter avere in questo caso le info sulla dimensione e formato del file
+  let _item = { ...item };
+  if (item['@type'] === 'File') {
+    _item.file = { ...item };
+  }
+  if (item['@type'] === 'Image') {
+    _item.image = { ...item };
+  }
+
   return item['@type'] === 'File' || item['@type'] === 'Image' ? (
     <Attachment
       key={item['@id']}
       title={item.title}
       description={item.description}
       download_url={download_url}
-      item={item}
+      item={_item}
     />
   ) : (
     <Card

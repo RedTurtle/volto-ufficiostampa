@@ -53,9 +53,9 @@ const messages = defineMessages({
     id: 'Edit {title}',
     defaultMessage: 'Edit {title}',
   },
-  save: {
-    id: 'Save',
-    defaultMessage: 'Save',
+  send: {
+    id: 'Send',
+    defaultMessage: 'Send',
   },
   cancel: {
     id: 'Cancel',
@@ -262,7 +262,7 @@ const SendComunicatoView = (props) => {
                 <Button
                   id="toolbar-save"
                   className="save"
-                  aria-label={intl.formatMessage(messages.save)}
+                  aria-label={intl.formatMessage(messages.send)}
                   onClick={() => form.current.onSubmit()}
                   disabled={updateRequest.loading}
                   loading={updateRequest.loading}
@@ -271,7 +271,7 @@ const SendComunicatoView = (props) => {
                     name={saveSVG}
                     className="circled"
                     size="30px"
-                    title={intl.formatMessage(messages.save)}
+                    title={intl.formatMessage(messages.send)}
                   />
                 </Button>
                 <Button

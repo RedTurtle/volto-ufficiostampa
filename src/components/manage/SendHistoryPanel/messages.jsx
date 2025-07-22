@@ -59,7 +59,7 @@ const messages = defineMessages({
   },
   confirm_delete_selected: {
     id: 'ufficiostampa_panel_confirm_delete_selected',
-    defaultMessage: 'Are you sure you want to reset the following history?',
+    defaultMessage: 'Are you sure you want to reset history?',
   },
   error: {
     id: 'error_label',
@@ -130,6 +130,26 @@ const messages = defineMessages({
   tot_unfiltered: {
     id: 'tot_results_unfiltered',
     defaultMessage: '{totResults} results.',
+  },
+  comunicato_type: {
+    id: 'ufficiostampa_comunicato_type',
+    defaultMessage: 'Type',
+  },
+  comunicato_recipients: {
+    id: 'ufficiostampa_comunicato_recipients',
+    defaultMessage: 'Recipients',
+  },
+  comunicato_number: {
+    id: 'ufficiostampa_comunicato_number',
+    defaultMessage: 'Number',
+  },
+  export: {
+    id: 'export_label',
+    defaultMessage: 'Export',
+  },
+  history_deleted: {
+    id: 'ufficiostampa_panel_history_deleted',
+    defaultMessage: 'History deleted successfully',
   },
 });
 

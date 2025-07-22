@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Dimmer, Loader } from 'semantic-ui-react';
 import { deleteSendHistory } from '../../../actions';
 import messages from './messages';
+import { Toast } from '@plone/volto/components';
+import { toast } from 'react-toastify';
 
 const ModalDelete = ({ items, setItems, showModal, setShowModal, onClose }) => {
   const intl = useIntl();
@@ -20,14 +22,19 @@ const ModalDelete = ({ items, setItems, showModal, setShowModal, onClose }) => {
   useEffect(() => {
     if (status?.loaded && status?.error === null) {
       // TODO: toastify
-      setItems([]);
       setShowModal(false);
+      toast.success(
+        <Toast
+          success
+          title={intl.formatMessage(messages.success)}
+          content={intl.formatMessage(messages.history_deleted)}
+        />,
+      );
     } else if (status?.loaded) {
       console.error(status?.error);
       // TODO: manage errors
     }
   }, [status, onClose, setItems, setShowModal]);
-
   return (
     <Modal
       className="react-aria-Modal ufficiostampa-modal"
@@ -65,11 +72,7 @@ const ModalDelete = ({ items, setItems, showModal, setShowModal, onClose }) => {
         <div className="form-action">
           <Button
             onClick={() => {
-              dispatch(
-                deleteSendHistory({
-                  id: items.map((i) => i.id),
-                }),
-              );
+              dispatch(deleteSendHistory());
             }}
             className="react-aria-Button primary"
           >

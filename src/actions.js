@@ -128,8 +128,8 @@ export function deleteSendHistory(data) {
   return {
     type: DELETE_SEND_HISTORY,
     request: {
-      op: 'del',
-      path: '/@send-history',
+      op: 'get',
+      path: '/@send-history-clear',
       params: data,
     },
   };

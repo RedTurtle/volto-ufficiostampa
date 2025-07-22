@@ -58,7 +58,10 @@ const ComunicatoStampaAllegati = ({ content }) => {
           if (item['@type'] === 'Image') {
             _item.image = { ...item };
           }
-
+          let iconClass = 'it-clip';
+          if (['CartellaStampa'].includes(item['@type'])) {
+            iconClass = 'it-folder';
+          }
           return (
             <Attachment
               key={item['@id']}
@@ -66,6 +69,7 @@ const ComunicatoStampaAllegati = ({ content }) => {
               description={item.description}
               download_url={itemURL}
               item={_item}
+              iconClass={iconClass}
             />
           );
         })}

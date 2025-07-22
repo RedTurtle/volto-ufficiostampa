@@ -24,6 +24,7 @@ import {
 import { getSendHistory } from '../../../actions';
 import ModalDelete from './ModalDelete';
 import messages from './messages';
+import SendHistoryPanelMenu from './SendHistoryPanelMenu';
 
 import '@plone/components/src/styles/basic/Button.css';
 import '@plone/components/src/styles/basic/Dialog.css';
@@ -93,7 +94,7 @@ const SendHistoryPanel = () => {
           <Segment className="primary">
             {intl.formatMessage(messages.send_history_controlpanel)}
           </Segment>
-
+          <SendHistoryPanelMenu doSearch={doSearch} />
           <Segment>
             <Form className="search-form">
               <FormField>
@@ -118,8 +119,11 @@ const SendHistoryPanel = () => {
             <Table selectable compact singleLine attached fixed striped>
               <Table.Header>
                 <Table.Row>
-                  <Table.HeaderCell width={6}>
-                    {intl.formatMessage(messages.comunicato_title)}
+                  <Table.HeaderCell width={1}>
+                    {intl.formatMessage(messages.status)}
+                  </Table.HeaderCell>
+                  <Table.HeaderCell width={1}>
+                    {intl.formatMessage(messages.comunicato_type)}
                   </Table.HeaderCell>
                   <Table.HeaderCell width={2}>
                     {intl.formatMessage(messages.channels)}
@@ -131,7 +135,13 @@ const SendHistoryPanel = () => {
                     {intl.formatMessage(messages.end_send)}
                   </Table.HeaderCell>
                   <Table.HeaderCell width={2}>
-                    {intl.formatMessage(messages.status)}
+                    {intl.formatMessage(messages.comunicato_recipients)}
+                  </Table.HeaderCell>
+                  <Table.HeaderCell width={2}>
+                    {intl.formatMessage(messages.comunicato_number)}
+                  </Table.HeaderCell>
+                  <Table.HeaderCell width={6}>
+                    {intl.formatMessage(messages.comunicato_title)}
                   </Table.HeaderCell>
                 </Table.Row>
               </Table.Header>
@@ -160,23 +170,13 @@ const SendHistoryPanel = () => {
                     }
                     return (
                       <Table.Row key={item.uid}>
-                        <Table.Cell>
-                          <a href={item.url} title={item.title}>
-                            {item.title}
-                          </a>
-                        </Table.Cell>
-                        <Table.Cell>
-                          {item.channels && item.channels.join(', ')}
-                        </Table.Cell>
-                        <Table.Cell>{item.date}</Table.Cell>
-                        <Table.Cell>{item.completed_date}</Table.Cell>
                         <Table.Cell
                           className="history-status"
                           textAlign="center"
                         >
                           <Popup
                             content={popupMessage}
-                            position="left center"
+                            position="right center"
                             wide="very"
                             mouseLeaveDelay={500}
                             key={item.id}
@@ -191,6 +191,19 @@ const SendHistoryPanel = () => {
                               ></span>
                             }
                           />
+                        </Table.Cell>
+                        <Table.Cell>{item.type}</Table.Cell>
+                        <Table.Cell>
+                          {item.channels && item.channels.join(', ')}
+                        </Table.Cell>
+                        <Table.Cell>{item.date}</Table.Cell>
+                        <Table.Cell>{item.completed_date}</Table.Cell>
+                        <Table.Cell>{item.recipients}</Table.Cell>
+                        <Table.Cell>{item.number}</Table.Cell>
+                        <Table.Cell>
+                          <a href={item.url} title={item.title}>
+                            {item.title}
+                          </a>
                         </Table.Cell>
                       </Table.Row>
                     );
@@ -227,42 +240,6 @@ const SendHistoryPanel = () => {
             setShowModal={setShowModalDelete}
           />
         )}
-
-        {/* {showConfirmDelete && (
-          <Modal
-            className="react-aria-Modal ufficiostampa-modal"
-            isDismissable
-            isOpen={showConfirmDelete}
-            onOpenChange={() => setShowConfirmDelete(showConfirmDelete)}
-          >
-            <Dialog>
-              <div className="modal-header">
-                <Heading>
-                  {intl.formatMessage(messages.confirm_delete_selected)}
-                </Heading>
-                <div className="close">
-                  <Button onPress={() => setShowConfirmDelete(false)}>X</Button>
-                </div>
-              </div>
-
-              <div className="form-action">
-                <Button
-                  onClick={resetSelectedSendHistory}
-                  className="react-aria-Button primary"
-                >
-                  {intl.formatMessage(messages.confirm)}
-                </Button>
-                <Button
-                  className="react-aria-Button cancel"
-                  onClick={() => setShowConfirmDelete(false)}
-                >
-                  {intl.formatMessage(messages.cancel)}
-                </Button>
-              </div>
-            </Dialog>
-          </Modal>         
-          )}
-          */}
       </Container>
       {__CLIENT__ &&
         createPortal(
