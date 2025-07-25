@@ -5,8 +5,12 @@ import {
   Unauthorized,
 } from '@plone/volto/components';
 import { BodyClass, Helmet, getBaseUrl } from '@plone/volto/helpers';
-import backSVG from '@plone/volto/icons/back.svg';
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import backSVG from '@plone/volto/icons/back.svg';
+import checkSVG from '@plone/volto/icons/check.svg';
+import clockSVG from '@plone/volto/icons/clock.svg';
+import errorSVG from '@plone/volto/icons/error.svg';
+import exclamationSVG from '@plone/volto/icons/exclamation.svg';
 import { createPortal } from 'react-dom';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
@@ -148,7 +152,22 @@ const SendHistoryPanel = () => {
               <Table.Body>
                 {history?.loaded &&
                   history.result?.items?.map((item, i) => {
-                    const statusLabel = `{intl.formatMessage(messages.status)}: {intl.formatMessage(messages[item.status])}`;
+                    const statusLabel = `${intl.formatMessage(messages.status)}: ${intl.formatMessage(messages[item.status])}`;
+                    let statusIcon = null;
+                    switch (item.status) {
+                      case 'success':
+                        statusIcon = checkSVG;
+                        break;
+                      case 'sending':
+                        statusIcon = clockSVG;
+                        break;
+                      case 'error':
+                        statusIcon = exclamationSVG;
+                        break;
+                      default:
+                        statusIcon = exclamationSVG;
+                        break;
+                    }
                     let popupMessage = '';
                     switch (item.status) {
                       case 'success':
@@ -184,11 +203,18 @@ const SendHistoryPanel = () => {
                               messages.status_message_header,
                             )}
                             trigger={
-                              <span
-                                className={item.status}
-                                aria-label={statusLabel}
-                                role="status"
-                              ></span>
+                              // <span
+                              //   className={item.status}
+                              //   aria-label={statusLabel}
+                              //   role="status"
+                              // ></span>
+                              <div className={item.status}>
+                                <IconNext
+                                  name={statusIcon}
+                                  size="15px"
+                                  title={statusLabel}
+                                />
+                              </div>
                             }
                           />
                         </Table.Cell>

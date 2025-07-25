@@ -1,22 +1,24 @@
-td.history-status span {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
+td.history-status div {
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
-  vertical-align: middle;
+  display: flex;
+  color: #fff;
+  align-items: center;
+  justify-content: center;
 }
 
-td.history-status span.error {
+td.history-status div.error {
   background-color: #ff0000;
 
 }
 
-td.history-status span.success {
+td.history-status div.success {
   background-color: #008000;
 
 }
 
-td.history-status span.sending {
-  background-color: #ffd900;
+td.history-status div.sending {
+  background-color: #eec009;
 
 }

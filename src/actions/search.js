@@ -56,7 +56,7 @@ export function searchComunicati(data, subrequest, page = 1) {
     subrequest,
     request: {
       op: 'get',
-      path: `/@search-comunicati?b_size=${b_size}&b_start=${b_start}&${query}&sort_on="effective"&sort_order="reverse"`,
+      path: `/@search-comunicati?b_size=${b_size}&b_start=${b_start}&${query}&sort_on=effective&sort_order=reverse`,
     },
   };
 }

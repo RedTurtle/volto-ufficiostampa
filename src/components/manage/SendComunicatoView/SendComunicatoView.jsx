@@ -219,7 +219,7 @@ const SendComunicatoView = (props) => {
           {schema && (
             <Form
               ref={form}
-              title="Send Comunicato"
+              title="Invia comunicato/invito"
               schema={schema}
               onSubmit={onSubmit}
               //   onCancel={this.onCancel}
