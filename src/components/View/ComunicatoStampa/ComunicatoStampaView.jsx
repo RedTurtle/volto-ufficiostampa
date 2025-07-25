@@ -72,16 +72,9 @@ const ComunicatoStampaView = ({ content, location }) => {
 
         {/* HEADER IMAGE */}
         <ContentImage content={content} position="afterHeader" />
-        <div className="row row-column-border border-light row-column-menu-left">
-          <aside
-            className="col-lg-4"
-            aria-label={intl.formatMessage(messages.sideMenuIndex)}
-          >
-            <SideMenu data={sideMenuElements} content_uid={content?.UID} />
-          </aside>
-
+        <div className="row row-column-border border-light">
           <section
-            className="col-lg-8 it-page-sections-container border-light"
+            className="it-page-sections-container pt-5"
             id="main-content-section"
             ref={documentBody}
             aria-label={intl.formatMessage(messages.itemContent)}
