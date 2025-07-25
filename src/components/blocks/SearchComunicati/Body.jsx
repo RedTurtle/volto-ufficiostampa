@@ -331,7 +331,7 @@ const Body = ({ data, id, inEditMode, onChangeBlock }) => {
                   <CardBody>
                     {item.Date && (
                       <CardCategory
-                        date={viewDate(intl.locale, item.Date, 'll')}
+                        date={viewDate(intl.locale, item.Date, 'lll')}
                       ></CardCategory>
                     )}
                     <CardTitle tag="h3">
