@@ -5,7 +5,10 @@ const messages = defineMessages({
     id: 'subscriptions_add_subscriber',
     defaultMessage: 'Add subscriber',
   },
-  all: { id: 'ufficiostampa_panel_all', defaultMessage: 'All' },
+  all: {
+    id: 'ufficiostampa_panel_all',
+    defaultMessage: 'All',
+  },
   back: { id: 'Back', defaultMessage: 'Back' },
   cancel: { id: 'button_cancel', defaultMessage: 'Cancel' },
   channels: { id: 'channels', defaultMessage: 'Channels' },
@@ -57,9 +60,10 @@ const messages = defineMessages({
     defaultMessage: 'Newspaper',
   },
   error: { id: 'panel_error', defaultMessage: 'Error' },
-  filter_title: {
-    id: 'ufficiostampa_panel_filter_title',
-    defaultMessage: 'Filter title',
+
+  filter_subscriptions: {
+    id: 'ufficiostampa_panel_filter_subscriptions',
+    defaultMessage: 'Filter subscriptions',
   },
   import_description: {
     id: 'import_description',

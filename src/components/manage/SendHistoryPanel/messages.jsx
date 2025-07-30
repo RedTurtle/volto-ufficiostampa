@@ -46,7 +46,7 @@ const messages = defineMessages({
     defaultMessage: 'Sending to {recipients} recipients',
   },
   filter_title: {
-    id: 'ufficiostampa_panel_filter_title',
+    id: 'ufficiostampa_history_panel_filter_title',
     defaultMessage: 'Filter title',
   },
   items_selected: {
@@ -150,6 +150,14 @@ const messages = defineMessages({
   history_deleted: {
     id: 'ufficiostampa_panel_history_deleted',
     defaultMessage: 'History deleted successfully',
+  },
+  portal_type: {
+    id: 'ufficiostampa_portal_type',
+    defaultMessage: 'Portal type',
+  },
+  select_portal_type: {
+    id: 'select_portal_type',
+    defaultMessage: 'Select type',
   },
 });
 

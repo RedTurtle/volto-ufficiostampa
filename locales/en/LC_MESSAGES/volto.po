@@ -344,6 +344,11 @@ msgstr ""
 msgid "select_channel"
 msgstr ""
 
+#. Default: "Select type"
+#: components/manage/SendHistoryPanel/messages
+msgid "select_portal_type"
+msgstr ""
+
 #. Default: "Comunicato sent"
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "send_success"
@@ -473,6 +478,11 @@ msgstr ""
 msgid "ufficiostampa_comunicato_type"
 msgstr ""
 
+#. Default: "Filter title"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_history_panel_filter_title"
+msgstr ""
+
 #. Default: "All"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
@@ -524,10 +534,9 @@ msgstr ""
 msgid "ufficiostampa_panel_end_send"
 msgstr ""
 
-#. Default: "Filter title"
-#: components/manage/SendHistoryPanel/messages
+#. Default: "Filter subscriptions"
 #: components/manage/SubscriptionsPanel/messages
-msgid "ufficiostampa_panel_filter_title"
+msgid "ufficiostampa_panel_filter_subscriptions"
 msgstr ""
 
 #. Default: "History deleted successfully"
@@ -592,6 +601,16 @@ msgstr ""
 #. Default: "Active subscribers"
 #: components/manage/SendHistoryPanel/messages
 msgid "ufficiostampa_panel_subscribers"
+msgstr ""
+
+#. Default: "Portal type"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_portal_type"
+msgstr ""
+
+#. Default: "All"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_select_all"
 msgstr ""
 
 #. Default: "Settings"

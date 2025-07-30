@@ -9,7 +9,6 @@ import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import backSVG from '@plone/volto/icons/back.svg';
 import checkSVG from '@plone/volto/icons/check.svg';
 import clockSVG from '@plone/volto/icons/clock.svg';
-import errorSVG from '@plone/volto/icons/error.svg';
 import exclamationSVG from '@plone/volto/icons/exclamation.svg';
 import { createPortal } from 'react-dom';
 import { useIntl } from 'react-intl';
@@ -19,7 +18,9 @@ import {
   Container,
   Dropdown,
   Form,
+  FormGroup,
   FormField,
+  Input,
   Loader,
   Segment,
   Table,
@@ -50,8 +51,8 @@ const SendHistoryPanel = () => {
 
   // search/filter
   const [selectedChannel, setSelectedChannel] = useState(null);
-  // const [searchableText, setSearchableText] = useState('');
-  // const [text, setText] = useState('');
+  const [selectedType, setSelectedType] = useState(null);
+  const [searchableTitle, setSearchableTitle] = useState('');
   const [b_size, setB_size] = useState(50);
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -67,21 +68,31 @@ const SendHistoryPanel = () => {
 
   // const deleteSendHistoryEnd = deleteSendHistoryState?.loaded;
 
-  const doSearch = useCallback(() => {
-    return dispatch(
-      getSendHistory({
-        b_size: isNaN(b_size) ? 10000000 : b_size,
-        b_start: currentPage * (isNaN(b_size) ? 10000000 : b_size),
-        channels: selectedChannel,
-        // text: text && text.length > 0 ? text : null,
-      }),
-    );
-  }, [dispatch, b_size, currentPage, selectedChannel]);
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      doSearch();
+    }, 1200);
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchableTitle]);
 
-  // load initial data
+  const doSearch = () => {
+    const title =
+      searchableTitle && searchableTitle.length > 0 ? searchableTitle : '';
+    const options = {
+      channels: selectedChannel,
+      type: selectedType,
+      b_size: isNaN(b_size) ? 10000000 : b_size,
+      b_start: currentPage * (isNaN(b_size) ? 10000000 : b_size),
+    };
+    if (title.length) {
+      options.title = title + '*'; // add wildcard for search
+    }
+    return dispatch(getSendHistory(options));
+  };
+
   useEffect(() => {
     doSearch();
-  }, [doSearch]);
+  }, [b_size, currentPage, selectedChannel, selectedType]);
 
   const totResults = history.result?.items_total || 0;
 
@@ -101,24 +112,71 @@ const SendHistoryPanel = () => {
           <SendHistoryPanelMenu doSearch={doSearch} />
           <Segment>
             <Form className="search-form">
-              <FormField>
-                <label>{intl.formatMessage(messages.channels)}</label>
-                <Dropdown
-                  placeholder={intl.formatMessage(messages.selectChannel)}
-                  fluid
-                  selection
-                  onChange={(event, data) => {
-                    setSelectedChannel(data.value);
-                  }}
-                  options={[{ key: 'all', text: 'All', value: null }].concat(
-                    history?.result?.channels?.map((c) => ({
-                      key: c,
-                      text: c,
-                      value: c,
-                    })) || [],
-                  )}
-                />
-              </FormField>
+              <FormGroup>
+                <FormField width={3}>
+                  <label>{intl.formatMessage(messages.channels)}</label>
+                  <Dropdown
+                    placeholder={intl.formatMessage(messages.selectChannel)}
+                    selection
+                    onChange={(event, data) => {
+                      setSelectedChannel(data.value);
+                    }}
+                    options={[
+                      {
+                        key: 'all',
+                        text: intl.formatMessage(messages.all),
+                        value: null,
+                      },
+                    ].concat(
+                      history?.result?.channels?.map((c) => ({
+                        key: c,
+                        text: c,
+                        value: c,
+                      })) || [],
+                    )}
+                  />
+                </FormField>
+                <FormField width={3}>
+                  <label>{intl.formatMessage(messages.portal_type)}</label>
+                  <Dropdown
+                    placeholder={intl.formatMessage(
+                      messages.select_portal_type,
+                    )}
+                    selection
+                    onChange={(event, data) => {
+                      setSelectedType(data.value);
+                    }}
+                    options={[
+                      {
+                        key: 'all',
+                        text: intl.formatMessage(messages.all),
+                        value: null,
+                      },
+                      {
+                        key: 'Comunicato Stampa',
+                        text: 'Comunicato Stampa',
+                        value: 'Comunicato Stampa',
+                      },
+                      {
+                        key: 'Invito Stampa',
+                        text: 'Invito Stampa',
+                        value: 'Invito Stampa',
+                      },
+                    ]}
+                  />
+                </FormField>
+                <FormField width={6}>
+                  <Input
+                    fluid
+                    icon="search"
+                    value={searchableTitle}
+                    onChange={(e) => {
+                      setSearchableTitle(e.target.value);
+                    }}
+                    placeholder={intl.formatMessage(messages.filter_title)}
+                  />
+                </FormField>
+              </FormGroup>
             </Form>
             <Table selectable compact singleLine attached fixed striped>
               <Table.Header>

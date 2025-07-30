@@ -344,6 +344,11 @@ msgstr "Ricerca testuale"
 msgid "select_channel"
 msgstr "Seleziona un canale"
 
+#. Default: "Select type"
+#: components/manage/SendHistoryPanel/messages
+msgid "select_portal_type"
+msgstr "Seleziona una tipologia"
+
 #. Default: "Comunicato sent"
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "send_success"
@@ -473,6 +478,11 @@ msgstr "Titolo"
 msgid "ufficiostampa_comunicato_type"
 msgstr "Tipologia"
 
+#. Default: "Filter title"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_history_panel_filter_title"
+msgstr "Cerca nel titolo"
+
 #. Default: "All"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
@@ -524,11 +534,10 @@ msgstr "Cronologia selezionata eliminata con successo!"
 msgid "ufficiostampa_panel_end_send"
 msgstr "Concluso"
 
-#. Default: "Filter title"
-#: components/manage/SendHistoryPanel/messages
+#. Default: "Filter subscriptions"
 #: components/manage/SubscriptionsPanel/messages
-msgid "ufficiostampa_panel_filter_title"
-msgstr "Filtra gli iscritti. Inserisci almeno 3 caratteri"
+msgid "ufficiostampa_panel_filter_subscriptions"
+msgstr "Filtra gli iscritti"
 
 #. Default: "History deleted successfully"
 #: components/manage/SendHistoryPanel/messages
@@ -593,6 +602,16 @@ msgstr "Inviato"
 #: components/manage/SendHistoryPanel/messages
 msgid "ufficiostampa_panel_subscribers"
 msgstr "Iscritti attivi"
+
+#. Default: "Portal type"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_portal_type"
+msgstr "Tipologia"
+
+#. Default: "All"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_select_all"
+msgstr ""
 
 #. Default: "Settings"
 #: components/manage/SubscriptionsPanel/messages

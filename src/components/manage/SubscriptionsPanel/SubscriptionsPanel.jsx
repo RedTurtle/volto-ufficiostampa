@@ -51,7 +51,6 @@ const SubscriptionsPanel = ({ toastify }) => {
   const [showModalAdd, setShowModalAdd] = useState(false);
   const [modalData, setModalData] = useState(null);
   const [searchableText, setSearchableText] = useState('');
-  const [text, setText] = useState('');
   const [showModalDelete, setShowModalDelete] = useState(false);
   const [itemsSelected, setItemsSelected] = useState([]);
   const [selectedChannel, setSelectedChannel] = useState(null);
@@ -130,7 +129,13 @@ const SubscriptionsPanel = ({ toastify }) => {
                     onChange={(event, data) => {
                       setSelectedChannel(data.value);
                     }}
-                    options={[{ key: 'all', text: 'All', value: null }].concat(
+                    options={[
+                      {
+                        key: 'all',
+                        text: intl.formatMessage(messages.all),
+                        value: null,
+                      },
+                    ].concat(
                       subscriptions?.result?.channels?.map((c) => ({
                         key: c,
                         text: c,
@@ -147,7 +152,9 @@ const SubscriptionsPanel = ({ toastify }) => {
                     onChange={(e) => {
                       setSearchableText(e.target.value);
                     }}
-                    placeholder={intl.formatMessage(messages.filter_title)}
+                    placeholder={intl.formatMessage(
+                      messages.filter_subscriptions,
+                    )}
                   />
                 </FormField>
               </FormGroup>
