@@ -57,16 +57,8 @@ const ModalImportSubscriptions = ({ showModal, setShowModal, onClose }) => {
         const msg =
           status.error?.response?.body?.message ||
           intl.formatMessage(messages.subscribe_add_error);
-        // console.log(msg);
-        // toast.error(<Toast error content={msg} />);
         setError(msg);
       } else {
-        // toast.success(
-        //   <Toast
-        //     success
-        //     content={intl.formatMessage(messages.subscribe_add_success)}
-        //   />,
-        // );
         setShowModal(false);
       }
     }

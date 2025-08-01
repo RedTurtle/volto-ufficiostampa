@@ -24,11 +24,16 @@ const ModalDelete = ({ items, setItems, showModal, setShowModal, onClose }) => {
       setItems([]);
       setShowModal(false);
     } else if (deleteSubscriptionsState?.loaded) {
-      console.log(deleteSubscriptionsState?.error);
       // TODO: manage errors
     }
   }, [deleteSubscriptionsState, onClose, setItems, setShowModal]);
 
+  useEffect(() => {
+    // called when the component is unmounted
+    return () => {
+      onClose();
+    };
+  }, []);
   return (
     <Modal
       className="react-aria-Modal ufficiostampa-modal"

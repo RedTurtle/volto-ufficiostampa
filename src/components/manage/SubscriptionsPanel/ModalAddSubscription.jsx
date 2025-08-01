@@ -83,6 +83,7 @@ const ModalAddSubscription = ({
       setFieldErrors({});
       setFormSubmitError(null);
       setShowModal(false);
+      onClose();
       toast.success(
         <Toast
           success

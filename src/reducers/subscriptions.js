@@ -113,7 +113,6 @@ export function importSubscriptionsReducer(state = initialState, action = {}) {
 }
 
 export function addSubscriptionReducer(state = initialState, action = {}) {
-  console.log('actions', action);
   switch (action.type) {
     case `${UFFICIOSTAMPA_ADD_SUBSCRIPTION}_PENDING`:
       return {
