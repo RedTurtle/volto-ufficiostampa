@@ -2,10 +2,7 @@ import React, { useState } from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { Icon, Grid, Menu, Form, Button, Segment } from 'semantic-ui-react';
 import LegislaturaConfiguration from './LegislaturaConfiguration';
-import {
-  usePreventClick,
-  usePreventEnterCapture,
-} from 'volto-ufficiostampa/helpers/widgetHooks';
+import { usePreventClick } from 'volto-ufficiostampa/helpers/widgetHooks';
 import './legislature-widget.css';
 
 const messages = defineMessages({
@@ -174,7 +171,7 @@ const LegislatureWidget = ({
                                     messages.moveItemDown,
                                   )}
                                   onClick={(e) =>
-                                    moveItem(e, activeFooter, idx, 'down')
+                                    moveItem(e, activeItem, idx, 'down')
                                   }
                                   role="button"
                                 />

@@ -9,6 +9,8 @@ import {
   CardCategory,
   CardTitle,
   CardText,
+  Col,
+  Row,
 } from 'design-react-kit';
 import moment from 'moment';
 import cx from 'classnames';
@@ -238,7 +240,7 @@ const Body = ({ data, id, inEditMode, onChangeBlock }) => {
   }
 
   return filterOne || filterTwo || filterThree || filterFour ? (
-    <Container className="mb-4">
+    <Container className="mb-4 search-container">
       <div
         className={cx('rounded bg-primary p-4', {
           'public-ui': inEditMode,
@@ -250,25 +252,25 @@ const Body = ({ data, id, inEditMode, onChangeBlock }) => {
             doRequest(1);
           }}
         >
-          <div className="d-flex justify-content-center">
-            <div className="d-flex search-container align-items-center justify-content-center flex-wrap w-100">
-              {filterOne && (
-                <>
-                  {React.createElement(filterOne.widget.component, {
-                    ...filterOne.widget?.props,
-                    blockID: id,
-                    id: 'filterOne',
-                    onChange: (filter, value) => {
-                      dispatchFilter({
-                        filter: filter,
-                        value: value,
-                      });
-                    },
-                  })}
-                </>
-              )}
-              {filterTwo &&
-                React.createElement(filterTwo.widget?.component, {
+          <Row className="align-items-center justify-content-center ">
+            {filterOne && (
+              <Col xs="12" lg="3" className="pe-lg-0 pb-sm-2 pb-lg-0">
+                {React.createElement(filterOne.widget.component, {
+                  ...filterOne.widget?.props,
+                  blockID: id,
+                  id: 'filterOne',
+                  onChange: (filter, value) => {
+                    dispatchFilter({
+                      filter: filter,
+                      value: value,
+                    });
+                  },
+                })}
+              </Col>
+            )}
+            {filterTwo && (
+              <Col xs="12" lg="3" className="pe-lg-0 pb-sm-2 pb-lg-0">
+                {React.createElement(filterTwo.widget?.component, {
                   ...filterTwo.widget?.props,
                   blockID: id,
                   id: 'filterTwo',
@@ -278,8 +280,11 @@ const Body = ({ data, id, inEditMode, onChangeBlock }) => {
                       value: value,
                     }),
                 })}
-              {filterThree &&
-                React.createElement(filterThree.widget?.component, {
+              </Col>
+            )}
+            {filterThree && (
+              <Col xs="12" sm="6" lg="3" className="pe-0">
+                {React.createElement(filterThree.widget?.component, {
                   ...filterThree.widget?.props,
                   blockID: id,
                   id: 'filterThree',
@@ -289,8 +294,11 @@ const Body = ({ data, id, inEditMode, onChangeBlock }) => {
                       value: value,
                     }),
                 })}
-              {filterFour &&
-                React.createElement(filterFour.widget?.component, {
+              </Col>
+            )}
+            {filterFour && (
+              <Col xs="12" sm="6" lg="3">
+                {React.createElement(filterFour.widget?.component, {
                   ...filterFour.widget?.props,
                   blockID: id,
                   id: 'filterFour',
@@ -300,8 +308,9 @@ const Body = ({ data, id, inEditMode, onChangeBlock }) => {
                       value: value,
                     }),
                 })}
-            </div>
-          </div>
+              </Col>
+            )}
+          </Row>
         </form>
         <div className="info py-2 text-white">
           {filterOne.widget.props.description}

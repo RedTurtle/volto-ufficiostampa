@@ -15,7 +15,6 @@ import {
 } from 'react-aria-components';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { Toast } from '@plone/volto/components';
 import { toast } from 'react-toastify';
 import {
@@ -23,7 +22,7 @@ import {
   resetAddSubscription,
   updateSubscription,
   resetUpdateSubscription,
-} from '../../../actions';
+} from 'volto-ufficiostampa/actions';
 import messages from './messages';
 
 const defaultSubscriptionData = {
@@ -56,13 +55,15 @@ const ModalAddSubscription = ({
   const onFormSubmit = (e) => {
     e.preventDefault();
 
-    // validation
+    // validation email
     const { email } = subscriptionData;
     const { id } = data;
     if (email.length && !email.includes('@')) {
       setFieldErrors({ email: 'Email non valida' });
       return;
     }
+
+    // dispatchs
     isEdit
       ? dispatch(updateSubscription({ id, data: subscriptionData }))
       : dispatch(addSubscription(subscriptionData));
@@ -70,31 +71,30 @@ const ModalAddSubscription = ({
 
   useEffect(() => {
     const status = isEdit ? updateStatus : addStatus;
-    if (status.loaded) {
-      if (status.error) {
-        const msg =
-          status.error?.response?.body?.message ||
-          status.error?.response?.body?.error?.message ||
-          intl.formatMessage(messages.subscribe_add_error);
-        setFormSubmitError(msg);
-      } else {
-        setSubscriptionData({ ...defaultSubscriptionData });
-        setFieldErrors({});
-        setFormSubmitError(null);
-        setShowModal(false);
-        toast.success(
-          <Toast
-            success
-            content={
-              isEdit
-                ? intl.formatMessage(messages.subscribe_update_success)
-                : intl.formatMessage(messages.subscribe_add_success)
-            }
-          />,
-        );
-      }
+
+    if (!status?.loaded && status?.error) {
+      const msg =
+        status.error?.response?.body?.message ||
+        status.error?.response?.body?.error?.message ||
+        intl.formatMessage(messages.subscribe_add_error);
+      setFormSubmitError(msg);
+    } else if (status?.loaded) {
+      setSubscriptionData({ ...defaultSubscriptionData });
+      setFieldErrors({});
+      setFormSubmitError(null);
+      setShowModal(false);
+      toast.success(
+        <Toast
+          success
+          content={
+            isEdit
+              ? intl.formatMessage(messages.subscribe_update_success)
+              : intl.formatMessage(messages.subscribe_add_success)
+          }
+        />,
+      );
     }
-  }, [addStatus, updateStatus, intl, setShowModal]);
+  }, [addStatus, updateStatus, setShowModal]);
 
   useEffect(() => {
     return () => {
@@ -133,8 +133,8 @@ const ModalAddSubscription = ({
             {intl.formatMessage(messages.modal_add_title)}
           </Heading>
           {/* <div className="close">
-            <Button onPress={() => setShowModal(false)}>X</Button>
-          </div> */}
+          <Button onPress={() => setShowModal(false)}>X</Button>
+        </div> */}
         </div>
         <p className="modal-description">
           {intl.formatMessage(messages.modal_description)}
@@ -183,7 +183,7 @@ const ModalAddSubscription = ({
           </div>
           <div className="form-action">
             <Button type="submit" className="react-aria-Button primary">
-              {status?.loading && (
+              {(addStatus?.loading || updateStatus?.loading) && (
                 <Icon
                   icon="it-refresh"
                   className="icon-sm load-status-icon"

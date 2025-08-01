@@ -16,12 +16,6 @@ const ModalDelete = ({ items, setItems, showModal, setShowModal, onClose }) => {
   );
 
   useEffect(() => {
-    return () => {
-      onClose();
-    };
-  }, [onClose]);
-
-  useEffect(() => {
     if (
       deleteSubscriptionsState?.loaded &&
       deleteSubscriptionsState?.error === null
@@ -40,16 +34,13 @@ const ModalDelete = ({ items, setItems, showModal, setShowModal, onClose }) => {
       className="react-aria-Modal ufficiostampa-modal"
       isDismissable
       isOpen={showModal}
-      // onOpenChange={() => setShowModal(showModal)}
+      onOpenChange={setShowModal}
     >
       <Dialog>
         <div className="modal-header">
           <Heading>
             {intl.formatMessage(messages.confirm_delete_selected)}
           </Heading>
-          <div className="close">
-            <Button onPress={() => setShowModal(false)}>X</Button>
-          </div>
         </div>
 
         <div className="content ui ">

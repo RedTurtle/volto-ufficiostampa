@@ -1,22 +1,18 @@
 import { Icon } from '@plone/volto/components';
 import React, { useState } from 'react';
-import { Button, Link as AriaComponentsLink } from 'react-aria-components';
+import { Link as AriaComponentsLink } from 'react-aria-components';
 import { Link } from 'react-router-dom';
 import { useIntl } from 'react-intl';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Button, Modal, ModalHeader } from 'semantic-ui-react';
 import downloadSVG from '@plone/volto/icons/download.svg';
 import uploadSVG from '@plone/volto/icons/upload.svg';
+import addSVG from '@plone/volto/icons/add.svg';
+import settingSVG from '@plone/volto/icons/configuration.svg';
 import ModalAddSubscription from './ModalAddSubscription';
 import ModalImportSubscriptions from './ModalImportSubscriptions';
-
-// import '@plone/components/src/styles/basic/Button.css';
-// import '@plone/components/src/styles/basic/Dialog.css';
-// import '@plone/components/src/styles/basic/Modal.css';
-// import '../modals.css';
 import messages from './messages';
 
 const SubscriptionsPanelMenu = ({ doSearch }) => {
-  // const location = useLocation();
   const intl = useIntl();
 
   const [showModalAdd, setShowModalAdd] = useState(false);
@@ -24,30 +20,23 @@ const SubscriptionsPanelMenu = ({ doSearch }) => {
 
   return (
     <>
-      <Menu secondary>
+      <Menu secondary className="subscriptions-panel-menu">
         <Menu.Item>
           <Button
-            className="react-aria-Button primary"
-            onPress={() => {
-              setShowModalAdd(true);
-            }}
+            color="green"
+            icon
+            labelPosition="right"
+            onClick={() => setShowModalAdd(true)}
           >
             {intl.formatMessage(messages.add_subscriber)}
-          </Button>
-          <AriaComponentsLink
-            className="react-aria-Button primary"
-            labelPosition="right"
-            icon
-            href="/++api++/@subscriptions-csv"
-            download="subscriptions.csv"
-          >
-            {intl.formatMessage(messages.download_list)}
             <i className="icon">
-              <Icon name={downloadSVG} size="20px" />
+              <Icon name={addSVG} size="20px" />
             </i>
-          </AriaComponentsLink>
+          </Button>
+        </Menu.Item>
+        <Menu.Item>
           <Button
-            className="react-aria-Button primary"
+            color="primary"
             labelPosition="right"
             icon
             onClick={() => {
@@ -59,22 +48,53 @@ const SubscriptionsPanelMenu = ({ doSearch }) => {
               <Icon name={uploadSVG} size="20px" />
             </i>
           </Button>
+        </Menu.Item>
+        <Menu.Item>
+          <AriaComponentsLink
+            className="ui button icon right labeled primary"
+            href="/++api++/@subscriptions-csv"
+            download="subscriptions.csv"
+          >
+            {intl.formatMessage(messages.export_list)}
+            <i className="icon">
+              <Icon name={downloadSVG} size="20px" />
+            </i>
+          </AriaComponentsLink>
+        </Menu.Item>
+        <Menu.Item>
           <Link
-            className="react-aria-Button primary"
-            labelPosition="right"
+            className="ui button icon right labeled"
             to="/controlpanel/rer.ufficiostampa"
           >
             {intl.formatMessage(messages.ufficiostampa_settings)}
+            <i className="icon">
+              <Icon name={settingSVG} size="20px" />
+            </i>
           </Link>
         </Menu.Item>
       </Menu>
-      {showModalAdd && (
-        <ModalAddSubscription
-          showModal={showModalAdd}
-          setShowModal={setShowModalAdd}
-          onClose={doSearch}
-        />
-      )}
+
+      <ModalAddSubscription
+        showModal={showModalAdd}
+        setShowModal={setShowModalAdd}
+        onClose={doSearch}
+      />
+
+      <Modal
+        id="modal-add-subscription"
+        className="ufficiostampa-modal"
+        // isDismissable
+        isOpen={showModalAdd}
+        // onOpen={setShowModal}
+        // onClose={() => setShowModal(false)}
+        // onOpen={() => setShowModal(true)}
+        // onOpenChange={() => toggleModal(!modalIsOpen)}
+      >
+        <ModalHeader>
+          {intl.formatMessage(messages.modal_add_title)}
+        </ModalHeader>
+      </Modal>
+
       {showModalImport && (
         <ModalImportSubscriptions
           showModal={showModalImport}

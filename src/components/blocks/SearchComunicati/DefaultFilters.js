@@ -48,7 +48,7 @@ const DefaultFilters = (dispatchFilter) => {
         component: TextFilter,
         props: {
           value: '',
-          placeholder: intl.formatMessage(messages.SearchableText) + '*',
+          placeholder: intl.formatMessage(messages.SearchableText),
         },
       },
       query: (value, query) => {

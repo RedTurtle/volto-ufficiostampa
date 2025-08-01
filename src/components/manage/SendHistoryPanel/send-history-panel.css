@@ -1,24 +1,77 @@
-td.history-status div {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
+#page-send-history .ui.button.labeled i.icon {
   display: flex;
-  color: #fff;
   align-items: center;
   justify-content: center;
 }
 
+#page-send-history .send-history-panel-menu.ui.secondary.menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#page-send-history .send-history-panel-menu.ui.secondary.menu .item:last-child {
+  margin-left: auto;
+}
+
+#page-send-history .search-form .fields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+#page-send-history .no-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+  border-right: 1px solid #c7d5d8;
+  border-left: 1px solid #c7d5d8;
+  margin: 0em -1px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+#page-send-history .ui.fixed.table th,
+#page-send-history .ui.fixed.table td {
+  width: 12%;
+  white-space: break-spaces;
+}
+
+#page-send-history .ui.fixed.table th:first-child,
+#page-send-history .ui.fixed.table td:first-child {
+  width: 5%;
+}
+
+#page-send-history .ui.fixed.table th:last-child,
+#page-send-history .ui.fixed.table td:last-child {
+  width: 20%;
+}
+
+@media only screen and (min-width: 1280px) {
+  body.cms-ui.has-toolbar:not(.has-sidebar):not(.has-sidebar-collapsed)
+    .ui.container.fluid.controlpanel-send-history {
+    width: 90% !important;
+  }
+}
+
+td.history-status div {
+  display: flex;
+  width: 25px;
+  height: 25px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+}
+
 td.history-status div.error {
   background-color: #ff0000;
-
 }
 
 td.history-status div.success {
   background-color: #008000;
-
 }
 
 td.history-status div.sending {
   background-color: #eec009;
-
 }

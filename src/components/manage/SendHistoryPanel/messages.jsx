@@ -143,9 +143,9 @@ const messages = defineMessages({
     id: 'ufficiostampa_comunicato_number',
     defaultMessage: 'Number',
   },
-  export: {
-    id: 'export_label',
-    defaultMessage: 'Export',
+  download_label: {
+    id: 'send_history_download_label',
+    defaultMessage: 'Download',
   },
   history_deleted: {
     id: 'ufficiostampa_panel_history_deleted',

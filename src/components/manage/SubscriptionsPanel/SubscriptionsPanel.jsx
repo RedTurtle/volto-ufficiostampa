@@ -6,7 +6,6 @@ import {
 } from '@plone/volto/components';
 import { BodyClass, getBaseUrl, Helmet } from '@plone/volto/helpers';
 import React, { useEffect, useMemo, useState } from 'react';
-import { Button } from 'react-aria-components';
 import { createPortal } from 'react-dom';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,8 +22,9 @@ import {
   Segment,
   Table,
   Input,
+  Button,
 } from 'semantic-ui-react';
-import { getSubscriptions } from '../../../actions';
+import { getSubscriptions } from 'volto-ufficiostampa/actions';
 import messages from './messages';
 import SubscriptionsPanelMenu from './SubscriptionsPanelMenu';
 import ModalAddSubscription from './ModalAddSubscription';
@@ -32,12 +32,9 @@ import ModalDelete from './ModalDelete';
 
 import backSVG from '@plone/volto/icons/back.svg';
 import editingSVG from '@plone/volto/icons/editing.svg';
+import trashSVG from '@plone/volto/icons/delete.svg';
 
-// import './subscriptions-panel.css';
-import '@plone/components/src/styles/basic/Button.css';
-import '@plone/components/src/styles/basic/Dialog.css';
-import '@plone/components/src/styles/basic/Form.css';
-import '@plone/components/src/styles/basic/Modal.css';
+import './subscriptions-panel.css';
 import '../modals.css';
 
 const SubscriptionsPanel = ({ toastify }) => {
@@ -90,7 +87,11 @@ const SubscriptionsPanel = ({ toastify }) => {
   ) : (
     <>
       <BodyClass className="ufficiostampa-management" />
-      <Container id="page-subscriptions" className="controlpanel-subscriptions">
+      <Container
+        fluid
+        id="page-subscriptions"
+        className="controlpanel-subscriptions"
+      >
         <Helmet
           title={intl.formatMessage(messages.subscriptions_controlpanel)}
         />
@@ -106,22 +107,42 @@ const SubscriptionsPanel = ({ toastify }) => {
               <Message className="selected-items" color="teal">
                 <div className="text">
                   {itemsSelected?.length}{' '}
-                  {intl.formatMessage(messages.items_selected)}
+                  {itemsSelected?.length === 1
+                    ? intl.formatMessage(messages.single_item_selected)
+                    : intl.formatMessage(messages.items_selected)}
                 </div>
-                <div className="actions">
+                <div className="actions ms-auto">
                   <Button
                     type="button"
-                    className="react-aria-Button cancel"
+                    color="red"
+                    icon
+                    labelPosition="right"
                     onClick={() => setShowModalDelete(true)}
                   >
                     {intl.formatMessage(messages.delete_subscriptions)}
+                    <i className="icon">
+                      <Icon name={trashSVG} size="20px" />
+                    </i>
                   </Button>
                 </div>
               </Message>
             )}
             <Form className="search-form">
               <FormGroup>
-                <FormField width={4}>
+                <FormField width={7}>
+                  <Input
+                    fluid
+                    icon="search"
+                    value={searchableText}
+                    onChange={(e) => {
+                      setSearchableText(e.target.value);
+                    }}
+                    placeholder={intl.formatMessage(
+                      messages.filter_subscriptions,
+                    )}
+                  />
+                </FormField>
+                <FormField width={5}>
                   <Dropdown
                     placeholder={intl.formatMessage(messages.selectChannel)}
                     fluid
@@ -141,19 +162,6 @@ const SubscriptionsPanel = ({ toastify }) => {
                         text: c,
                         value: c,
                       })) || [],
-                    )}
-                  />
-                </FormField>
-                <FormField width={10}>
-                  <Input
-                    fluid
-                    icon="search"
-                    value={searchableText}
-                    onChange={(e) => {
-                      setSearchableText(e.target.value);
-                    }}
-                    placeholder={intl.formatMessage(
-                      messages.filter_subscriptions,
                     )}
                   />
                 </FormField>
@@ -245,8 +253,9 @@ const SubscriptionsPanel = ({ toastify }) => {
                       <Table.Cell>{item.newspaper}</Table.Cell>
                       <Table.Cell>
                         <Button
-                          className="react-aria-Button primary"
-                          onPress={() => {
+                          color="primary"
+                          icon
+                          onClick={() => {
                             setShowModalAdd(true);
                             setModalData(item);
                           }}

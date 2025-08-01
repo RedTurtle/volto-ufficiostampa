@@ -103,11 +103,6 @@ msgstr ""
 msgid "error_label"
 msgstr ""
 
-#. Default: "Export"
-#: components/manage/SendHistoryPanel/messages
-msgid "export_label"
-msgstr ""
-
 #. Default: "Possible values are "," or ";"."
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_csv_separator_help"
@@ -349,6 +344,11 @@ msgstr ""
 msgid "select_portal_type"
 msgstr ""
 
+#. Default: "Download"
+#: components/manage/SendHistoryPanel/messages
+msgid "send_history_download_label"
+msgstr ""
+
 #. Default: "Comunicato sent"
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "send_success"
@@ -422,12 +422,22 @@ msgstr ""
 
 #. Default: "Download"
 #: components/manage/SubscriptionsPanel/messages
-msgid "subscriptions_download_list"
+msgid "subscriptions_export_list"
 msgstr ""
 
 #. Default: "Loading..."
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscriptions_loading"
+msgstr ""
+
+#. Default: "items selected."
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscriptions_panel_items_selected"
+msgstr ""
+
+#. Default: "item selected."
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscriptions_panel_single_item_selected"
 msgstr ""
 
 #. Default: "State"
@@ -546,7 +556,6 @@ msgstr ""
 
 #. Default: "items selected."
 #: components/manage/SendHistoryPanel/messages
-#: components/manage/SubscriptionsPanel/messages
 msgid "ufficiostampa_panel_items_selected"
 msgstr ""
 
@@ -606,11 +615,6 @@ msgstr ""
 #. Default: "Portal type"
 #: components/manage/SendHistoryPanel/messages
 msgid "ufficiostampa_portal_type"
-msgstr ""
-
-#. Default: "All"
-#: components/manage/SendHistoryPanel/messages
-msgid "ufficiostampa_select_all"
 msgstr ""
 
 #. Default: "Settings"

@@ -14,6 +14,7 @@ import {
 } from 'design-comuni-plone-theme/components/ItaliaTheme/View';
 import { Icon } from 'design-comuni-plone-theme/components/ItaliaTheme';
 import { UniversalLink } from '@plone/volto/components';
+import { flattenToAppURL } from '@plone/volto/helpers';
 import './cartella_stampa.scss';
 
 const CartellaStampaItem = ({ item }) => {
@@ -34,7 +35,7 @@ const CartellaStampaItem = ({ item }) => {
     _item.image = { ...item };
   }
 
-  return item['@type'] === 'File' || item['@type'] === 'Image' ? (
+  return item['@type'] === 'File' ? (
     <Attachment
       key={item['@id']}
       title={item.title}
@@ -48,19 +49,37 @@ const CartellaStampaItem = ({ item }) => {
       noWrapper={true}
       tag="div"
     >
-      <Icon className={undefined} icon={'it-file'} padding={false} />
-      <CardBody>
+      <Icon
+        className={undefined}
+        icon={item['@type'] === 'Image' ? 'it-clip' : 'it-file'}
+        padding={false}
+      />
+      <CardBody className="d-flex">
         <CardTitle className="title h5">
           <UniversalLink
             item={{
               ...item,
-              '@id': item.url.replace(/\/view$/, ''),
+              '@id':
+                item['@type'] === 'Image'
+                  ? download_url
+                  : item.url.replace(/\/view$/, ''),
             }}
             rel="noopener noreferrer"
           >
             {item.title}
           </UniversalLink>
         </CardTitle>
+        {item['@type'] === 'Image' && (
+          <div className="attachment-img-wrap ms-auto">
+            <img
+              className=""
+              src={`${flattenToAppURL(item.url)}/@@images/image/thumb`}
+              alt={item.title}
+              aria-hidden="true"
+              loading="lazy"
+            />
+          </div>
+        )}
       </CardBody>
     </Card>
   );

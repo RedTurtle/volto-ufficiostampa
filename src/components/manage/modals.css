@@ -1,9 +1,19 @@
 .react-aria-Modal.ufficiostampa-modal {
-  max-width: fit-content;
+  width: 100%;
+  max-width: 800px;
+}
+
+.react-aria-Modal .modal-description {
+  margin: 0.5rem 0 1rem;
+  color: grey;
 }
 
 .react-aria-Modal.ufficiostampa-modal .form-action {
-  margin-top: 2em;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  padding: 1rem 1rem 1rem 0;
 }
 
 .react-aria-Modal.ufficiostampa-modal .form-action button {
@@ -15,7 +25,9 @@
   margin: 1rem 0;
 }
 
-.react-aria-Modal.ufficiostampa-modal .field .react-aria-Text[slot='description'] {
+.react-aria-Modal.ufficiostampa-modal
+  .field
+  .react-aria-Text[slot='description'] {
   color: #aaa;
   font-size: 80%;
 }
@@ -38,8 +50,8 @@
 }
 
 .ufficiostampa-management .react-aria-Button.cancel {
-  color: #fff;
   background-color: #e40166;
+  color: #fff;
 }
 
 .ufficiostampa-management .react-aria-Button.cancel:hover,
@@ -48,8 +60,12 @@
 }
 
 .ufficiostampa-management .react-aria-Button.primary {
-  color: #fff;
   background-color: #007eb1;
+  color: #fff;
+}
+
+.ufficiostampa-management .confirm-delete-item {
+  margin-top: 0.5rem;
 }
 
 .ufficiostampa-management .react-aria-Button.primary:hover,
@@ -66,12 +82,15 @@
   overflow-y: scroll;
 }
 
-.ufficiostampa-modal form .react-aria-TextField[data-required="true"]>label::after {
+.ufficiostampa-modal
+  form
+  .react-aria-TextField[data-required='true']
+  > label::after {
   display: inline-block;
   width: 10px;
   height: 10px;
   border-radius: 50%;
   margin-left: 5px;
-  background-color: #E40166;
+  background-color: #e40166;
   content: '';
 }

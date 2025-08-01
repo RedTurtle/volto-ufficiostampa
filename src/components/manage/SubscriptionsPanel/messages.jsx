@@ -35,8 +35,8 @@ const messages = defineMessages({
     id: 'ufficiostampa_panel_delete_subscriptions_success',
     defaultMessage: 'Subscriptions deleted successfully!',
   },
-  download_list: {
-    id: 'subscriptions_download_list',
+  export_list: {
+    id: 'subscriptions_export_list',
     defaultMessage: 'Download',
   },
   email_label: {
@@ -71,8 +71,12 @@ const messages = defineMessages({
       'Import subscriptions from a csv file. The CSV file must have a columns named "email", ...',
   },
   items_selected: {
-    id: 'ufficiostampa_panel_items_selected',
+    id: 'subscriptions_panel_items_selected',
     defaultMessage: 'items selected.',
+  },
+  single_item_selected: {
+    id: 'subscriptions_panel_single_item_selected',
+    defaultMessage: 'item selected.',
   },
   loading: { id: 'subscriptions_loading', defaultMessage: 'Loading...' },
   message_send_error: {

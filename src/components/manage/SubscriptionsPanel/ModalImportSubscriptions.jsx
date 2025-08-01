@@ -87,6 +87,7 @@ const ModalImportSubscriptions = ({ showModal, setShowModal, onClose }) => {
       className="react-aria-Modal ufficiostampa-modal"
       isDismissable
       isOpen={showModal}
+      onOpenChange={setShowModal}
       // onOpenChange={() => toggleModal(!showModal)}
     >
       {status.loading && (

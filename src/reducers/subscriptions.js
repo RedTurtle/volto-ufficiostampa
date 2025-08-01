@@ -7,10 +7,10 @@ import {
 } from '../actions';
 
 const initialState = {
-  error: null,
   loaded: false,
   loading: false,
   result: null,
+  error: null,
   subrequests: {},
 };
 
@@ -113,6 +113,7 @@ export function importSubscriptionsReducer(state = initialState, action = {}) {
 }
 
 export function addSubscriptionReducer(state = initialState, action = {}) {
+  console.log('actions', action);
   switch (action.type) {
     case `${UFFICIOSTAMPA_ADD_SUBSCRIPTION}_PENDING`:
       return {
@@ -133,7 +134,7 @@ export function addSubscriptionReducer(state = initialState, action = {}) {
       return {
         ...state,
         loading: false,
-        loaded: true,
+        loaded: false,
         error: action.error,
       };
     case `${UFFICIOSTAMPA_ADD_SUBSCRIPTION}_RESET`:

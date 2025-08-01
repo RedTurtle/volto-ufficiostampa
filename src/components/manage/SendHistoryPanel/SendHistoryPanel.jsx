@@ -13,6 +13,7 @@ import exclamationSVG from '@plone/volto/icons/exclamation.svg';
 import { createPortal } from 'react-dom';
 import { useIntl } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
+import moment from 'moment';
 import { Link, useLocation } from 'react-router-dom';
 import {
   Container,
@@ -44,6 +45,7 @@ const SendHistoryPanel = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const pathname = location.pathname;
+  moment.locale(intl.locale);
 
   const [showModalDelete, setShowModalDelete] = useState(false);
 
@@ -101,7 +103,11 @@ const SendHistoryPanel = () => {
   ) : (
     <>
       <BodyClass className="ufficiostampa-management" />
-      <Container id="page-send-history" className="controlpanel-send-history">
+      <Container
+        fluid
+        id="page-send-history"
+        className="controlpanel-send-history"
+      >
         <Helmet
           title={intl.formatMessage(messages.send_history_controlpanel)}
         />
@@ -113,7 +119,18 @@ const SendHistoryPanel = () => {
           <Segment>
             <Form className="search-form">
               <FormGroup>
-                <FormField width={3}>
+                <FormField width={4}>
+                  <Input
+                    fluid
+                    icon="search"
+                    value={searchableTitle}
+                    onChange={(e) => {
+                      setSearchableTitle(e.target.value);
+                    }}
+                    placeholder={intl.formatMessage(messages.filter_title)}
+                  />
+                </FormField>
+                <FormField width={4}>
                   <label>{intl.formatMessage(messages.channels)}</label>
                   <Dropdown
                     placeholder={intl.formatMessage(messages.selectChannel)}
@@ -136,7 +153,7 @@ const SendHistoryPanel = () => {
                     )}
                   />
                 </FormField>
-                <FormField width={3}>
+                <FormField width={4}>
                   <label>{intl.formatMessage(messages.portal_type)}</label>
                   <Dropdown
                     placeholder={intl.formatMessage(
@@ -165,19 +182,10 @@ const SendHistoryPanel = () => {
                     ]}
                   />
                 </FormField>
-                <FormField width={6}>
-                  <Input
-                    fluid
-                    icon="search"
-                    value={searchableTitle}
-                    onChange={(e) => {
-                      setSearchableTitle(e.target.value);
-                    }}
-                    placeholder={intl.formatMessage(messages.filter_title)}
-                  />
-                </FormField>
               </FormGroup>
             </Form>
+          </Segment>
+          <Segment>
             <Table selectable compact singleLine attached fixed striped>
               <Table.Header>
                 <Table.Row>
@@ -210,7 +218,9 @@ const SendHistoryPanel = () => {
               <Table.Body>
                 {history?.loaded &&
                   history.result?.items?.map((item, i) => {
-                    const statusLabel = `${intl.formatMessage(messages.status)}: ${intl.formatMessage(messages[item.status])}`;
+                    const statusLabel = `${intl.formatMessage(
+                      messages.status,
+                    )}: ${intl.formatMessage(messages[item.status])}`;
                     let statusIcon = null;
                     switch (item.status) {
                       case 'success':
@@ -280,8 +290,14 @@ const SendHistoryPanel = () => {
                         <Table.Cell>
                           {item.channels && item.channels.join(', ')}
                         </Table.Cell>
-                        <Table.Cell>{item.date}</Table.Cell>
-                        <Table.Cell>{item.completed_date}</Table.Cell>
+                        <Table.Cell>
+                          {moment(item.date).format('DD/MM/YYYY HH:mm')}
+                        </Table.Cell>
+                        <Table.Cell>
+                          {moment(item.completed_date).format(
+                            'DD/MM/YYYY HH:mm',
+                          )}
+                        </Table.Cell>
                         <Table.Cell>{item.recipients}</Table.Cell>
                         <Table.Cell>{item.number}</Table.Cell>
                         <Table.Cell>
