@@ -6,16 +6,11 @@
 import React from 'react';
 
 import PropTypes from 'prop-types';
-import { Card, CardBody, CardTitle } from 'design-react-kit';
 import {
   PageHeader,
   SkipToMainContent,
-  Attachment,
 } from 'design-comuni-plone-theme/components/ItaliaTheme/View';
-import { Icon } from 'design-comuni-plone-theme/components/ItaliaTheme';
-import { UniversalLink } from '@plone/volto/components';
-import { flattenToAppURL } from '@plone/volto/helpers';
-import './cartella_stampa.scss';
+import UfficioStampaAttachment from 'volto-ufficiostampa/components/manage/UfficioStampaAttachment/UfficioStampaAttachment';
 
 const CartellaStampaItem = ({ item }) => {
   const download_url =
@@ -35,53 +30,14 @@ const CartellaStampaItem = ({ item }) => {
     _item.image = { ...item };
   }
 
-  return item['@type'] === 'File' ? (
-    <Attachment
+  return (
+    <UfficioStampaAttachment
       key={item['@id']}
       title={item.title}
       description={item.description}
       download_url={download_url}
       item={_item}
     />
-  ) : (
-    <Card
-      className="card card-teaser shadow p-4 mt-3 rounded attachment"
-      noWrapper={true}
-      tag="div"
-    >
-      <Icon
-        className={undefined}
-        icon={item['@type'] === 'Image' ? 'it-clip' : 'it-file'}
-        padding={false}
-      />
-      <CardBody className="d-flex">
-        <CardTitle className="title h5">
-          <UniversalLink
-            item={{
-              ...item,
-              '@id':
-                item['@type'] === 'Image'
-                  ? download_url
-                  : item.url.replace(/\/view$/, ''),
-            }}
-            rel="noopener noreferrer"
-          >
-            {item.title}
-          </UniversalLink>
-        </CardTitle>
-        {item['@type'] === 'Image' && (
-          <div className="attachment-img-wrap ms-auto">
-            <img
-              className=""
-              src={`${flattenToAppURL(item.url)}/@@images/image/thumb`}
-              alt={item.title}
-              aria-hidden="true"
-              loading="lazy"
-            />
-          </div>
-        )}
-      </CardBody>
-    </Card>
   );
 };
 /**

@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { defineMessages, useIntl } from 'react-intl';
-import {
-  Attachment,
-  RichTextSection,
-} from 'design-comuni-plone-theme/components/ItaliaTheme/View';
+import { RichTextSection } from 'design-comuni-plone-theme/components/ItaliaTheme/View';
+
+import UfficioStampaAttachment from 'volto-ufficiostampa/components/manage/UfficioStampaAttachment/UfficioStampaAttachment';
 
 const messages = defineMessages({
   attachments: {
@@ -63,7 +62,7 @@ const ComunicatoStampaAllegati = ({ content }) => {
             iconClass = 'it-folder';
           }
           return (
-            <Attachment
+            <UfficioStampaAttachment
               key={item['@id']}
               title={item.title}
               description={item.description}
