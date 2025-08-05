@@ -33,7 +33,7 @@
 
 #page-send-history .ui.fixed.table th,
 #page-send-history .ui.fixed.table td {
-  width: 12%;
+  width: 7%;
   white-space: break-spaces;
 }
 
@@ -44,7 +44,7 @@
 
 #page-send-history .ui.fixed.table th:last-child,
 #page-send-history .ui.fixed.table td:last-child {
-  width: 20%;
+  width: 30%;
 }
 
 @media only screen and (min-width: 1280px) {
@@ -74,4 +74,8 @@ td.history-status div.success {
 
 td.history-status div.sending {
   background-color: #eec009;
+}
+
+.cms-ui table.ui.table.controlpanel-table {
+  font-size: 80%
 }

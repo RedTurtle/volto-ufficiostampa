@@ -186,7 +186,15 @@ const SendHistoryPanel = () => {
             </Form>
           </Segment>
           <Segment>
-            <Table selectable compact singleLine attached fixed striped>
+            <Table
+              selectable
+              compact
+              singleLine
+              attached
+              fixed
+              striped
+              className="controlpanel-table"
+            >
               <Table.Header>
                 <Table.Row>
                   <Table.HeaderCell width={1}>
