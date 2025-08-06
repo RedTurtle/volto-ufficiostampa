@@ -12,34 +12,6 @@ import {
 } from 'design-comuni-plone-theme/components/ItaliaTheme/View';
 import UfficioStampaAttachment from 'volto-ufficiostampa/components/manage/UfficioStampaAttachment/UfficioStampaAttachment';
 
-const CartellaStampaItem = ({ item }) => {
-  const download_url =
-    item['@id'] +
-    (item['@type'] === 'File'
-      ? '/@@download/file'
-      : item['@type'] === 'Image'
-        ? '/@@download/image'
-        : '');
-
-  //questo serve per poter avere in questo caso le info sulla dimensione e formato del file
-  let _item = { ...item };
-  if (item['@type'] === 'File') {
-    _item.file = { ...item };
-  }
-  if (item['@type'] === 'Image') {
-    _item.image = { ...item };
-  }
-
-  return (
-    <UfficioStampaAttachment
-      key={item['@id']}
-      title={item.title}
-      description={item.description}
-      download_url={download_url}
-      item={_item}
-    />
-  );
-};
 /**
  * CartellaStampaView view component class.
  * @function CartellaStampaView
@@ -68,7 +40,7 @@ const CartellaStampaView = ({ content }) => {
           >
             <div className="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
               {content.items.map((item, i) => (
-                <CartellaStampaItem item={item} key={i} />
+                <UfficioStampaAttachment key={i} item={item} />
               ))}
             </div>
           </section>

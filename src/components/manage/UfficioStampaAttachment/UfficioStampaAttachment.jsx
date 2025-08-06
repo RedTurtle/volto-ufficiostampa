@@ -15,24 +15,43 @@ const messages = defineMessages({
   },
 });
 
-const UfficioStampaAttachment = ({
-  title,
-  description,
-  download_url,
-  item = {},
-  iconClass = 'it-clip',
-}) => {
+const UfficioStampaAttachment = ({ item = {} }) => {
   const intl = useIntl();
+  const { title, description } = item;
+  let itemURL = '#';
+
+  switch (item['@type']) {
+    case 'File':
+      itemURL = `${item['@id']}/@@download/file`;
+      break;
+    case 'Image':
+      itemURL = `${item['@id']}/@@download/image`;
+      break;
+    case 'Link':
+      itemURL = item.remoteUrl?.length > 0 ? item.remoteUrl : item['@id'];
+      break;
+
+    default:
+      itemURL = item['@id'];
+  }
+
+  //questo serve per poter avere in questo caso le info sulla dimensione e formato del file
   let _item = { ...item };
   if (item['@type'] === 'File') {
-    _item = item.file;
+    _item.file = { ...item };
   }
   if (item['@type'] === 'Image') {
-    _item = item.image;
+    _item.image = { ...item };
   }
+
+  let iconClass = 'it-clip';
+  if (['CartellaStampa'].includes(item['@type'])) {
+    iconClass = 'it-folder';
+  }
+
   return (
     <Card
-      className="card card-teaser shadow p-4 mt-3 rounded attachment"
+      className="card card-teaser shadow p-4 mt-3 rounded attachment ufficiostampa-attachment"
       noWrapper={true}
       tag="div"
     >
@@ -46,7 +65,7 @@ const UfficioStampaAttachment = ({
           <UniversalLink
             item={{
               ..._item,
-              '@id': download_url,
+              '@id': itemURL,
             }}
             title={title}
             aria-label={title}
@@ -71,8 +90,7 @@ const UfficioStampaAttachment = ({
   );
 };
 UfficioStampaAttachment.propTypes = {
-  title: PropTypes.string,
-  download_url: PropTypes.string,
+  item: PropTypes.object,
 };
 
 export default UfficioStampaAttachment;

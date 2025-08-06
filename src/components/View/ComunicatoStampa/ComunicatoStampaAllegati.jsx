@@ -33,44 +33,7 @@ const ComunicatoStampaAllegati = ({ content }) => {
     >
       <div className="card-wrapper card-teaser-wrapper card-teaser-wrapper-equal">
         {attachments.map((item, _i) => {
-          let itemURL = '#';
-
-          switch (item['@type']) {
-            case 'File':
-              itemURL = `${item['@id']}/@@download/file`;
-              break;
-
-            case 'Link':
-              itemURL =
-                item.remoteUrl?.length > 0 ? item.remoteUrl : item['@id'];
-              break;
-
-            default:
-              itemURL = item['@id'];
-          }
-
-          //questo serve per poter avere in questo caso le info sulla dimensione e formato del file
-          let _item = { ...item };
-          if (item['@type'] === 'File') {
-            _item.file = { ...item };
-          }
-          if (item['@type'] === 'Image') {
-            _item.image = { ...item };
-          }
-          let iconClass = 'it-clip';
-          if (['CartellaStampa'].includes(item['@type'])) {
-            iconClass = 'it-folder';
-          }
-          return (
-            <UfficioStampaAttachment
-              key={item['@id']}
-              title={item.title}
-              description={item.description}
-              download_url={itemURL}
-              item={_item}
-              iconClass={iconClass}
-            />
-          );
+          return <UfficioStampaAttachment key={item['@id']} item={item} />;
         })}
       </div>
     </RichTextSection>
