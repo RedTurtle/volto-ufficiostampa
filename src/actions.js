@@ -1,4 +1,6 @@
 export const GET_SENDCOMUNICATO_SCHEMA = 'GET_SENDCOMUNICATO_SCHEMA';
+export const GET_SENDCOMUNICATO_SCHEMA_RESET =
+  'GET_SENDCOMUNICATO_SCHEMA_RESET';
 export const GET_SENDCOMUNICATO = 'GET_SENDCOMUNICATO';
 export const GET_SUBSCRIPTIONS = 'GET_SUBSCRIPTIONS';
 export const DELETE_SUBSCRIPTIONS = 'DELETE_SUBSCRIPTIONS';
@@ -19,6 +21,11 @@ export function getSendComunicatoSchema(url) {
       op: 'get',
       path: `${url}/@send-comunicato-schema`,
     },
+  };
+}
+export function resetSendComunicatoSchema() {
+  return {
+    type: GET_SENDCOMUNICATO_SCHEMA_RESET,
   };
 }
 

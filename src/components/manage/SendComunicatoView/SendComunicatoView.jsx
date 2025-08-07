@@ -14,35 +14,26 @@ import {
   getBaseUrl,
   Helmet,
   tryParseJSON,
-  usePrevious,
 } from '@plone/volto/helpers';
-import backSVG from '@plone/volto/icons/back.svg';
 import clearSVG from '@plone/volto/icons/clear.svg';
 import saveSVG from '@plone/volto/icons/send.svg';
 import showSVG from '@plone/volto/icons/show.svg';
 import { useEffect, useRef, useState } from 'react';
-import {
-  // Button,
-  Dialog,
-  Heading,
-  // Input,
-  // Label,
-  Modal,
-} from 'react-aria-components';
-import { createPortal } from 'react-dom';
+import { Dialog, Heading, Modal } from 'react-aria-components';
 import { defineMessages, useIntl } from 'react-intl';
 import { Portal } from 'react-portal';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Button, Container, Dimmer, Loader, Segment } from 'semantic-ui-react';
 import {
   getSendComunicatoSchema,
+  resetSendComunicatoSchema,
   resetSendComunicato,
   sendComunicato,
 } from '../../../actions';
-import '../modals.css';
 import SendComunicatoPreview from './SendComunicatoPreview';
+
+import '../modals.css';
 
 const messages = defineMessages({
   back: {
@@ -95,8 +86,6 @@ const SendComunicatoView = (props) => {
   const [isClient, setIsClient] = useState(false);
   const content = useSelector((state) => state.content?.data, shallowEqual);
   const updateRequest = useSelector((state) => state.comunicatoSendReducer);
-  const prevrequestloading = usePrevious(updateRequest.loading);
-  const [selectedContainers, setSelectedContainers] = useState([]);
   const [showPreview, setShowPreview] = useState(false);
 
   const schema = useSelector(
@@ -111,12 +100,6 @@ const SendComunicatoView = (props) => {
   useEffect(() => {
     dispatch(getSendComunicatoSchema(flattenToAppURL(getBaseUrl(pathname))));
   }, [dispatch, pathname]);
-
-  //   const onChange = (event, { checked, value }) => {
-  //     setSelectedContainers(
-  //       checked ? selectedContainers.concat([value]) : selectedContainers.filter((uid) => uid !== value)
-  //     );
-  //   }
 
   const onSubmit = (data) => {
     dispatch(sendComunicato(flattenToAppURL(getBaseUrl(pathname)), data));
@@ -133,6 +116,11 @@ const SendComunicatoView = (props) => {
   useEffect(() => {
     // dispatch(getReplicas(flattenToAppURL(getBaseUrl(pathname))));
     setIsClient(true);
+
+    return () => {
+      // eseguito all'unmount
+      dispatch(resetSendComunicatoSchema());
+    };
   }, []);
 
   useEffect(() => {
