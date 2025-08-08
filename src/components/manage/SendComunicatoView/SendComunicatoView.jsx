@@ -180,7 +180,7 @@ const SendComunicatoView = (props) => {
     <>
       <Container id="send-comunicato">
         {updateRequest?.loadingResults && !updateRequest?.hasError && (
-          <Dimmer active>
+          <Dimmer active page>
             <Loader inverted inline="centered" size="large">
               {intl.formatMessage(messages.loading)}
             </Loader>
