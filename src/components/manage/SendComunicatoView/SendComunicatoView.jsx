@@ -190,16 +190,6 @@ const SendComunicatoView = (props) => {
           title={`${intl.formatMessage(messages.send)}: ${content?.title}`}
         />
         <Segment.Group raised>
-          <Segment className="primary">
-            {/* <FormattedMessage
-              id="Manage Replica Content for {title}"
-              defaultMessage="Manage Replica Content for {title}"
-              values={{ title: <q>{content?.title}</q> }}
-            /> */}
-            <pre>{updateRequest.loadingResults && 'loadingResults'}</pre>
-            <pre>{updateRequest.hasError && 'hasError'}</pre>
-          </Segment>
-
           <Segment className="secondary">
             <h4>{content?.title}</h4>
             <p>{content?.description}</p>
