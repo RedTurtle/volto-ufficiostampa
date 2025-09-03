@@ -253,10 +253,11 @@ const SendHistoryPanel = () => {
                         );
                         break;
                       case 'sending':
-                        popupMessage = intl.formatMessage(
-                          messages.status_message_sending,
-                          { recipients: item.recipients },
-                        );
+                        popupMessage =
+                          item.status_message ||
+                          intl.formatMessage(messages.status_message_sending, {
+                            recipients: item.recipients,
+                          });
                         break;
                       case 'error':
                         popupMessage = item.status_message;
@@ -302,9 +303,10 @@ const SendHistoryPanel = () => {
                           {moment(item.date).format('DD/MM/YYYY HH:mm')}
                         </Table.Cell>
                         <Table.Cell>
-                          {moment(item.completed_date).format(
-                            'DD/MM/YYYY HH:mm',
-                          )}
+                          {item.completed_date &&
+                            moment(item.completed_date).format(
+                              'DD/MM/YYYY HH:mm',
+                            )}
                         </Table.Cell>
                         <Table.Cell>{item.recipients}</Table.Cell>
                         <Table.Cell>{item.number}</Table.Cell>

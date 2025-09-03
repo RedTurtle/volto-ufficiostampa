@@ -161,7 +161,10 @@ const SendComunicatoView = (props) => {
   }, [dispatch, intl, updateRequest.error]);
 
   useEffect(() => {
-    if (updateRequest.result?.status === 'success') {
+    if (
+      updateRequest.result?.status === 'success' ||
+      updateRequest.result?.status === 'sending'
+    ) {
       toast.success(
         <Toast
           success
