@@ -82,6 +82,8 @@ const SubscriptionsPanel = ({ toastify }) => {
     doSearch();
   }, [b_size, currentPage, selectedChannel]);
 
+  const canManage = subscriptions?.result?.permissions?.can_manage || false;
+
   return isUnauthorized ? (
     <Unauthorized />
   ) : (
@@ -100,7 +102,7 @@ const SubscriptionsPanel = ({ toastify }) => {
             {intl.formatMessage(messages.subscriptions_controlpanel)}
           </Segment>
 
-          <SubscriptionsPanelMenu doSearch={doSearch} />
+          {canManage && <SubscriptionsPanelMenu doSearch={doSearch} />}
 
           <Segment>
             {itemsSelected.length > 0 && (
@@ -189,29 +191,31 @@ const SubscriptionsPanel = ({ toastify }) => {
             >
               <Table.Header>
                 <Table.Row>
-                  <Table.HeaderCell
-                    width={1}
-                    textAlign="center"
-                    verticalAlign="middle"
-                  >
-                    <Checkbox
-                      title={intl.formatMessage(messages.select_all)}
-                      checked={
-                        subscriptions?.result?.items?.length !== 0 &&
-                        itemsSelected?.length ===
-                          subscriptions?.result?.items?.length
-                      }
-                      onChange={(e, o) => {
-                        if (o.checked) {
-                          // TODO: attenzione che in paginazione vengono filtrati solo
-                          // quelli visibili
-                          setItemsSelected(subscriptions?.result?.items);
-                        } else {
-                          setItemsSelected([]);
+                  {canManage && (
+                    <Table.HeaderCell
+                      width={1}
+                      textAlign="center"
+                      verticalAlign="middle"
+                    >
+                      <Checkbox
+                        title={intl.formatMessage(messages.select_all)}
+                        checked={
+                          subscriptions?.result?.items?.length !== 0 &&
+                          itemsSelected?.length ===
+                            subscriptions?.result?.items?.length
                         }
-                      }}
-                    />
-                  </Table.HeaderCell>
+                        onChange={(e, o) => {
+                          if (o.checked) {
+                            // TODO: attenzione che in paginazione vengono filtrati solo
+                            // quelli visibili
+                            setItemsSelected(subscriptions?.result?.items);
+                          } else {
+                            setItemsSelected([]);
+                          }
+                        }}
+                      />
+                    </Table.HeaderCell>
+                  )}
                   <Table.HeaderCell width={4}>
                     {intl.formatMessage(messages.name_label)}
                   </Table.HeaderCell>
@@ -227,52 +231,54 @@ const SubscriptionsPanel = ({ toastify }) => {
                   <Table.HeaderCell width={5}>
                     {intl.formatMessage(messages.newspaper_label)}
                   </Table.HeaderCell>
-                  <Table.HeaderCell width={2}></Table.HeaderCell>
-                  {/* <Table.HeaderCell textAlign="center" width={3}>
-                    {intl.formatMessage(messages.state)}
-                  </Table.HeaderCell> */}
+                  {canManage && <Table.HeaderCell width={2}></Table.HeaderCell>}
                 </Table.Row>
               </Table.Header>
               <Table.Body>
                 {subscriptions?.loaded &&
                   subscriptions.result?.items?.map((item, i) => (
                     <tr key={`subscription-${item.id}`}>
-                      <Table.Cell textAlign="center">
-                        <Checkbox
-                          title={intl.formatMessage(messages.select_item)}
-                          checked={itemsSelected.includes(item)}
-                          onChange={(e, o) => {
-                            if (o.checked) {
-                              itemsSelected.includes(item) ||
-                                setItemsSelected([item, ...itemsSelected]);
-                            } else {
-                              setItemsSelected(
-                                itemsSelected.includes(item) &&
-                                  itemsSelected.filter((i) => i !== item),
-                              );
-                            }
-                          }}
-                        />
-                      </Table.Cell>
+                      {canManage && (
+                        <Table.Cell textAlign="center">
+                          <Checkbox
+                            title={intl.formatMessage(messages.select_item)}
+                            checked={itemsSelected.includes(item)}
+                            onChange={(e, o) => {
+                              if (o.checked) {
+                                itemsSelected.includes(item) ||
+                                  setItemsSelected([item, ...itemsSelected]);
+                              } else {
+                                setItemsSelected(
+                                  itemsSelected.includes(item) &&
+                                    itemsSelected.filter((i) => i !== item),
+                                );
+                              }
+                            }}
+                          />
+                        </Table.Cell>
+                      )}
                       <Table.Cell>{item.name}</Table.Cell>
                       <Table.Cell>{item.surname}</Table.Cell>
                       <Table.Cell>{item.email}</Table.Cell>
                       <Table.Cell>{item.phone}</Table.Cell>
                       <Table.Cell>{item.newspaper}</Table.Cell>
-                      <Table.Cell>
-                        <Button
-                          color="primary"
-                          icon
-                          onClick={() => {
-                            setShowModalAdd(true);
-                            setModalData(item);
-                          }}
-                        >
-                          <i className="icon">
-                            <Icon name={editingSVG} size="20px" />
-                          </i>
-                        </Button>
-                      </Table.Cell>
+                      {canManage && (
+                        <Table.Cell>
+                          <Button
+                            color="primary"
+                            icon
+                            onClick={() => {
+                              setShowModalAdd(true);
+                              setModalData(item);
+                            }}
+                          >
+                            <i className="icon">
+                              <Icon name={editingSVG} size="20px" />
+                            </i>
+                          </Button>
+                          )
+                        </Table.Cell>
+                      )}
                       {/* <Table.Cell>
                         {item.is_active
                           ? intl.formatMessage(
@@ -307,7 +313,7 @@ const SubscriptionsPanel = ({ toastify }) => {
             </div>
           </Segment>
         </Segment.Group>
-        {showModalAdd && (
+        {canManage && showModalAdd && (
           <ModalAddSubscription
             showModal={showModalAdd}
             setShowModal={setShowModalAdd}
@@ -315,7 +321,7 @@ const SubscriptionsPanel = ({ toastify }) => {
             data={modalData}
           />
         )}
-        {showModalDelete && (
+        {canManage && showModalDelete && (
           <ModalDelete
             onClose={doSearch}
             items={itemsSelected}
@@ -346,19 +352,5 @@ const SubscriptionsPanel = ({ toastify }) => {
     </>
   );
 };
-
-// export default compose(
-//   injectLazyLibs(['toastify']),
-//   asyncConnect([
-//     {
-//       key: 'content',
-//       promise: async ({ location, store: { dispatch } }) => {
-//         const pathname = location.pathname.replace('/subscriptions', '');
-//         const content = await dispatch(getContent(getBaseUrl(pathname)));
-//         return content;
-//       },
-//     },
-//   ]),
-// )(SubscriptionsPanel);
 
 export default SubscriptionsPanel;
