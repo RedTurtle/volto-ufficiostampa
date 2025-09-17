@@ -33,12 +33,7 @@ msgstr "Modifica {title}"
 msgid "Error"
 msgstr "Errore"
 
-#. Default: "Save"
-#: components/manage/SendComunicatoView/SendComunicatoView
-msgid "Save"
-msgstr "Salva"
-
-#. Default: "Invia"
+#. Default: "Send"
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "Send"
 msgstr "Invia"
@@ -46,7 +41,7 @@ msgstr "Invia"
 #. Default: "Send history"
 #: components/manage/SendHistoryPanel/messages
 msgid "Send history"
-msgstr "Invia storico"
+msgstr "Storico degli invii"
 
 #. Default: "There are some errors."
 #: components/manage/SendComunicatoView/SendComunicatoView
@@ -70,6 +65,28 @@ msgstr "Conferma"
 #: components/manage/SubscriptionsPanel/messages
 msgid "channels"
 msgstr "Canali"
+
+#. Default: "Contenuto del comunicato"
+#: components/View/ComunicatoArchive/ComunicatoArchive
+#: components/View/ComunicatoStampa/ComunicatoStampaView
+msgid "comunicatoContent"
+msgstr "Contenuto del comunicato"
+
+#. Default: "Allegati"
+#: components/View/ComunicatoArchive/ComunicatoArchiveAttachments
+msgid "comunicato_archive_allegati"
+msgstr "Allegati"
+
+#. Default: "Allegati"
+#: components/View/ComunicatoStampa/ComunicatoStampaAllegati
+msgid "comunicato_attachments"
+msgstr "Allegati"
+
+#. Default: "Contenuto"
+#: components/View/ComunicatoArchive/ComunicatoArchiveText
+#: components/View/ComunicatoStampa/ComunicatoStampaText
+msgid "comunicato_item_contenuto"
+msgstr "Contenuto"
 
 #. Default: "Replace file"
 #: components/manage/SubscriptionsPanel/messages
@@ -141,20 +158,70 @@ msgstr "Lista deglie elementi che verrano eliminati"
 msgid "import_subscriptions"
 msgstr "Importa iscrizioni"
 
+#. Default: "Legislatura"
+#: components/manage/widgets/LegislatureWidget/LegislaturaConfiguration
+msgid "legislature-widget-legislature"
+msgstr "Legislatura"
+
+#. Default: "Aggiungi una legislatura"
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_addItem"
+msgstr "Aggiungi una legislatura"
+
+#. Default: "Argomenti"
+#: components/manage/widgets/LegislatureWidget/LegislaturaConfiguration
+msgid "legislature-widget_arguments"
+msgstr "Argomenti"
+
+#. Default: "Inserisci gli argomenti..."
+#: components/manage/widgets/LegislatureWidget/LegislaturaConfiguration
+msgid "legislature-widget_arguments_placeholder"
+msgstr "Inserisci gli argomenti..."
+
+#. Default: "Elimina legislatura"
+#: components/manage/widgets/LegislatureWidget/LegislaturaConfiguration
+msgid "legislature-widget_delete_index"
+msgstr "Elimina legislatura"
+
+#. Default: "Dati della legislatura"
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_item_content"
+msgstr "Dati della legislatura"
+
+#. Default: "Seleziona la legislatura"
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_item_selection"
+msgstr "Seleziona la legislatura"
+
+#. Default: "Sposta dopo"
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_moveItemDown"
+msgstr "Sposta dopo"
+
+#. Default: "Sposta prima"
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_moveItemUp"
+msgstr "Sposta prima"
+
+#. Default: "Nessuna legislatura selezionata."
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_no_active_items"
+msgstr "Nessuna legislatura selezionata."
+
+#. Default: "Nessuna legislatura"
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_no_items"
+msgstr "Nessuna legislatura"
+
+#. Default: "Senza titolo"
+#: components/manage/widgets/LegislatureWidget/LegislatureWidget
+msgid "legislature-widget_no_title"
+msgstr "Senza titolo"
+
 #. Default: "Loading"
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "loading"
 msgstr "Caricamento"
-
-#. Default: "Comunicati Stampa: Gestione Canali"
-#: components/Menu/Menu
-msgid "manageChannels"
-msgstr ""
-
-#. Default: "Comunicati Stampa: Storico Invio Comunicati"
-#: components/Menu/Menu
-msgid "manageHistory"
-msgstr ""
 
 #. Default: "Add subscription"
 #: components/manage/SubscriptionsPanel/messages
@@ -169,148 +236,102 @@ msgstr "Inserisci una iscrizione manualmente a questa newsletter."
 #. Default: "Email"
 #: components/manage/SubscriptionsPanel/messages
 msgid "modal_add_subscription_email_label"
-msgstr ""
+msgstr "Email"
 
 #. Default: "Error adding subscription."
 #: components/manage/SubscriptionsPanel/messages
 msgid "modal_add_subscription_error"
 msgstr "Errore durante l'aggiunta dell'iscrizione."
 
+#. Default: "Name"
+#: components/manage/SubscriptionsPanel/messages
+msgid "modal_add_subscription_name_label"
+msgstr "Nome"
+
+#. Default: "Newspaper"
+#: components/manage/SubscriptionsPanel/messages
+msgid "modal_add_subscription_newspaper_label"
+msgstr "Testata giornalistica"
+
+#. Default: "Phone"
+#: components/manage/SubscriptionsPanel/messages
+msgid "modal_add_subscription_phone_label"
+msgstr "Telefono"
+
 #. Default: "Subscriber added."
 #: components/manage/SubscriptionsPanel/messages
 msgid "modal_add_subscription_success"
 msgstr "Iscritto aggiunto."
+
+#. Default: "Surname"
+#: components/manage/SubscriptionsPanel/messages
+msgid "modal_add_subscription_surname_label"
+msgstr "Cognome"
 
 #. Default: "Import subscriptions from a csv file."
 #: components/manage/SubscriptionsPanel/messages
 msgid "modal_import_subscriptions_description"
 msgstr "Importa iscrizioni da un file CSV."
 
-#. Default: "All"
-#: components/manage/SendHistoryPanel/messages
-#: components/manage/SubscriptionsPanel/messages
-msgid "newsletter_panel_all"
-msgstr "Tutti"
-
-#. Default: "Are you sure you want to reset the following history?"
-#: components/manage/SendHistoryPanel/messages
-msgid "newsletter_panel_confirm_delete_selected"
-msgstr "Sei sicuro di voler eliminare la seguente cronologia?"
-
-#. Default: "Are you sure you want to delete the following subscriptions?"
-#: components/manage/SubscriptionsPanel/messages
-msgid "newsletter_panel_confirm_delete_selected_subscriptions"
-msgstr "Sei sicuro di voler eliminare le seguenti iscrizioni?"
-
-#. Default: "An error has occurred while trying to delete history for {element}"
-#: components/manage/SendHistoryPanel/messages
-msgid "newsletter_panel_delete_error"
-msgstr "Si è verificato un errore durante l'eliminazione della cronologia per {element}"
-
-#. Default: "Delete history"
-#: components/manage/SendHistoryPanel/messages
-msgid "newsletter_panel_delete_send_history"
-msgstr "Cancella cronologia"
-
-#. Default: "Delete subscriptions"
-#: components/manage/SubscriptionsPanel/messages
-msgid "newsletter_panel_delete_send_subscriptions"
-msgstr "Cancella iscrizioni"
-
-#. Default: "An error has occurred while trying to delete subscriptions"
-#: components/manage/SubscriptionsPanel/messages
-msgid "newsletter_panel_delete_subscriptions_error"
-msgstr "Si è verificato un errore durante l'eliminazione delle iscrizioni"
-
-#. Default: "Subscriptions deleted successfully!"
-#: components/manage/SubscriptionsPanel/messages
-msgid "newsletter_panel_delete_subscriptions_success"
-msgstr "Iscrizioni cancellate con successo!"
-
-#. Default: "Selected history deleted successfully!"
-#: components/manage/SendHistoryPanel/messages
-msgid "newsletter_panel_delete_success"
-msgstr "Cronologia selezionata eliminata con successo!"
-
-#. Default: "End send"
-#: components/manage/SendHistoryPanel/messages
-msgid "newsletter_panel_end_send"
-msgstr "Termina invio"
-
-#. Default: "Filter title"
-#: components/manage/SendHistoryPanel/messages
-#: components/manage/SubscriptionsPanel/messages
-msgid "newsletter_panel_filter_title"
-msgstr "Filtra per titolo"
-
-#. Default: "items selected."
-#: components/manage/SendHistoryPanel/messages
-#: components/manage/SubscriptionsPanel/messages
-msgid "newsletter_panel_items_selected"
-msgstr "elementi selezionati."
-
-#. Default: "Loading..."
-#: components/manage/SendHistoryPanel/messages
-msgid "newsletter_panel_loading"
-msgstr "Caricamento..."
-
-#. Default: "Message"
-#: components/manage/SendHistoryPanel/messages
-msgid "newsletter_panel_message"
-msgstr "Messaggio"
-
-#. Default: "No results found"
-#: components/manage/SendHistoryPanel/messages
-#: components/manage/SubscriptionsPanel/messages
-msgid "newsletter_panel_no_results"
+#. Default: "Nessun risultato trovato"
+#: components/blocks/SearchComunicati/Body
+#: components/blocks/SearchComunicatiPrePlone/Body
+msgid "noResult"
 msgstr "Nessun risultato trovato"
-
-#. Default: "Select/Deselect all"
-#: components/manage/SendHistoryPanel/messages
-#: components/manage/SubscriptionsPanel/messages
-msgid "newsletter_panel_select_all"
-msgstr "Seleziona/Deseleziona tutto"
-
-#. Default: "Select item"
-#: components/manage/SendHistoryPanel/messages
-#: components/manage/SubscriptionsPanel/messages
-msgid "newsletter_panel_select_item"
-msgstr "Seleziona elemento"
-
-#. Default: "Start send"
-#: components/manage/SendHistoryPanel/messages
-msgid "newsletter_panel_start_send"
-msgstr "Inizia invio"
-
-#. Default: "Status"
-#: components/manage/SendHistoryPanel/messages
-msgid "newsletter_panel_status"
-msgstr "Stato"
-
-#. Default: "Error"
-#: components/manage/SendHistoryPanel/messages
-msgid "newsletter_panel_status_error"
-msgstr "Errore"
-
-#. Default: "In progress"
-#: components/manage/SendHistoryPanel/messages
-msgid "newsletter_panel_status_in_progress"
-msgstr "In corso"
-
-#. Default: "Sent"
-#: components/manage/SendHistoryPanel/messages
-msgid "newsletter_panel_status_sent"
-msgstr "Inviato"
-
-#. Default: "Active subscribers"
-#: components/manage/SendHistoryPanel/messages
-msgid "newsletter_panel_subscribers"
-msgstr "Iscritti attivi"
 
 #. Default: "Error"
 #: components/manage/SubscriptionsPanel/messages
 msgid "panel_error"
 msgstr "Errore"
+
+#. Default: "Trovati {total} risultati"
+#: components/blocks/SearchComunicati/Body
+#: components/blocks/SearchComunicatiPrePlone/Body
+msgid "search-comunicati-total-results"
+msgstr "Trovati {total} risultati"
+
+#. Default: "Data al"
+#: components/blocks/SearchComunicati/DefaultFilters
+#: components/blocks/SearchComunicatiPrePlone/DefaultFilters
+msgid "searchComunicati_al"
+msgstr "Data al"
+
+#. Default: "Argomenti"
+#: components/blocks/SearchComunicati/DefaultFilters
+msgid "searchComunicati_argomenti"
+msgstr "Argomenti"
+
+#. Default: "Data dal"
+#: components/blocks/SearchComunicati/DefaultFilters
+#: components/blocks/SearchComunicatiPrePlone/DefaultFilters
+msgid "searchComunicati_dal"
+msgstr "Data dal"
+
+#. Default: "Data"
+#: components/blocks/SearchComunicati/DefaultFilters
+#: components/blocks/SearchComunicatiPrePlone/DefaultFilters
+msgid "searchComunicati_data_filter"
+msgstr "Data"
+
+#. Default: "Legislatura"
+#: components/blocks/SearchComunicati/DefaultFilters
+msgid "searchComunicati_legislatura"
+msgstr "Legislatura"
+
+#. Default: "Parole chiave"
+#: components/blocks/SearchComunicatiPrePlone/DefaultFilters
+msgid "searchComunicati_parolechiave"
+msgstr "Parole chiave"
+
+#. Default: "Le parole chiave devono essere separate dal carattere " | ""
+#: components/blocks/SearchComunicatiPrePlone/DefaultFilters
+msgid "searchComunicati_parolechiave_description"
+msgstr "Le parole chiave devono essere separate dal carattere " | ""
+
+#. Default: "Ricerca testuale"
+#: components/blocks/SearchComunicati/DefaultFilters
+msgid "searchComunicati_searchable_text"
+msgstr "Ricerca testuale"
 
 #. Default: "Select channel"
 #: components/manage/SendHistoryPanel/messages
@@ -318,10 +339,41 @@ msgstr "Errore"
 msgid "select_channel"
 msgstr "Seleziona un canale"
 
-#. Default: "Invia Comunicato Stampa"
-#: components/Menu/Menu
-msgid "sendComunicato"
-msgstr ""
+#. Default: "Select type"
+#: components/manage/SendHistoryPanel/messages
+msgid "select_portal_type"
+msgstr "Seleziona una tipologia"
+
+#. Default: "Download"
+#: components/manage/SendHistoryPanel/messages
+msgid "send_history_download_label"
+msgstr "Scarica"
+
+#. Default: "Comunicato sent"
+#: components/manage/SendComunicatoView/SendComunicatoView
+msgid "send_success"
+msgstr "Inviato"
+
+#. Default: "Go to send history to check its status."
+#: components/manage/SendComunicatoView/SendComunicatoView
+msgid "send_success_text"
+msgstr "Vai alla cronologia degli invii per controllare lo stato."
+
+#. Default: "Sending"
+#: components/manage/SendHistoryPanel/messages
+msgid "sending_label"
+msgstr "In invio"
+
+#. Default: "Indice della pagina"
+#: components/View/ComunicatoArchive/ComunicatoArchive
+#: components/View/ComunicatoStampa/ComunicatoStampaView
+msgid "sideMenuIndex"
+msgstr "Indice della pagina"
+
+#. Default: "Message"
+#: components/manage/SendHistoryPanel/messages
+msgid "status_message_header"
+msgstr "Messaggio"
 
 #. Default: "An error has occurred trying to add subscription."
 #: components/manage/SubscriptionsPanel/messages
@@ -342,6 +394,11 @@ msgstr "Si è verificato un errore durante l'importazione delle iscrizioni."
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscribe_import_success"
 msgstr "Iscrizioni importate"
+
+#. Default: "Subscription updated."
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscribe_update_success"
+msgstr "Iscrizione aggiornata."
 
 #. Default: "Active"
 #: components/manage/SubscriptionsPanel/messages
@@ -365,18 +422,23 @@ msgstr "Data di creazione"
 
 #. Default: "Download"
 #: components/manage/SubscriptionsPanel/messages
-msgid "subscriptions_download_list"
+msgid "subscriptions_export_list"
 msgstr "Scarica"
-
-#. Default: "Email"
-#: components/manage/SubscriptionsPanel/messages
-msgid "subscriptions_email"
-msgstr ""
 
 #. Default: "Loading..."
 #: components/manage/SubscriptionsPanel/messages
 msgid "subscriptions_loading"
 msgstr "Caricamento..."
+
+#. Default: "items selected."
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscriptions_panel_items_selected"
+msgstr "elementi selezionati"
+
+#. Default: "item selected."
+#: components/manage/SubscriptionsPanel/messages
+msgid "subscriptions_panel_single_item_selected"
+msgstr "elemento selezionato."
 
 #. Default: "State"
 #: components/manage/SubscriptionsPanel/messages
@@ -392,7 +454,7 @@ msgstr "Gestisci iscrizioni"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages
 msgid "success_label"
-msgstr ""
+msgstr "Completato"
 
 #. Default: "{totResults} results (filtered)."
 #: components/manage/SendHistoryPanel/messages
@@ -405,3 +467,167 @@ msgstr "{totResults} risultati (filtrati)."
 #: components/manage/SubscriptionsPanel/messages
 msgid "tot_results_unfiltered"
 msgstr "{totResults} risultati."
+
+#. Default: "Number"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_comunicato_number"
+msgstr "Numero"
+
+#. Default: "Recipients"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_comunicato_recipients"
+msgstr "Destinatari"
+
+#. Default: "Title"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_comunicato_title"
+msgstr "Titolo"
+
+#. Default: "Type"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_comunicato_type"
+msgstr "Tipologia"
+
+#. Default: "Filter title"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_history_panel_filter_title"
+msgstr "Cerca nel titolo"
+
+#. Default: "All"
+#: components/manage/SendHistoryPanel/messages
+#: components/manage/SubscriptionsPanel/messages
+msgid "ufficiostampa_panel_all"
+msgstr "Tutti"
+
+#. Default: "Are you sure you want to reset history?"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_confirm_delete_selected"
+msgstr "Sei sicuro di voler eliminare l'intera cronologia?"
+
+#. Default: "Are you sure you want to delete the following subscriptions?"
+#: components/manage/SubscriptionsPanel/messages
+msgid "ufficiostampa_panel_confirm_delete_selected_subscriptions"
+msgstr "Sei sicuro di voler eliminare le seguenti iscrizioni?"
+
+#. Default: "An error has occurred while trying to delete history for {element}"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_delete_error"
+msgstr "Si è verificato un errore durante l'eliminazione della cronologia per {element}"
+
+#. Default: "Delete history"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_delete_send_history"
+msgstr "Cancella cronologia"
+
+#. Default: "Delete subscriptions"
+#: components/manage/SubscriptionsPanel/messages
+msgid "ufficiostampa_panel_delete_send_subscriptions"
+msgstr "Cancella iscrizioni"
+
+#. Default: "An error has occurred while trying to delete subscriptions"
+#: components/manage/SubscriptionsPanel/messages
+msgid "ufficiostampa_panel_delete_subscriptions_error"
+msgstr "Si è verificato un errore durante l'eliminazione delle iscrizioni"
+
+#. Default: "Subscriptions deleted successfully!"
+#: components/manage/SubscriptionsPanel/messages
+msgid "ufficiostampa_panel_delete_subscriptions_success"
+msgstr "Iscrizioni cancellate con successo!"
+
+#. Default: "Selected history deleted successfully!"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_delete_success"
+msgstr "Cronologia selezionata eliminata con successo!"
+
+#. Default: "End send"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_end_send"
+msgstr "Concluso"
+
+#. Default: "Filter subscriptions"
+#: components/manage/SubscriptionsPanel/messages
+msgid "ufficiostampa_panel_filter_subscriptions"
+msgstr "Filtra gli iscritti"
+
+#. Default: "History deleted successfully"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_history_deleted"
+msgstr "Cronologia eliminata con successo"
+
+#. Default: "items selected."
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_items_selected"
+msgstr "elementi selezionati."
+
+#. Default: "Loading..."
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_loading"
+msgstr "Caricamento..."
+
+#. Default: "No results found"
+#: components/manage/SendHistoryPanel/messages
+#: components/manage/SubscriptionsPanel/messages
+msgid "ufficiostampa_panel_no_results"
+msgstr "Nessun risultato trovato"
+
+#. Default: "Select/Deselect all"
+#: components/manage/SendHistoryPanel/messages
+#: components/manage/SubscriptionsPanel/messages
+msgid "ufficiostampa_panel_select_all"
+msgstr "Seleziona/Deseleziona tutto"
+
+#. Default: "Select item"
+#: components/manage/SendHistoryPanel/messages
+#: components/manage/SubscriptionsPanel/messages
+msgid "ufficiostampa_panel_select_item"
+msgstr "Seleziona elemento"
+
+#. Default: "Start send"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_start_send"
+msgstr "Data di invio"
+
+#. Default: "Status"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_status"
+msgstr "Stato"
+
+#. Default: "Error"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_status_error"
+msgstr "Errore"
+
+#. Default: "In progress"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_status_in_progress"
+msgstr "In corso"
+
+#. Default: "Sent"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_status_sent"
+msgstr "Inviato"
+
+#. Default: "Active subscribers"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_panel_subscribers"
+msgstr "Iscritti attivi"
+
+#. Default: "Portal type"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_portal_type"
+msgstr "Tipologia"
+
+#. Default: "Settings"
+#: components/manage/SubscriptionsPanel/messages
+msgid "ufficiostampa_settings"
+msgstr "Impostazioni"
+
+#. Default: "Sending to {recipients} recipients"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_status_message_sending"
+msgstr "In invio a {recipients} destinatari"
+
+#. Default: "Sent to {recipients} recipients"
+#: components/manage/SendHistoryPanel/messages
+msgid "ufficiostampa_status_message_success"
+msgstr "Inviato a {recipients} destinatari"

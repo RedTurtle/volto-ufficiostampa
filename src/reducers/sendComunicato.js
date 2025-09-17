@@ -30,6 +30,8 @@ export const sendComunicatoSchemaReducer = (
         hasError: true,
         loadingResults: false,
       };
+    case `${GET_SENDCOMUNICATO_SCHEMA}_RESET`:
+      return initialState;
     default:
       return state;
   }

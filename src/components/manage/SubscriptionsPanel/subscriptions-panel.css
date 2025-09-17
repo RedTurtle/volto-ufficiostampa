@@ -1,26 +1,53 @@
-/* #page-subscriptions .ui.button.labeled i.icon {
+#page-subscriptions .ui.button.labeled i.icon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#page-subscriptions .ui.checkbox.toggle label {
-  overflow: hidden;
-}
-
-#page-subscriptions .ui.form.search-form .ui.fluid.input {
-  justify-content: flex-end;
-  margin-bottom: 0.5rem;
-}
-
-#page-subscriptions .ui.form.search-form .ui.fluid.input input {
-  max-width: 23rem;
-}
-
-#page-subscriptions .ui.message.selected-items {
+#page-subscriptions .selected-items {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+}
+
+#page-subscriptions .subscriptions-panel-menu.ui.secondary.menu {
+  flex-wrap: wrap;
+}
+
+#page-subscriptions .subscriptions-panel-menu.ui.secondary.menu .item {
+  padding-right: 0;
+  margin: 0;
+}
+
+#page-subscriptions
+  .subscriptions-panel-menu.ui.secondary.menu
+  .item:first-child {
+  margin-left: 0.5rem;
+}
+
+#page-subscriptions
+  .subscriptions-panel-menu.ui.secondary.menu
+  .item:last-child {
+  margin-right: 1.5rem;
+  margin-left: auto;
+}
+
+#page-subscriptions .search-form .fields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+#page-subscriptions .ui.fixed.table th,
+#page-subscriptions .ui.fixed.table td {
+  text-overflow: initial;
+  white-space: break-spaces;
+}
+
+#page-subscriptions .ui.fixed.table th:last-child,
+#page-subscriptions .ui.fixed.table td:last-child {
+  text-align: right;
 }
 
 #page-subscriptions .no-results {
@@ -35,18 +62,13 @@
   font-weight: 300;
 }
 
-#page-subscriptions .confirm-delete-item:not(:last-of-type) {
-  margin-bottom: 0.75rem;
+@media only screen and (min-width: 1280px) {
+  body.cms-ui.has-toolbar:not(.has-sidebar):not(.has-sidebar-collapsed)
+    .ui.container.fluid.controlpanel-subscriptions {
+    width: 90% !important;
+  }
 }
 
-#page-subscriptions .confirm-delete-item {
-  font-weight: 600;
+table.controlpanel-table {
+  font-size: 80%
 }
-
-#page-subscriptions .ui.dimmer .ui.workaround.loader:before {
-  border-color: rgba(0, 0, 0, 0.1);
-}
-
-#page-subscriptions .ui.dimmer .ui.workaround.loader:after {
-  border-color: #767676 transparent transparent;
-} */

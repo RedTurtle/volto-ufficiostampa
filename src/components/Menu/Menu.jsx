@@ -1,98 +1,47 @@
 import { Plug } from '@plone/volto/components/manage/Pluggable';
-import {
-  flattenToAppURL,
-  getBaseUrl,
-  Helmet,
-  tryParseJSON,
-  usePrevious,
-} from '@plone/volto/helpers';
-import {
-  defineMessages,
-  FormattedMessage,
-  injectIntl,
-  useIntl,
-} from 'react-intl';
+import { flattenToAppURL } from '@plone/volto/helpers';
 import rightArrowSVG from '@plone/volto/icons/right-key.svg';
 import { Link } from 'react-router-dom';
-import { Icon, TextWidget } from '@plone/volto/components';
-
-const messages = defineMessages({
-  sendComunicato: {
-    id: 'sendComunicato',
-    defaultMessage: 'Invia Comunicato Stampa',
-  },
-  manageChannels: {
-    id: 'manageChannels',
-    defaultMessage: 'Comunicati Stampa: Gestione Canali',
-  },
-  manageHistory: {
-    id: 'manageHistory',
-    defaultMessage: 'Comunicati Stampa: Storico Invio Comunicati',
-  },
-});
+import { Icon } from '@plone/volto/components';
 
 const SendMenu = (props) => {
-  const { content, pathname, intl } = props;
-  const path = getBaseUrl(pathname);
+  const { content } = props;
+  const actionIds = [
+    'ufficiostampa-channels-management',
+    'ufficiostampa-history-management',
+    'ufficiostampa-send',
+  ];
+
+  const actions = content?.['@components']?.actions?.object || [];
+  const filteredActions = actionIds
+    .map((id) => actions.find((action) => action.id === id))
+    .filter(Boolean);
+
   return (
-    content?.['@type'] === 'ComunicatoStampa' && (
-      <>
-        {/* // TODO: anzichè nasconderlo completamente sarebbe meglio disabilitarlo */}
-        {content?.review_state === 'published' && (
+    <>
+      {filteredActions.map((action) => {
+        return (
           <Plug
             pluggable="toolbar-more-manage-content"
-            id="send-comunicato-menu"
+            key={action.id}
+            id={action.id}
           >
             <li>
-              <Link to={`${path}/@send-comunicato`}>
+              <Link
+                to={flattenToAppURL(action.url)}
+                target={action.id !== 'ufficiostampa-send' ? '_blank' : ''}
+              >
                 <div>
-                  <span className="pastanaga-menu-label">
-                    {intl.formatMessage(messages.sendComunicato)}
-                  </span>
+                  <span className="pastanaga-menu-label">{action.title}</span>
                   <span className="pastanaga-menu-value" />
                 </div>
                 <Icon name={rightArrowSVG} size="24px" />
               </Link>
             </li>
           </Plug>
-        )}
-        {/* Questi controlpanel sarebbero a livello di sito e non di contenuto,
-                sono messi anche tra i controlpanel, ma ripetuti qui, altrimenti chi non ha
-                accesso ai controlpanel non avrebbe la url per arrivarci */}
-        <Plug pluggable="toolbar-more-manage-content" id="manage-channels-menu">
-          <li>
-            <Link
-              to={`/controlpanel/ufficiostampa-managechannels`}
-              target="_blank"
-            >
-              <div>
-                <span className="pastanaga-menu-label">
-                  {intl.formatMessage(messages.manageChannels)}
-                </span>
-                <span className="pastanaga-menu-value" />
-              </div>
-              <Icon name={rightArrowSVG} size="24px" />
-            </Link>
-          </li>
-        </Plug>
-        <Plug pluggable="toolbar-more-manage-content" id="manage-history-menu">
-          <li>
-            <Link
-              to={`/controlpanel/ufficiostampa-managehistory`}
-              target="_blank"
-            >
-              <div>
-                <span className="pastanaga-menu-label">
-                  {intl.formatMessage(messages.manageHistory)}
-                </span>
-                <span className="pastanaga-menu-value" />
-              </div>
-              <Icon name={rightArrowSVG} size="24px" />
-            </Link>
-          </li>
-        </Plug>
-      </>
-    )
+        );
+      })}
+    </>
   );
 };
 

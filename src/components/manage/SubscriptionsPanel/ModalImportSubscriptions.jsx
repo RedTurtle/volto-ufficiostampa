@@ -47,7 +47,7 @@ const ModalImportSubscriptions = ({ showModal, setShowModal, onClose }) => {
       // setFormData({});
       // setFormFilename('');
       dispatch(resetImportSubscription());
-      // onClose();
+      onClose();
     };
   }, [dispatch, onClose]);
 
@@ -57,16 +57,8 @@ const ModalImportSubscriptions = ({ showModal, setShowModal, onClose }) => {
         const msg =
           status.error?.response?.body?.message ||
           intl.formatMessage(messages.subscribe_add_error);
-        // console.log(msg);
-        // toast.error(<Toast error content={msg} />);
         setError(msg);
       } else {
-        // toast.success(
-        //   <Toast
-        //     success
-        //     content={intl.formatMessage(messages.subscribe_add_success)}
-        //   />,
-        // );
         setShowModal(false);
       }
     }
@@ -84,9 +76,10 @@ const ModalImportSubscriptions = ({ showModal, setShowModal, onClose }) => {
   return (
     <Modal
       id="modal-import-subscriptions"
-      className="react-aria-Modal newsletter-modal"
+      className="react-aria-Modal ufficiostampa-modal"
       isDismissable
       isOpen={showModal}
+      onOpenChange={setShowModal}
       // onOpenChange={() => toggleModal(!showModal)}
     >
       {status.loading && (

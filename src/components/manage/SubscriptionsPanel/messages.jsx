@@ -5,13 +5,16 @@ const messages = defineMessages({
     id: 'subscriptions_add_subscriber',
     defaultMessage: 'Add subscriber',
   },
-  all: { id: 'newsletter_panel_all', defaultMessage: 'All' },
+  all: {
+    id: 'ufficiostampa_panel_all',
+    defaultMessage: 'All',
+  },
   back: { id: 'Back', defaultMessage: 'Back' },
   cancel: { id: 'button_cancel', defaultMessage: 'Cancel' },
   channels: { id: 'channels', defaultMessage: 'Channels' },
   confirm: { id: 'button_confirm', defaultMessage: 'Confirm' },
   confirm_delete_selected: {
-    id: 'newsletter_panel_confirm_delete_selected_subscriptions',
+    id: 'ufficiostampa_panel_confirm_delete_selected_subscriptions',
     defaultMessage:
       'Are you sure you want to delete the following subscriptions?',
   },
@@ -20,31 +23,47 @@ const messages = defineMessages({
     defaultMessage: 'Creation date',
   },
   delete_subscriptions: {
-    id: 'newsletter_panel_delete_send_subscriptions',
+    id: 'ufficiostampa_panel_delete_send_subscriptions',
     defaultMessage: 'Delete subscriptions',
   },
   delete_subscriptions_error: {
-    id: 'newsletter_panel_delete_subscriptions_error',
+    id: 'ufficiostampa_panel_delete_subscriptions_error',
     defaultMessage:
       'An error has occurred while trying to delete subscriptions',
   },
   delete_subscriptions_success: {
-    id: 'newsletter_panel_delete_subscriptions_success',
+    id: 'ufficiostampa_panel_delete_subscriptions_success',
     defaultMessage: 'Subscriptions deleted successfully!',
   },
-  download_list: {
-    id: 'subscriptions_download_list',
+  export_list: {
+    id: 'subscriptions_export_list',
     defaultMessage: 'Download',
   },
-  email: { id: 'subscriptions_email', defaultMessage: 'Email' },
   email_label: {
     id: 'modal_add_subscription_email_label',
     defaultMessage: 'Email',
   },
+  name_label: {
+    id: 'modal_add_subscription_name_label',
+    defaultMessage: 'Name',
+  },
+  surname_label: {
+    id: 'modal_add_subscription_surname_label',
+    defaultMessage: 'Surname',
+  },
+  phone_label: {
+    id: 'modal_add_subscription_phone_label',
+    defaultMessage: 'Phone',
+  },
+  newspaper_label: {
+    id: 'modal_add_subscription_newspaper_label',
+    defaultMessage: 'Newspaper',
+  },
   error: { id: 'panel_error', defaultMessage: 'Error' },
-  filter_title: {
-    id: 'newsletter_panel_filter_title',
-    defaultMessage: 'Filter title',
+
+  filter_subscriptions: {
+    id: 'ufficiostampa_panel_filter_subscriptions',
+    defaultMessage: 'Filter subscriptions',
   },
   import_description: {
     id: 'import_description',
@@ -52,8 +71,12 @@ const messages = defineMessages({
       'Import subscriptions from a csv file. The CSV file must have a columns named "email", ...',
   },
   items_selected: {
-    id: 'newsletter_panel_items_selected',
+    id: 'subscriptions_panel_items_selected',
     defaultMessage: 'items selected.',
+  },
+  single_item_selected: {
+    id: 'subscriptions_panel_single_item_selected',
+    defaultMessage: 'item selected.',
   },
   loading: { id: 'subscriptions_loading', defaultMessage: 'Loading...' },
   message_send_error: {
@@ -75,15 +98,15 @@ const messages = defineMessages({
     defaultMessage: 'Add subscription',
   },
   no_results: {
-    id: 'newsletter_panel_no_results',
+    id: 'ufficiostampa_panel_no_results',
     defaultMessage: 'No results found',
   },
   select_all: {
-    id: 'newsletter_panel_select_all',
+    id: 'ufficiostampa_panel_select_all',
     defaultMessage: 'Select/Deselect all',
   },
   select_item: {
-    id: 'newsletter_panel_select_item',
+    id: 'ufficiostampa_panel_select_item',
     defaultMessage: 'Select item',
   },
   selectChannel: { id: 'select_channel', defaultMessage: 'Select channel' },
@@ -95,6 +118,10 @@ const messages = defineMessages({
   subscribe_add_success: {
     id: 'subscribe_add_success',
     defaultMessage: 'Subscription added.',
+  },
+  subscribe_update_success: {
+    id: 'subscribe_update_success',
+    defaultMessage: 'Subscription updated.',
   },
   subscribe_import_error: {
     id: 'subscribe_import_error',
@@ -125,7 +152,10 @@ const messages = defineMessages({
     id: 'tot_results_unfiltered',
     defaultMessage: '{totResults} results.',
   },
-  import_subscriptions: { id: 'import_subscriptions', defaultMessage: 'Import subscriptions' },
+  import_subscriptions: {
+    id: 'import_subscriptions',
+    defaultMessage: 'Import subscriptions',
+  },
   modal_import_description: {
     id: 'modal_import_subscriptions_description',
     defaultMessage: 'Import subscriptions from a csv file.',
@@ -174,6 +204,10 @@ const messages = defineMessages({
   replace_file: {
     id: 'dropzone_replace_file',
     defaultMessage: 'Replace file',
+  },
+  ufficiostampa_settings: {
+    id: 'ufficiostampa_settings',
+    defaultMessage: 'Settings',
   },
 });
 

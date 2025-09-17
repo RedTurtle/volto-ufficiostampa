@@ -11,13 +11,9 @@ import './subscriptions-panel.css';
 const ModalDelete = ({ items, setItems, showModal, setShowModal, onClose }) => {
   const intl = useIntl();
   const dispatch = useDispatch();
-  const deleteSubscriptionsState = useSelector((state) => state?.deleteSubscriptions);
-
-  useEffect(() => {
-    return () => {
-      onClose();
-    };
-  }, [onClose]);
+  const deleteSubscriptionsState = useSelector(
+    (state) => state?.deleteSubscriptions,
+  );
 
   useEffect(() => {
     if (
@@ -28,39 +24,42 @@ const ModalDelete = ({ items, setItems, showModal, setShowModal, onClose }) => {
       setItems([]);
       setShowModal(false);
     } else if (deleteSubscriptionsState?.loaded) {
-      console.log(deleteSubscriptionsState?.error);
       // TODO: manage errors
     }
   }, [deleteSubscriptionsState, onClose, setItems, setShowModal]);
 
+  useEffect(() => {
+    // called when the component is unmounted
+    return () => {
+      onClose();
+    };
+  }, []);
   return (
     <Modal
-      className="react-aria-Modal newsletter-modal"
+      className="react-aria-Modal ufficiostampa-modal"
       isDismissable
       isOpen={showModal}
-      // onOpenChange={() => setShowModal(showModal)}
+      onOpenChange={setShowModal}
     >
       <Dialog>
         <div className="modal-header">
           <Heading>
             {intl.formatMessage(messages.confirm_delete_selected)}
           </Heading>
-          <div className="close">
-            <Button onPress={() => setShowModal(false)}>X</Button>
-          </div>
         </div>
 
         <div className="content ui ">
           <div className="content ui ">
-            {deleteSubscriptionsState?.loading && !deleteSubscriptionsState?.loaded && (
-              <Dimmer active>
-                <Loader inverted inline="centered" size="large">
-                  {intl.formatMessage(messages.loading)}
-                </Loader>
-              </Dimmer>
-            )}
+            {deleteSubscriptionsState?.loading &&
+              !deleteSubscriptionsState?.loaded && (
+                <Dimmer active>
+                  <Loader inverted inline="centered" size="large">
+                    {intl.formatMessage(messages.loading)}
+                  </Loader>
+                </Dimmer>
+              )}
             {items?.map((item, i) => (
-              <div className="confirm-delete-item" key={item}>
+              <div className="confirm-delete-item" key={item.email}>
                 {item.email}
               </div>
             ))}

@@ -11,7 +11,7 @@ const SendComunicatoPreview = ({ pathname, form }) => {
         height="600px"
         scr
         title="preview"
-        src={`${getBaseUrl(pathname)}/send-preview/@@download/html?notes=${notes}${attachments.map((a) => `&attachmenst=${a}`)}`}
+        src={`${getBaseUrl(pathname)}/send-preview/@@download/html?notes=${notes}${attachments.map((a) => `&attachments=${a}`)}`}
       />
     </>
   );

@@ -3,7 +3,7 @@ import '@plone/components/src/styles/basic/Dialog.css';
 import '@plone/components/src/styles/basic/Modal.css';
 import { getContent } from '@plone/volto/actions';
 import {
-  Form, 
+  Form,
   Icon,
   Toast,
   Toolbar,
@@ -14,31 +14,26 @@ import {
   getBaseUrl,
   Helmet,
   tryParseJSON,
-  usePrevious,
 } from '@plone/volto/helpers';
-import backSVG from '@plone/volto/icons/back.svg';
 import clearSVG from '@plone/volto/icons/clear.svg';
 import saveSVG from '@plone/volto/icons/send.svg';
 import showSVG from '@plone/volto/icons/show.svg';
 import { useEffect, useRef, useState } from 'react';
-import {
-  // Button,
-  Dialog,
-  Heading,
-  // Input,
-  // Label,
-  Modal,
-} from 'react-aria-components';
-import { createPortal } from 'react-dom';
+import { Dialog, Heading, Modal } from 'react-aria-components';
 import { defineMessages, useIntl } from 'react-intl';
 import { Portal } from 'react-portal';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Button, Container, Dimmer, Loader, Segment } from 'semantic-ui-react';
-import { getSendComunicatoSchema, resetSendComunicato, sendComunicato } from '../../../actions';
-import '../modals.css';
+import {
+  getSendComunicatoSchema,
+  resetSendComunicatoSchema,
+  resetSendComunicato,
+  sendComunicato,
+} from '../../../actions';
 import SendComunicatoPreview from './SendComunicatoPreview';
+
+import '../modals.css';
 
 const messages = defineMessages({
   back: {
@@ -49,9 +44,9 @@ const messages = defineMessages({
     id: 'Edit {title}',
     defaultMessage: 'Edit {title}',
   },
-  save: {
-    id: 'Save',
-    defaultMessage: 'Save',
+  send: {
+    id: 'Send',
+    defaultMessage: 'Send',
   },
   cancel: {
     id: 'Cancel',
@@ -67,7 +62,15 @@ const messages = defineMessages({
   },
   send: {
     id: 'Send',
-    defaultMessage: 'Invia',
+    defaultMessage: 'Send',
+  },
+  send_success: {
+    id: 'send_success',
+    defaultMessage: 'Comunicato sent',
+  },
+  send_success_text: {
+    id: 'send_success_text',
+    defaultMessage: 'Go to send history to check its status.',
   },
   loading: {
     id: 'loading',
@@ -83,8 +86,6 @@ const SendComunicatoView = (props) => {
   const [isClient, setIsClient] = useState(false);
   const content = useSelector((state) => state.content?.data, shallowEqual);
   const updateRequest = useSelector((state) => state.comunicatoSendReducer);
-  const prevrequestloading = usePrevious(updateRequest.loading);
-  const [selectedContainers, setSelectedContainers] = useState([]);
   const [showPreview, setShowPreview] = useState(false);
 
   const schema = useSelector(
@@ -92,19 +93,13 @@ const SendComunicatoView = (props) => {
     shallowEqual,
   );
   const unauthorized = useSelector(
-    (state) => state.comunicatoSchemaReducer?.error === 401
-  )
+    (state) => state.comunicatoSchemaReducer?.error === 401,
+  );
   const form = useRef();
 
   useEffect(() => {
     dispatch(getSendComunicatoSchema(flattenToAppURL(getBaseUrl(pathname))));
   }, [dispatch, pathname]);
-
-  //   const onChange = (event, { checked, value }) => {
-  //     setSelectedContainers(
-  //       checked ? selectedContainers.concat([value]) : selectedContainers.filter((uid) => uid !== value)
-  //     );
-  //   }
 
   const onSubmit = (data) => {
     dispatch(sendComunicato(flattenToAppURL(getBaseUrl(pathname)), data));
@@ -121,6 +116,11 @@ const SendComunicatoView = (props) => {
   useEffect(() => {
     // dispatch(getReplicas(flattenToAppURL(getBaseUrl(pathname))));
     setIsClient(true);
+
+    return () => {
+      // eseguito all'unmount
+      dispatch(resetSendComunicatoSchema());
+    };
   }, []);
 
   useEffect(() => {
@@ -161,12 +161,15 @@ const SendComunicatoView = (props) => {
   }, [dispatch, intl, updateRequest.error]);
 
   useEffect(() => {
-    if (updateRequest.result?.status === 'success') {
+    if (
+      updateRequest.result?.status === 'success' ||
+      updateRequest.result?.status === 'sending'
+    ) {
       toast.success(
         <Toast
           success
-          title={intl.formatMessage(messages.send)}
-          content={intl.formatMessage(messages.send)}
+          title={intl.formatMessage(messages.send_success)}
+          content={intl.formatMessage(messages.send_success_text)}
         />,
       );
       dispatch(resetSendComunicato());
@@ -174,12 +177,13 @@ const SendComunicatoView = (props) => {
     }
   }, [updateRequest]);
 
-  return unauthorized ? <Unauthorized /> : (
-    
+  return unauthorized ? (
+    <Unauthorized />
+  ) : (
     <>
       <Container id="send-comunicato">
         {updateRequest?.loadingResults && !updateRequest?.hasError && (
-          <Dimmer active>
+          <Dimmer active page>
             <Loader inverted inline="centered" size="large">
               {intl.formatMessage(messages.loading)}
             </Loader>
@@ -189,16 +193,6 @@ const SendComunicatoView = (props) => {
           title={`${intl.formatMessage(messages.send)}: ${content?.title}`}
         />
         <Segment.Group raised>
-          <Segment className="primary">
-            {/* <FormattedMessage
-              id="Manage Replica Content for {title}"
-              defaultMessage="Manage Replica Content for {title}"
-              values={{ title: <q>{content?.title}</q> }}
-            /> */}
-            <pre>{updateRequest.loadingResults && 'loadingResults'}</pre>
-            <pre>{updateRequest.hasError && 'hasError'}</pre>
-            </Segment>
-
           <Segment className="secondary">
             <h4>{content?.title}</h4>
             <p>{content?.description}</p>
@@ -206,7 +200,7 @@ const SendComunicatoView = (props) => {
           {schema && (
             <Form
               ref={form}
-              title="Send Comunicato"
+              title="Invia comunicato/invito"
               schema={schema}
               onSubmit={onSubmit}
               //   onCancel={this.onCancel}
@@ -215,12 +209,13 @@ const SendComunicatoView = (props) => {
             />
           )}
         </Segment.Group>
-        {showPreview && <Modal      
-          id="modal-preview"
-          className="react-aria-Modal newsletter-modal"
-          isDismissable
-          isOpen={showPreview}
-          // onOpenChange={() => toggleModal(!modalIsOpen)}
+        {showPreview && (
+          <Modal
+            id="modal-preview"
+            className="react-aria-Modal ufficiostampa-modal"
+            isDismissable
+            isOpen={showPreview}
+            // onOpenChange={() => toggleModal(!modalIsOpen)}
           >
             <Dialog>
               <div className="modal-header">
@@ -236,7 +231,7 @@ const SendComunicatoView = (props) => {
               <SendComunicatoPreview pathname={pathname} form={form.current} />
             </Dialog>
           </Modal>
-        }
+        )}
       </Container>
       {isClient && pathname && (
         <Portal node={document.getElementById('toolbar')}>
@@ -248,7 +243,7 @@ const SendComunicatoView = (props) => {
                 <Button
                   id="toolbar-save"
                   className="save"
-                  aria-label={intl.formatMessage(messages.save)}
+                  aria-label={intl.formatMessage(messages.send)}
                   onClick={() => form.current.onSubmit()}
                   disabled={updateRequest.loading}
                   loading={updateRequest.loading}
@@ -257,20 +252,20 @@ const SendComunicatoView = (props) => {
                     name={saveSVG}
                     className="circled"
                     size="30px"
-                    title={intl.formatMessage(messages.save)}
+                    title={intl.formatMessage(messages.send)}
                   />
                 </Button>
                 <Button
                   id="toolbar-preview"
                   onClick={() => setShowPreview(true)}
-                  >
-                    <Icon
-                      name={showSVG}
-                      className="circled"
-                      size="30px"
-                      title="preview"
-                    />
-                  </Button>
+                >
+                  <Icon
+                    name={showSVG}
+                    className="circled"
+                    size="30px"
+                    title="preview"
+                  />
+                </Button>
                 <Button
                   className="cancel"
                   aria-label={intl.formatMessage(messages.cancel)}

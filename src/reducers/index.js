@@ -7,12 +7,17 @@ import {
   deleteSubscriptionsReducer,
   importSubscriptionsReducer,
   addSubscriptionReducer,
+  updateSubscriptionReducer,
 } from './subscriptions';
 
+import { getSendHistoryReducer, deleteSendHistoryReducer } from './history';
+
 import {
-  getSendHistoryReducer,
-  deleteSendHistoryReducer,
-} from './history';
+  searchComunicatiOldReducer,
+  searchComunicatiParametersReducer,
+  searchComunicatiReducer,
+} from './search';
+import { getComunicatoArchiveReducer } from './comunicatoArchive';
 
 export {
   sendComunicatoSchemaReducer,
@@ -21,6 +26,11 @@ export {
   deleteSubscriptionsReducer,
   importSubscriptionsReducer,
   addSubscriptionReducer,
+  updateSubscriptionReducer,
   getSendHistoryReducer,
   deleteSendHistoryReducer,
+  searchComunicatiOldReducer,
+  getComunicatoArchiveReducer,
+  searchComunicatiParametersReducer,
+  searchComunicatiReducer,
 };

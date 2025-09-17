@@ -1,26 +1,22 @@
-/* #page-send-history .ui.button.labeled i.icon {
+#page-send-history .ui.button.labeled i.icon {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-#page-send-history .ui.checkbox.toggle label {
-  overflow: hidden;
-}
-
-#page-send-history .ui.form.search-form .ui.fluid.input {
-  justify-content: flex-end;
-  margin-bottom: 0.5rem;
-}
-
-#page-send-history .ui.form.search-form .ui.fluid.input input {
-  max-width: 23rem;
-}
-
-#page-send-history .ui.message.selected-items {
+#page-send-history .send-history-panel-menu.ui.secondary.menu {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#page-send-history .send-history-panel-menu.ui.secondary.menu .item:last-child {
+  margin-left: auto;
+}
+
+#page-send-history .search-form .fields {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
 }
 
 #page-send-history .no-results {
@@ -35,18 +31,51 @@
   font-weight: 300;
 }
 
-#page-send-history .confirm-delete-item:not(:last-of-type) {
-  margin-bottom: 0.75rem;
+#page-send-history .ui.fixed.table th,
+#page-send-history .ui.fixed.table td {
+  width: 7%;
+  white-space: break-spaces;
 }
 
-#page-send-history .confirm-delete-item {
-  font-weight: 600;
+#page-send-history .ui.fixed.table th:first-child,
+#page-send-history .ui.fixed.table td:first-child {
+  width: 5%;
 }
 
-#page-send-history .ui.dimmer .ui.workaround.loader:before {
-  border-color: rgba(0, 0, 0, 0.1);
+#page-send-history .ui.fixed.table th:last-child,
+#page-send-history .ui.fixed.table td:last-child {
+  width: 30%;
 }
 
-#page-send-history .ui.dimmer .ui.workaround.loader:after {
-  border-color: #767676 transparent transparent;
-} */
+@media only screen and (min-width: 1280px) {
+  body.cms-ui.has-toolbar:not(.has-sidebar):not(.has-sidebar-collapsed)
+    .ui.container.fluid.controlpanel-send-history {
+    width: 90% !important;
+  }
+}
+
+td.history-status div {
+  display: flex;
+  width: 25px;
+  height: 25px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+}
+
+td.history-status div.error {
+  background-color: #ff0000;
+}
+
+td.history-status div.success {
+  background-color: #008000;
+}
+
+td.history-status div.sending {
+  background-color: #eec009;
+}
+
+.cms-ui table.ui.table.controlpanel-table {
+  font-size: 80%
+}

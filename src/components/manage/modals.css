@@ -1,62 +1,96 @@
-.react-aria-Modal.newsletter-modal {
-  max-width: fit-content;
+.react-aria-Modal.ufficiostampa-modal {
+  width: 100%;
+  max-width: 800px;
 }
 
-.react-aria-Modal.newsletter-modal .form-action {
-  margin-top: 2em;
+.react-aria-Modal .modal-description {
+  margin: 0.5rem 0 1rem;
+  color: grey;
 }
 
-.react-aria-Modal.newsletter-modal .form-action button {
+.react-aria-Modal.ufficiostampa-modal .form-action {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  padding: 1rem 1rem 1rem 0;
+}
+
+.react-aria-Modal.ufficiostampa-modal .form-action button {
   margin-right: 5px;
   margin-left: 0;
 }
 
-.react-aria-Modal.newsletter-modal .field {
+.react-aria-Modal.ufficiostampa-modal .field {
   margin: 1rem 0;
 }
 
-.react-aria-Modal.newsletter-modal .field .react-aria-Text[slot='description'] {
+.react-aria-Modal.ufficiostampa-modal
+  .field
+  .react-aria-Text[slot='description'] {
   color: #aaa;
   font-size: 80%;
 }
 
-.react-aria-Modal.newsletter-modal button.delete-file {
+.react-aria-Modal.ufficiostampa-modal button.delete-file {
   border: 0;
 }
 
-.react-aria-Modal.newsletter-modal .modal-header {
+.react-aria-Modal.ufficiostampa-modal .modal-header {
   display: flex;
   justify-content: space-between;
 }
-.react-aria-Modal.newsletter-modal .modal-header .close button {
+.react-aria-Modal.ufficiostampa-modal .modal-header .close button {
   border: 0;
 }
 
-.react-aria-ModalOverlay .newsletter-modal .react-aria-Button,
-.cms-ui.newsletter-management .react-aria-Button i.icon {
+.react-aria-ModalOverlay .ufficiostampa-modal .react-aria-Button,
+.cms-ui.ufficiostampa-management .react-aria-Button i.icon {
   margin-left: 5px;
 }
 
-.newsletter-management .react-aria-Button.cancel {
-  color: #fff;
+.ufficiostampa-management .react-aria-Button.cancel {
   background-color: #e40166;
+  color: #fff;
 }
 
-.newsletter-management .react-aria-Button.cancel:hover,
-.newsletter-management .react-aria-Button.cancel:focus {
+.ufficiostampa-management .react-aria-Button.cancel:hover,
+.ufficiostampa-management .react-aria-Button.cancel:focus {
   background-color: #cc005b;
 }
 
-.newsletter-management .react-aria-Button.primary {
-  color: #fff;
+.ufficiostampa-management .react-aria-Button.primary {
   background-color: #007eb1;
+  color: #fff;
 }
 
-.newsletter-management .react-aria-Button.primary:hover,
-.newsletter-management .react-aria-Button.primary:focus {
+.ufficiostampa-management .confirm-delete-item {
+  margin-top: 0.5rem;
+}
+
+.ufficiostampa-management .react-aria-Button.primary:hover,
+.ufficiostampa-management .react-aria-Button.primary:focus {
   background-color: #006c98;
 }
 
-.newsletter-management .ui.secondary.menu .react-aria-Button {
+.ufficiostampa-management .ui.secondary.menu .react-aria-Button {
   margin-right: 10px;
+}
+
+.ufficiostampa-modal form {
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+
+.ufficiostampa-modal
+  form
+  .react-aria-TextField[data-required='true']
+  > label::after {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-left: 5px;
+  background-color: #e40166;
+  content: '';
 }
