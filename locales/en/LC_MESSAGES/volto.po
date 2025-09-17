@@ -48,6 +48,11 @@ msgstr ""
 msgid "There are some errors."
 msgstr ""
 
+#. Default: "Allegato"
+#: components/manage/UfficioStampaAttachment/UfficioStampaAttachment
+msgid "attachment"
+msgstr ""
+
 #. Default: "Cancel"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages

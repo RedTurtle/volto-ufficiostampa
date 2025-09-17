@@ -48,6 +48,11 @@ msgstr "Storico degli invii"
 msgid "There are some errors."
 msgstr "Si sono verificati degli errori."
 
+#. Default: "Allegato"
+#: components/manage/UfficioStampaAttachment/UfficioStampaAttachment
+msgid "attachment"
+msgstr ""
+
 #. Default: "Cancel"
 #: components/manage/SendHistoryPanel/messages
 #: components/manage/SubscriptionsPanel/messages

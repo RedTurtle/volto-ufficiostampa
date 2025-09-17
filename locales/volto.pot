@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2025-08-01T00:22:48.325Z\n"
+"POT-Creation-Date: 2025-09-17T08:00:35.557Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -48,6 +48,11 @@ msgstr ""
 #. Default: "There are some errors."
 #: components/manage/SendComunicatoView/SendComunicatoView
 msgid "There are some errors."
+msgstr ""
+
+#. Default: "Allegato"
+#: components/manage/UfficioStampaAttachment/UfficioStampaAttachment
+msgid "attachment"
 msgstr ""
 
 #. Default: "Cancel"
