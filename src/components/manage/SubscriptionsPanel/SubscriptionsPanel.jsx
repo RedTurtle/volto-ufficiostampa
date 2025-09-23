@@ -102,7 +102,7 @@ const SubscriptionsPanel = ({ toastify }) => {
             {intl.formatMessage(messages.subscriptions_controlpanel)}
           </Segment>
 
-          {canManage && <SubscriptionsPanelMenu doSearch={doSearch} />}
+          <SubscriptionsPanelMenu doSearch={doSearch} />
 
           <Segment>
             {itemsSelected.length > 0 && (
@@ -276,18 +276,8 @@ const SubscriptionsPanel = ({ toastify }) => {
                               <Icon name={editingSVG} size="20px" />
                             </i>
                           </Button>
-                          )
                         </Table.Cell>
                       )}
-                      {/* <Table.Cell>
-                        {item.is_active
-                          ? intl.formatMessage(
-                              messages.subscription_state_active,
-                            )
-                          : intl.formatMessage(
-                              messages.subscription_state_inactive,
-                            )}
-                      </Table.Cell> */}
                     </tr>
                   ))}
               </Table.Body>

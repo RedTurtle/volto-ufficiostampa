@@ -3,6 +3,8 @@ import {
   ManageHistoryControlpanel,
   SendComunicatoView,
   SendMenu,
+  UfficioStampaPersonalChannelsManagementLink,
+  UfficioStampaPersonalChannelsManagement,
 } from './components';
 
 import {
@@ -19,6 +21,9 @@ import {
   getComunicatoArchiveReducer,
   searchComunicatiReducer,
   searchComunicatiParametersReducer,
+  sendChannelManagementLinkReducer,
+  updatePersonalChannelsReducer,
+  tokenVerifyPersonalChannelsReducer,
 } from './reducers';
 
 import { LegislatureWidget } from 'volto-ufficiostampa/components/manage/widgets';
@@ -77,6 +82,14 @@ const applyConfig = (config) => {
       path: '*/dettaglio-comunicato-archive/:id',
       component: ComunicatoArchive,
     },
+    {
+      path: '/personal-channels-management-link',
+      component: UfficioStampaPersonalChannelsManagementLink,
+    },
+    {
+      path: '/personal-channels-management',
+      component: UfficioStampaPersonalChannelsManagement,
+    },
   ];
   config.settings.nonContentRoutes = [
     ...config.settings.nonContentRoutes,
@@ -101,6 +114,9 @@ const applyConfig = (config) => {
     comunicatoArchive: getComunicatoArchiveReducer,
     searchComunicatiParameters: searchComunicatiParametersReducer,
     searchComunicati: searchComunicatiReducer,
+    sendChannelManagementLink: sendChannelManagementLinkReducer,
+    updatePersonalChannels: updatePersonalChannelsReducer,
+    tokenVerifyPersonalChannels: tokenVerifyPersonalChannelsReducer,
   };
 
   config.widgets.id = {
