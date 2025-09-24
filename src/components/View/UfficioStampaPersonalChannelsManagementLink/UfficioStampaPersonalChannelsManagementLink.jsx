@@ -49,6 +49,13 @@ const UfficioStampaPersonalChannelsManagementLink = ({ location }) => {
   const [email, setEmail] = useState('');
   const [subHoney, setSubHoney] = useState('');
 
+  const safeParse = (text) => {
+    try {
+      return text ? JSON.parse(text) : null;
+    } catch {
+      return null;
+    }
+  };
   const {
     loading: sendLinkLoading,
     loaded: sendLinkLoaded,
@@ -61,17 +68,17 @@ const UfficioStampaPersonalChannelsManagementLink = ({ location }) => {
       setEmail('');
       setSubHoney('');
       toast.success(intl.formatMessage(messages.sendLinkSuccess));
-      return () => {
-        dispatch(resetSendChannelManagementLink());
-      };
+      dispatch(resetSendChannelManagementLink());
     }
   }, [dispatch, intl, sendLinkLoaded, sendLinkError]);
 
   // SendLink generic error
   useEffect(() => {
     if (sendLinkError) {
+      const parsed = safeParse(sendLinkError?.response?.text);
       const message =
         sendLinkError?.response?.body?.message ||
+        parsed?.error?.message ||
         intl.formatMessage(messages.sendLinkError);
       toast.error(message);
       return () => {
@@ -106,7 +113,7 @@ const UfficioStampaPersonalChannelsManagementLink = ({ location }) => {
           </p>
           <Form
             action={`${path}/@personal-channels-management-send-link`}
-            className="personal-channels-management-form"
+            className="mt-5 personal-channels-management-form"
             method="post"
             tag="form"
             onSubmit={(e) => {
