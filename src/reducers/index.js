@@ -18,6 +18,11 @@ import {
   searchComunicatiReducer,
 } from './search';
 import { getComunicatoArchiveReducer } from './comunicatoArchive';
+import {
+  sendChannelManagementLinkReducer,
+  updatePersonalChannelsReducer,
+  tokenVerifyPersonalChannelsReducer,
+} from './personal_channels_management';
 
 export {
   sendComunicatoSchemaReducer,
@@ -33,4 +38,7 @@ export {
   getComunicatoArchiveReducer,
   searchComunicatiParametersReducer,
   searchComunicatiReducer,
+  sendChannelManagementLinkReducer,
+  updatePersonalChannelsReducer,
+  tokenVerifyPersonalChannelsReducer,
 };

@@ -11,13 +11,15 @@ import settingSVG from '@plone/volto/icons/configuration.svg';
 import ModalAddSubscription from './ModalAddSubscription';
 import ModalImportSubscriptions from './ModalImportSubscriptions';
 import messages from './messages';
+import { useSelector } from 'react-redux';
 
 const SubscriptionsPanelMenu = ({ doSearch }) => {
   const intl = useIntl();
-
+  const subscriptions = useSelector((state) => state.getSubscriptions);
   const [showModalAdd, setShowModalAdd] = useState(false);
   const [showModalImport, setShowModalImport] = useState(false);
-
+  const canManage = subscriptions?.result?.permissions?.can_manage || false;
+  if (!canManage) return null;
   return (
     <>
       <Menu secondary className="subscriptions-panel-menu">
