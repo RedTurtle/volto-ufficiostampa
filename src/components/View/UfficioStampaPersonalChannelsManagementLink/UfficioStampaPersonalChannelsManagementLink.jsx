@@ -13,7 +13,7 @@ import { toast } from 'react-toastify';
 const messages = defineMessages({
   title: {
     id: 'personal-channels-management-title',
-    defaultMessage: 'Gestione canali di iscrizione',
+    defaultMessage: 'Cancellazione dai canali di iscrizione',
   },
   description: {
     id: 'personal-channels-management-description',
