@@ -15,12 +15,12 @@ import { toast } from 'react-toastify';
 const messages = defineMessages({
   title: {
     id: 'personal-channels-management-title',
-    defaultMessage: 'Gestione canali di iscrizione',
+    defaultMessage: 'Cancellazione dai canali di iscrizione',
   },
   description: {
     id: 'personal-channels-management-description',
     defaultMessage:
-      'Qusta è la lista dei canali a cui sei iscritto. Puoi deselezionare uno o più canali e salvare per aggiornare le tue preferenze.',
+      'Questa è la lista dei canali a cui sei iscritto, per cancellarti da uno o più canali deselezionali e salva.',
   },
   verifyTokenError: {
     id: 'personal-channels-management-verify-token-error',
@@ -45,6 +45,14 @@ const messages = defineMessages({
     defaultMessage:
       "Si è verificato un errore durante l'aggiornamento delle tue preferenze. Riprova più tardi.",
   },
+  selectAllLabel: {
+    id: 'personal-channels-management-select-all-label',
+    defaultMessage: 'Seleziona tutti',
+  },
+  deselectAllLabel: {
+    id: 'personal-channels-management-deselect-all-label',
+    defaultMessage: 'Deseleziona tutti',
+  },
 });
 
 const UfficioStampaPersonalChannelsManagement = ({ location }) => {
@@ -53,7 +61,6 @@ const UfficioStampaPersonalChannelsManagement = ({ location }) => {
   const path = getParentUrl(location.pathname ?? '/');
   const params = new URLSearchParams(location.search);
   const secret = params.get('secret');
-  const authenticator = params.get('_authenticator');
 
   let fieldHoney = process.env.RAZZLE_HONEYPOT_FIELD;
   if (__CLIENT__) {
@@ -142,7 +149,6 @@ const UfficioStampaPersonalChannelsManagement = ({ location }) => {
       updatePersonalChannels({
         channels: selectedChannels,
         secret,
-        _authenticator: authenticator,
         [fieldHoney]: channelsHoney,
       }),
     );
@@ -159,6 +165,10 @@ const UfficioStampaPersonalChannelsManagement = ({ location }) => {
       <div>{intl.formatMessage(messages.updatePersonalChannelsSuccess)}</div>
     );
   } else {
+    const selecAllLabel =
+      selectedChannels.length === channels.length
+        ? messages.deselectAllLabel
+        : messages.selectAllLabel;
     pageBody = (
       <>
         <p className="description">
@@ -179,6 +189,22 @@ const UfficioStampaPersonalChannelsManagement = ({ location }) => {
             }
           }}
         >
+          <Button
+            color="link"
+            size="mini"
+            className="select-all"
+            title={intl.formatMessage(selecAllLabel)}
+            aria-label={intl.formatMessage(selecAllLabel)}
+            rel="noopener noreferrer"
+            onClick={(e) => {
+              e.preventDefault();
+              setSelectedChannels(
+                selectedChannels.length === channels.length ? [] : channels,
+              );
+            }}
+          >
+            {intl.formatMessage(selecAllLabel)}
+          </Button>
           {channels?.map((v, index) => (
             <FormGroup check key={`channel-${index}-${v}`}>
               <Input
@@ -186,7 +212,6 @@ const UfficioStampaPersonalChannelsManagement = ({ location }) => {
                 name="channels"
                 type="checkbox"
                 onChange={() => {
-                  console.log(v);
                   setSelectedChannels(
                     (prev) =>
                       prev.includes(v)
