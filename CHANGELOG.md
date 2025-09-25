@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.0](https://github.com/RedTurtle/volto-ufficiostampa/compare/1.1.0...1.2.0) (2025-09-25)
+
+### Features
+
+* add new views to handle channel unsubscription ([#3](https://github.com/RedTurtle/volto-ufficiostampa/issues/3)) ([14fd489](https://github.com/RedTurtle/volto-ufficiostampa/commit/14fd48911ee8a42fb3ee51c7b113edd02bc1aa78))
+
+### Bug Fixes
+
+* locales ([fdf5953](https://github.com/RedTurtle/volto-ufficiostampa/commit/fdf59536a3d8ac7794b2539afac5f46f543d63aa))
+
 ## [1.1.0](https://github.com/RedTurtle/volto-ufficiostampa/compare/1.0.0...1.1.0) (2025-09-17)
 
 ### Features
