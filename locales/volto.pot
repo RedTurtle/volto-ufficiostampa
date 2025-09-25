@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2025-09-17T08:00:35.557Z\n"
+"POT-Creation-Date: 2025-09-25T13:13:58.857Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -289,6 +289,69 @@ msgstr ""
 #. Default: "Error"
 #: components/manage/SubscriptionsPanel/messages
 msgid "panel_error"
+msgstr ""
+
+#. Default: "Questa è la lista dei canali a cui sei iscritto, per cancellarti da uno o più canali deselezionali e salva."
+#: components/View/UfficioStampaPersonalChannelsManagement/UfficioStampaPersonalChannelsManagement
+#: components/View/UfficioStampaPersonalChannelsManagementLink/UfficioStampaPersonalChannelsManagementLink
+msgid "personal-channels-management-description"
+msgstr ""
+
+#. Default: "Deseleziona tutti"
+#: components/View/UfficioStampaPersonalChannelsManagement/UfficioStampaPersonalChannelsManagement
+msgid "personal-channels-management-deselect-all-label"
+msgstr ""
+
+#. Default: "Indirizzo e-mail"
+#: components/View/UfficioStampaPersonalChannelsManagementLink/UfficioStampaPersonalChannelsManagementLink
+msgid "personal-channels-management-email-label"
+msgstr ""
+
+#. Default: "Seleziona tutti"
+#: components/View/UfficioStampaPersonalChannelsManagement/UfficioStampaPersonalChannelsManagement
+msgid "personal-channels-management-select-all-label"
+msgstr ""
+
+#. Default: "Salva"
+#: components/View/UfficioStampaPersonalChannelsManagement/UfficioStampaPersonalChannelsManagement
+#: components/View/UfficioStampaPersonalChannelsManagementLink/UfficioStampaPersonalChannelsManagementLink
+msgid "personal-channels-management-send-button-label"
+msgstr ""
+
+#. Default: "Si è verificato un errore durante l'invio della e-mail. Riprova più tardi."
+#: components/View/UfficioStampaPersonalChannelsManagementLink/UfficioStampaPersonalChannelsManagementLink
+msgid "personal-channels-management-send-link-error"
+msgstr ""
+
+#. Default: "Riceverai una e-mail con il link per gestire i tuoi canali di iscrizione."
+#: components/View/UfficioStampaPersonalChannelsManagementLink/UfficioStampaPersonalChannelsManagementLink
+msgid "personal-channels-management-send-link-success"
+msgstr ""
+
+#. Default: "Cancellazione dai canali di iscrizione"
+#: components/View/UfficioStampaPersonalChannelsManagement/UfficioStampaPersonalChannelsManagement
+#: components/View/UfficioStampaPersonalChannelsManagementLink/UfficioStampaPersonalChannelsManagementLink
+msgid "personal-channels-management-title"
+msgstr ""
+
+#. Default: "Si è verificato un errore durante la verifica del token. Il link potrebbe essere scaduto o non valido."
+#: components/View/UfficioStampaPersonalChannelsManagement/UfficioStampaPersonalChannelsManagement
+msgid "personal-channels-management-token-error-div"
+msgstr ""
+
+#. Default: "Si è verificato un errore durante l'aggiornamento delle tue preferenze. Riprova più tardi."
+#: components/View/UfficioStampaPersonalChannelsManagement/UfficioStampaPersonalChannelsManagement
+msgid "personal-channels-management-update-personal-channels-error"
+msgstr ""
+
+#. Default: "Le tue preferenze sono state aggiornate con successo."
+#: components/View/UfficioStampaPersonalChannelsManagement/UfficioStampaPersonalChannelsManagement
+msgid "personal-channels-management-update-personal-channels-success"
+msgstr ""
+
+#. Default: "Si è verificato un errore durante la verifica del token. Il link potrebbe essere scaduto o non valido."
+#: components/View/UfficioStampaPersonalChannelsManagement/UfficioStampaPersonalChannelsManagement
+msgid "personal-channels-management-verify-token-error"
 msgstr ""
 
 #. Default: "Trovati {total} risultati"
