@@ -103,7 +103,6 @@ const ModalAddSubscription = ({
       isEdit
         ? dispatch(resetUpdateSubscription())
         : dispatch(resetAddSubscription());
-      onClose();
     };
   }, []);
 
@@ -143,7 +142,6 @@ const ModalAddSubscription = ({
         <Form validationErrors={fieldErrors} onSubmit={onFormSubmit}>
           {formSubmitError && (
             <div role="alert" tabIndex={-1} ref={(e) => e?.focus()}>
-              <h3>Unable to submit</h3>
               <p>{formSubmitError}</p>
             </div>
           )}

@@ -72,3 +72,8 @@
 table.controlpanel-table {
   font-size: 80%
 }
+
+#modal-add-subscription .react-aria-Form div[role='alert']{
+  width: 90%;
+  max-width: 100%;
+}
