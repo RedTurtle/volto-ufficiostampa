@@ -37,7 +37,7 @@ import trashSVG from '@plone/volto/icons/delete.svg';
 import './subscriptions-panel.css';
 import '../modals.css';
 
-const SubscriptionsPanel = ({ toastify }) => {
+const SubscriptionsPanel = () => {
   const intl = useIntl();
   const dispatch = useDispatch();
   const location = useLocation();
@@ -184,15 +184,6 @@ const SubscriptionsPanel = ({ toastify }) => {
                 </FormField>
               </FormGroup>
             </Form>
-            {/* {subscriptions.result?.items ? (
-              <p>
-                {searchableText.length
-                  ? intl.formatMessage(messages.tot_filtered, { totResults })
-                  : intl.formatMessage(messages.tot_unfiltered, { totResults })}
-              </p>
-            ) : (
-              ''
-            )} */}
           </Segment>
           <Segment>
             <Table

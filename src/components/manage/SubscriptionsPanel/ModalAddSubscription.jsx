@@ -99,7 +99,7 @@ const ModalAddSubscription = ({
 
   useEffect(() => {
     return () => {
-      // setEmailAddress('');
+      setSubscriptionData(defaultSubscriptionData);
       isEdit
         ? dispatch(resetUpdateSubscription())
         : dispatch(resetAddSubscription());
@@ -124,8 +124,10 @@ const ModalAddSubscription = ({
       className="react-aria-Modal ufficiostampa-modal"
       isDismissable
       isOpen={showModal}
-      onOpenChange={setShowModal}
-      // onOpenChange={() => toggleModal(!modalIsOpen)}
+      onOpenChange={(isOpen) => {
+        setShowModal(isOpen);
+        setSubscriptionData(defaultSubscriptionData);
+      }}
     >
       <Dialog>
         <div className="modal-header">
@@ -193,7 +195,10 @@ const ModalAddSubscription = ({
             </Button>
             <Button
               className="react-aria-Button cancel"
-              onClick={() => setShowModal(false)}
+              onClick={() => {
+                setShowModal(false);
+                setSubscriptionData(defaultSubscriptionData);
+              }}
             >
               {intl.formatMessage(messages.modal_button_cancel)}
             </Button>
