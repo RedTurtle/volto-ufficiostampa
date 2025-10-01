@@ -79,10 +79,7 @@ const SubscriptionsPanelMenu = ({ doSearch, querystring }) => {
       <ModalAddSubscription
         showModal={showModalAdd}
         setShowModal={setShowModalAdd}
-        onClose={() => {
-          console.log('ADD');
-          doSearch();
-        }}
+        onClose={doSearch}
       />
 
       <Modal
@@ -99,10 +96,7 @@ const SubscriptionsPanelMenu = ({ doSearch, querystring }) => {
         <ModalImportSubscriptions
           showModal={showModalImport}
           setShowModal={setShowModalImport}
-          onClose={() => {
-            console.log('IMPORT');
-            doSearch();
-          }}
+          onClose={doSearch}
         />
       )}
     </>
