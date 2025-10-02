@@ -100,6 +100,7 @@ const ModalAddSubscription = ({
   useEffect(() => {
     return () => {
       setSubscriptionData(defaultSubscriptionData);
+      setFormSubmitError(null);
       isEdit
         ? dispatch(resetUpdateSubscription())
         : dispatch(resetAddSubscription());
@@ -127,6 +128,7 @@ const ModalAddSubscription = ({
       onOpenChange={(isOpen) => {
         setShowModal(isOpen);
         setSubscriptionData(defaultSubscriptionData);
+        setFormSubmitError(null);
       }}
     >
       <Dialog>
@@ -143,7 +145,8 @@ const ModalAddSubscription = ({
         </p>
         <Form validationErrors={fieldErrors} onSubmit={onFormSubmit}>
           {formSubmitError && (
-            <div role="alert" tabIndex={-1} ref={(e) => e?.focus()}>
+            <div role="alert">
+              <span ref={(e) => e?.focus()} tabIndex={-1}></span>
               <p>{formSubmitError}</p>
             </div>
           )}
@@ -198,6 +201,7 @@ const ModalAddSubscription = ({
               onClick={() => {
                 setShowModal(false);
                 setSubscriptionData(defaultSubscriptionData);
+                setFormSubmitError(null);
               }}
             >
               {intl.formatMessage(messages.modal_button_cancel)}
