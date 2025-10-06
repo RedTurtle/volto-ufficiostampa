@@ -145,8 +145,12 @@ const ModalAddSubscription = ({
         </p>
         <Form validationErrors={fieldErrors} onSubmit={onFormSubmit}>
           {formSubmitError && (
-            <div role="alert">
-              <span ref={(e) => e?.focus()} tabIndex={-1}></span>
+            <div role="alert" ref={(e) => e?.focus()} tabIndex={-1}>
+              {/* <span
+                ref={(e) => e?.focus()}
+                tabIndex={-1}
+                className="for-focus"
+              ></span> */}
               <p>{formSubmitError}</p>
             </div>
           )}
@@ -186,13 +190,13 @@ const ModalAddSubscription = ({
             </CheckboxGroup>
           </div>
           <div className="form-action">
-            <Button type="submit" className="react-aria-Button primary">
+            <Button
+              type="submit"
+              className="react-aria-Button primary"
+              isDisabled={addStatus?.loading || updateStatus?.loading}
+            >
               {(addStatus?.loading || updateStatus?.loading) && (
-                <Icon
-                  icon="it-refresh"
-                  className="icon-sm load-status-icon"
-                  color="white"
-                />
+                <Icon icon="it-refresh" className="icon-sm load-status-icon" />
               )}
               {intl.formatMessage(messages.modal_button_confirm)}
             </Button>
