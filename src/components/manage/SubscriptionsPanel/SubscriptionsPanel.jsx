@@ -37,7 +37,7 @@ import trashSVG from '@plone/volto/icons/delete.svg';
 import './subscriptions-panel.css';
 import '../modals.css';
 
-const SubscriptionsPanel = ({ toastify }) => {
+const SubscriptionsPanel = () => {
   const intl = useIntl();
   const dispatch = useDispatch();
   const location = useLocation();
@@ -52,17 +52,24 @@ const SubscriptionsPanel = ({ toastify }) => {
   const [itemsSelected, setItemsSelected] = useState([]);
   const [selectedChannel, setSelectedChannel] = useState(null);
 
-  useEffect(() => {
-    const delayDebounceFn = setTimeout(() => {
-      doSearch();
-    }, 1200);
-    return () => clearTimeout(delayDebounceFn);
-  }, [searchableText]);
-
   const isUnauthorized = useMemo(
     () => subscriptions?.error?.status === 401,
     [subscriptions?.error],
   );
+  const canManage = subscriptions?.result?.permissions?.can_manage || false;
+
+  const getQuerystring = () => {
+    let params = {};
+    const text =
+      searchableText && searchableText.length > 0 ? searchableText : '';
+    if (selectedChannel && selectedChannel.length) {
+      params.channels = selectedChannel;
+    }
+    if (text.length) {
+      params.text = text;
+    }
+    return new URLSearchParams(params).toString();
+  };
 
   const doSearch = () => {
     const text =
@@ -79,10 +86,15 @@ const SubscriptionsPanel = ({ toastify }) => {
   };
 
   useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      doSearch();
+    }, 1200);
+    return () => clearTimeout(delayDebounceFn);
+  }, [searchableText]);
+
+  useEffect(() => {
     doSearch();
   }, [b_size, currentPage, selectedChannel]);
-
-  const canManage = subscriptions?.result?.permissions?.can_manage || false;
 
   return isUnauthorized ? (
     <Unauthorized />
@@ -102,7 +114,10 @@ const SubscriptionsPanel = ({ toastify }) => {
             {intl.formatMessage(messages.subscriptions_controlpanel)}
           </Segment>
 
-          <SubscriptionsPanelMenu doSearch={doSearch} />
+          <SubscriptionsPanelMenu
+            doSearch={doSearch}
+            querystring={getQuerystring()}
+          />
 
           <Segment>
             {itemsSelected.length > 0 && (
@@ -169,15 +184,6 @@ const SubscriptionsPanel = ({ toastify }) => {
                 </FormField>
               </FormGroup>
             </Form>
-            {/* {subscriptions.result?.items ? (
-              <p>
-                {searchableText.length
-                  ? intl.formatMessage(messages.tot_filtered, { totResults })
-                  : intl.formatMessage(messages.tot_unfiltered, { totResults })}
-              </p>
-            ) : (
-              ''
-            )} */}
           </Segment>
           <Segment>
             <Table

@@ -70,5 +70,31 @@
 }
 
 table.controlpanel-table {
-  font-size: 80%
+  font-size: 80%;
+}
+
+#modal-add-subscription {
+  .react-aria-Form {
+    padding: 0 1rem;
+
+    div[role='alert'] {
+      width: 90%;
+      max-width: 100%;
+      margin-bottom: 1rem;
+      background-color: #ffe5e5;
+    }
+  }
+  .load-status-icon {
+    margin-right: 0.5rem;
+    fill: #fff;
+  }
+}
+
+#page-subscriptions .ui.form.search-form .ui.fluid.input {
+  margin-bottom: unset;
+  justify-content: unset;
+
+  input {
+    max-width: unset;
+  }
 }

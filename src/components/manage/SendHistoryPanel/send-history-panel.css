@@ -77,5 +77,14 @@ td.history-status div.sending {
 }
 
 .cms-ui table.ui.table.controlpanel-table {
-  font-size: 80%
+  font-size: 80%;
+}
+
+#page-send-history .ui.form.search-form .ui.fluid.input {
+  margin-bottom: unset;
+  justify-content: unset;
+
+  input {
+    max-width: unset;
+  }
 }

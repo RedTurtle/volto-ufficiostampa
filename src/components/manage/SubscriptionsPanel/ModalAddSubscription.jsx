@@ -99,11 +99,11 @@ const ModalAddSubscription = ({
 
   useEffect(() => {
     return () => {
-      // setEmailAddress('');
+      setSubscriptionData(defaultSubscriptionData);
+      setFormSubmitError(null);
       isEdit
         ? dispatch(resetUpdateSubscription())
         : dispatch(resetAddSubscription());
-      onClose();
     };
   }, []);
 
@@ -125,8 +125,11 @@ const ModalAddSubscription = ({
       className="react-aria-Modal ufficiostampa-modal"
       isDismissable
       isOpen={showModal}
-      onOpenChange={setShowModal}
-      // onOpenChange={() => toggleModal(!modalIsOpen)}
+      onOpenChange={(isOpen) => {
+        setShowModal(isOpen);
+        setSubscriptionData(defaultSubscriptionData);
+        setFormSubmitError(null);
+      }}
     >
       <Dialog>
         <div className="modal-header">
@@ -142,8 +145,12 @@ const ModalAddSubscription = ({
         </p>
         <Form validationErrors={fieldErrors} onSubmit={onFormSubmit}>
           {formSubmitError && (
-            <div role="alert" tabIndex={-1} ref={(e) => e?.focus()}>
-              <h3>Unable to submit</h3>
+            <div role="alert" ref={(e) => e?.focus()} tabIndex={-1}>
+              {/* <span
+                ref={(e) => e?.focus()}
+                tabIndex={-1}
+                className="for-focus"
+              ></span> */}
               <p>{formSubmitError}</p>
             </div>
           )}
@@ -183,19 +190,23 @@ const ModalAddSubscription = ({
             </CheckboxGroup>
           </div>
           <div className="form-action">
-            <Button type="submit" className="react-aria-Button primary">
+            <Button
+              type="submit"
+              className="react-aria-Button primary"
+              isDisabled={addStatus?.loading || updateStatus?.loading}
+            >
               {(addStatus?.loading || updateStatus?.loading) && (
-                <Icon
-                  icon="it-refresh"
-                  className="icon-sm load-status-icon"
-                  color="white"
-                />
+                <Icon icon="it-refresh" className="icon-sm load-status-icon" />
               )}
               {intl.formatMessage(messages.modal_button_confirm)}
             </Button>
             <Button
               className="react-aria-Button cancel"
-              onClick={() => setShowModal(false)}
+              onClick={() => {
+                setShowModal(false);
+                setSubscriptionData(defaultSubscriptionData);
+                setFormSubmitError(null);
+              }}
             >
               {intl.formatMessage(messages.modal_button_cancel)}
             </Button>

@@ -13,7 +13,7 @@ import ModalImportSubscriptions from './ModalImportSubscriptions';
 import messages from './messages';
 import { useSelector } from 'react-redux';
 
-const SubscriptionsPanelMenu = ({ doSearch }) => {
+const SubscriptionsPanelMenu = ({ doSearch, querystring }) => {
   const intl = useIntl();
   const subscriptions = useSelector((state) => state.getSubscriptions);
   const [showModalAdd, setShowModalAdd] = useState(false);
@@ -54,7 +54,7 @@ const SubscriptionsPanelMenu = ({ doSearch }) => {
         <Menu.Item>
           <AriaComponentsLink
             className="ui button icon right labeled primary"
-            href="/++api++/@subscriptions-csv"
+            href={`/++api++/@subscriptions-csv?${querystring}`}
             download="subscriptions.csv"
           >
             {intl.formatMessage(messages.export_list)}
@@ -85,12 +85,7 @@ const SubscriptionsPanelMenu = ({ doSearch }) => {
       <Modal
         id="modal-add-subscription"
         className="ufficiostampa-modal"
-        // isDismissable
         isOpen={showModalAdd}
-        // onOpen={setShowModal}
-        // onClose={() => setShowModal(false)}
-        // onOpen={() => setShowModal(true)}
-        // onOpenChange={() => toggleModal(!modalIsOpen)}
       >
         <ModalHeader>
           {intl.formatMessage(messages.modal_add_title)}
