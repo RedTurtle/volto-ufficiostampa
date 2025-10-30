@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.0](https://github.com/RedTurtle/volto-ufficiostampa/compare/1.2.0...1.3.0) (2025-10-30)
+
+### Features
+
+* send querystring to csv-export endpoint and improve search ([#4](https://github.com/RedTurtle/volto-ufficiostampa/issues/4)) ([78bddb0](https://github.com/RedTurtle/volto-ufficiostampa/commit/78bddb057f46dbd663c966736266765a7bd6227d))
+
 ## [1.2.0](https://github.com/RedTurtle/volto-ufficiostampa/compare/1.1.0...1.2.0) (2025-09-25)
 
 ### Features
