@@ -44,14 +44,23 @@ import {
 import zoomOffSVG from '@plone/volto/icons/zoom-off.svg';
 
 const isSearchOldEnabled = () => {
+  if (!isUfficioStampaEnabled()) {
+    return false;
+  }
   let test =
     process.env.RAZZLE_SEARCH_COMUNICATI_OLD ||
     (__CLIENT__ && window?.env.RAZZLE_SEARCH_COMUNICATI_OLD);
-
   test = test == true || test === 'true';
   return test;
 };
 
+const isUfficioStampaEnabled = () => {
+  let test =
+    process.env.RAZZLE_IS_UFFICIOSTAMPA ||
+    (__CLIENT__ && window?.env.RAZZLE_IS_UFFICIOSTAMPA);
+  test = test == true || test === 'true';
+  return test;
+};
 const applyConfig = (config) => {
   config.settings.appExtras = [
     ...config.settings.appExtras,
@@ -143,7 +152,7 @@ const applyConfig = (config) => {
     group: 'comunicati',
     view: SearchComunicatiPrePloneView,
     edit: SearchComunicatiPrePloneEdit,
-    restricted: !isSearchOldEnabled, //questo blocco è aggiungibile solo se c'è la variabile d'ambiente RAZZLE_SEARCH_COMUNICATI_OLD
+    restricted: !isSearchOldEnabled(), //questo blocco è aggiungibile solo se c'è la variabile d'ambiente RAZZLE_SEARCH_COMUNICATI_OLD
     mostUsed: false,
     security: {
       addPermission: [],
@@ -159,7 +168,7 @@ const applyConfig = (config) => {
     group: 'comunicati',
     view: SearchComunicatiView,
     edit: SearchComunicatiEdit,
-    restricted: false,
+    restricted: !isUfficioStampaEnabled(),
     mostUsed: false,
     security: {
       addPermission: [],
