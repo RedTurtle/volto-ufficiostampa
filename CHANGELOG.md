@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.1](https://github.com/RedTurtle/volto-ufficiostampa/compare/1.3.0...1.3.1) (2025-11-20)
+
+### Bug Fixes
+
+* block restrictions now works with proper env vars ([#5](https://github.com/RedTurtle/volto-ufficiostampa/issues/5)) ([4929e60](https://github.com/RedTurtle/volto-ufficiostampa/commit/4929e60ae9615084229869d068772fd04dc97705))
+
 ## [1.3.0](https://github.com/RedTurtle/volto-ufficiostampa/compare/1.2.0...1.3.0) (2025-10-30)
 
 ### Features
