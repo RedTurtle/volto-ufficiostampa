@@ -108,6 +108,11 @@ msgstr "Seleziona un file"
 msgid "error_label"
 msgstr "Errore"
 
+#. Default: "{count} subscriptions not imported due to errors:"
+#: components/manage/SubscriptionsPanel/messages
+msgid "errors_subscriptions_count"
+msgstr "{count} iscrizioni non importate a causa di errori:"
+
 #. Default: "Possible values are "," or ";"."
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_csv_separator_help"
@@ -156,12 +161,27 @@ msgstr "Cancella tutte le iscrizioni prima dell'importazione."
 #. Default: "Reset list"
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_reset_list_label"
-msgstr "Lista deglie elementi che verrano eliminati"
+msgstr "Lista degli elementi che verrano eliminati"
 
 #. Default: "Import subscriptions"
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_subscriptions"
 msgstr "Importa iscrizioni"
+
+#. Default: "If there are some addresses in the file that are already in the database, update them, otherwise, skip it."
+#: components/manage/SubscriptionsPanel/messages
+msgid "import_update_from_list_help"
+msgstr "Se ci sono degli indirizzi nel file che sono già presenti nel database verranno aggiornati, altrimenti saltati."
+
+#. Default: "Update subscriptions from file"
+#: components/manage/SubscriptionsPanel/messages
+msgid "import_update_from_list_label"
+msgstr "Aggiorna iscrizioni dal file"
+
+#. Default: "{count} subscriptions imported successfully."
+#: components/manage/SubscriptionsPanel/messages
+msgid "imported_subscriptions_count"
+msgstr "{count} iscrizioni importate con successo."
 
 #. Default: "Legislatura"
 #: components/manage/widgets/LegislatureWidget/LegislaturaConfiguration
@@ -438,6 +458,11 @@ msgstr "In invio"
 msgid "sideMenuIndex"
 msgstr "Indice della pagina"
 
+#. Default: "{count} subscriptions skipped:"
+#: components/manage/SubscriptionsPanel/messages
+msgid "skipped_subscriptions_count"
+msgstr "{count} iscrizioni saltate:"
+
 #. Default: "Message"
 #: components/manage/SendHistoryPanel/messages
 msgid "status_message_header"
@@ -699,3 +724,8 @@ msgstr "In invio a {recipients} destinatari"
 #: components/manage/SendHistoryPanel/messages
 msgid "ufficiostampa_status_message_success"
 msgstr "Inviato a {recipients} destinatari"
+
+#. Default: "Warning"
+#: components/manage/SubscriptionsPanel/messages
+msgid "warning_label"
+msgstr "Attenzione"

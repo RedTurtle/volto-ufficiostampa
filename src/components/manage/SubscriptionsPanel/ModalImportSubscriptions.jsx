@@ -10,11 +10,8 @@ import {
   Dialog,
   Heading,
   Checkbox,
-  Label,
   Modal,
-  TextField,
   Text,
-  Input,
 } from 'react-aria-components';
 import { Dimmer, Loader } from 'semantic-ui-react';
 import trashSVG from '@plone/volto/icons/delete.svg';
@@ -25,7 +22,8 @@ import '@plone/components/src/styles/basic/Button.css';
 import '@plone/components/src/styles/basic/Modal.css';
 import '@plone/components/src/styles/basic/Dialog.css';
 import '@plone/components/src/styles/basic/Checkbox.css';
-// import template_csv from './import_template.csv';
+import { Toast } from '@plone/volto/components';
+import { toast } from 'react-toastify';
 import messages from './messages';
 
 const ModalImportSubscriptions = ({ showModal, setShowModal, onClose }) => {
@@ -40,8 +38,8 @@ const ModalImportSubscriptions = ({ showModal, setShowModal, onClose }) => {
   });
   const [formFilename, setFormFilename] = useState('');
   const status = useSelector((state) => state.importSubscriptions);
-  const [error, setError] = useState(null);
 
+  console.log('status', status);
   useEffect(() => {
     return () => {
       // setFormData({});
@@ -50,23 +48,82 @@ const ModalImportSubscriptions = ({ showModal, setShowModal, onClose }) => {
       onClose();
     };
   }, [dispatch, onClose]);
-
   useEffect(() => {
     if (status.loaded) {
       if (status.error) {
         const msg =
           status.error?.response?.body?.message ||
           intl.formatMessage(messages.subscribe_add_error);
-        setError(msg);
+        toast.error(
+          <Toast
+            error
+            content={msg}
+            title={intl.formatMessage(messages.error)}
+          />,
+        );
       } else {
         setShowModal(false);
+        const { imported, errored, skipped } = status.result;
+        if (imported > 0) {
+          toast.success(
+            <Toast
+              success
+              content={intl.formatMessage(messages.imported, {
+                count: imported,
+              })}
+              title={intl.formatMessage(messages.success)}
+            />,
+          );
+        }
+        if (skipped.length > 0) {
+          let msg = (
+            <div>
+              <p>
+                {intl.formatMessage(messages.import_skipped, {
+                  count: skipped.length,
+                })}
+              </p>
+              <ul>
+                {skipped.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          );
+          toast.warn(
+            <Toast
+              warning
+              content={msg}
+              title={intl.formatMessage(messages.import_warning_label)}
+            />,
+          );
+        }
+        if (errored.length > 0) {
+          let msg = (
+            <div>
+              <p>
+                {intl.formatMessage(messages.import_errors, {
+                  count: errored.length,
+                })}
+              </p>
+              <ul>
+                {errored.map((item, index) => (
+                  <li key={index}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          );
+          toast.error(
+            <Toast
+              error
+              content={msg}
+              title={intl.formatMessage(messages.error)}
+            />,
+          );
+        }
       }
     }
   }, [status, intl, setShowModal]);
-
-  useEffect(() => {
-    setError('');
-  }, [formData]);
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -159,6 +216,24 @@ const ModalImportSubscriptions = ({ showModal, setShowModal, onClose }) => {
           </div>
           <div className="field">
             <Checkbox
+              isSelected={formData.overwrite || false}
+              onChange={(v) => {
+                setFormData({ ...formData, overwrite: v });
+              }}
+            >
+              <div className="checkbox">
+                <svg viewBox="0 0 18 18" aria-hidden="true">
+                  <polyline points="1 9 7 14 15 4" />
+                </svg>
+              </div>
+              {intl.formatMessage(messages.update_from_list_label)}
+              <Text slot="description">
+                {intl.formatMessage(messages.update_from_list_help)}
+              </Text>
+            </Checkbox>
+          </div>
+          <div className="field">
+            <Checkbox
               isSelected={formData.clear || false}
               onChange={(v) => {
                 setFormData({ ...formData, clear: v });
@@ -228,7 +303,6 @@ const ModalImportSubscriptions = ({ showModal, setShowModal, onClose }) => {
             </TextField>
           </div> */}
           {/* TODO: error styles */}
-          <div>{error}</div>
           <div className="form-action">
             <Button
               type="submit"
