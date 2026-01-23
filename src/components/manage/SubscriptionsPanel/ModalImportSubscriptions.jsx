@@ -39,7 +39,6 @@ const ModalImportSubscriptions = ({ showModal, setShowModal, onClose }) => {
   const [formFilename, setFormFilename] = useState('');
   const status = useSelector((state) => state.importSubscriptions);
 
-  console.log('status', status);
   useEffect(() => {
     return () => {
       // setFormData({});
