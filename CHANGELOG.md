@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.0](https://github.com/RedTurtle/volto-ufficiostampa/compare/1.3.1...1.4.0) (2026-01-26)
+
+### Features
+
+* improve validation on import subscriptions and show proper messages ([#6](https://github.com/RedTurtle/volto-ufficiostampa/issues/6)) ([caad8eb](https://github.com/RedTurtle/volto-ufficiostampa/commit/caad8ebe29968ce59b0faef35fcbfb0ce870faf5))
+
 ## [1.3.1](https://github.com/RedTurtle/volto-ufficiostampa/compare/1.3.0...1.3.1) (2025-11-20)
 
 ### Bug Fixes
