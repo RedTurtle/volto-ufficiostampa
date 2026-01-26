@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Plone\n"
-"POT-Creation-Date: 2025-09-25T13:13:58.857Z\n"
+"POT-Creation-Date: 2026-01-22T13:13:13.771Z\n"
 "Last-Translator: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -110,6 +110,11 @@ msgstr ""
 msgid "error_label"
 msgstr ""
 
+#. Default: "{count} subscriptions not imported due to errors:"
+#: components/manage/SubscriptionsPanel/messages
+msgid "errors_subscriptions_count"
+msgstr ""
+
 #. Default: "Possible values are "," or ";"."
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_csv_separator_help"
@@ -163,6 +168,21 @@ msgstr ""
 #. Default: "Import subscriptions"
 #: components/manage/SubscriptionsPanel/messages
 msgid "import_subscriptions"
+msgstr ""
+
+#. Default: "If there are some addresses in the file that are already in the database, update them, otherwise, skip it."
+#: components/manage/SubscriptionsPanel/messages
+msgid "import_update_from_list_help"
+msgstr ""
+
+#. Default: "Update subscriptions from file"
+#: components/manage/SubscriptionsPanel/messages
+msgid "import_update_from_list_label"
+msgstr ""
+
+#. Default: "{count} subscriptions imported successfully."
+#: components/manage/SubscriptionsPanel/messages
+msgid "imported_subscriptions_count"
 msgstr ""
 
 #. Default: "Legislatura"
@@ -440,6 +460,11 @@ msgstr ""
 msgid "sideMenuIndex"
 msgstr ""
 
+#. Default: "{count} subscriptions skipped:"
+#: components/manage/SubscriptionsPanel/messages
+msgid "skipped_subscriptions_count"
+msgstr ""
+
 #. Default: "Message"
 #: components/manage/SendHistoryPanel/messages
 msgid "status_message_header"
@@ -700,4 +725,9 @@ msgstr ""
 #. Default: "Sent to {recipients} recipients"
 #: components/manage/SendHistoryPanel/messages
 msgid "ufficiostampa_status_message_success"
+msgstr ""
+
+#. Default: "Warning"
+#: components/manage/SubscriptionsPanel/messages
+msgid "warning_label"
 msgstr ""

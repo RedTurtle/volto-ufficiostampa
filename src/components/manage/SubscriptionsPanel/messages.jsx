@@ -181,6 +181,15 @@ const messages = defineMessages({
     defaultMessage:
       'Upload a file with a list of subscriptions that need to be removed.',
   },
+  update_from_list_label: {
+    id: 'import_update_from_list_label',
+    defaultMessage: 'Update subscriptions from file',
+  },
+  update_from_list_help: {
+    id: 'import_update_from_list_help',
+    defaultMessage:
+      'If there are some addresses in the file that are already in the database, update them, otherwise, skip it.',
+  },
   has_header_label: {
     id: 'import_has_header_label',
     defaultMessage: 'File has header',
@@ -209,6 +218,19 @@ const messages = defineMessages({
     id: 'ufficiostampa_settings',
     defaultMessage: 'Settings',
   },
+  imported: {
+    id: 'imported_subscriptions_count',
+    defaultMessage: '{count} subscriptions imported successfully.',
+  },
+  import_skipped: {
+    id: 'skipped_subscriptions_count',
+    defaultMessage: '{count} subscriptions skipped:',
+  },
+  import_errors: {
+    id: 'errors_subscriptions_count',
+    defaultMessage: '{count} subscriptions not imported due to errors:',
+  },
+  import_warning_label: { id: 'warning_label', defaultMessage: 'Warning' },
 });
 
 export default messages;
