@@ -1,3 +1,4 @@
+import { convertToNewsReducer } from './convertToNews';
 import {
   sendComunicatoSchemaReducer,
   sendComunicatoReducer,
@@ -25,6 +26,7 @@ import {
 } from './personal_channels_management';
 
 export {
+  convertToNewsReducer,
   sendComunicatoSchemaReducer,
   sendComunicatoReducer,
   getSubscriptionsReducer,

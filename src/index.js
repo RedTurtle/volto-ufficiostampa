@@ -8,6 +8,7 @@ import {
 } from './components';
 
 import {
+  convertToNewsReducer,
   sendComunicatoSchemaReducer,
   sendComunicatoReducer,
   getSubscriptionsReducer,
@@ -107,6 +108,7 @@ const applyConfig = (config) => {
   ];
   config.addonReducers = {
     ...config.addonReducers,
+    convertToNews: convertToNewsReducer,
     comunicatoSchemaReducer: sendComunicatoSchemaReducer,
     comunicatoSendReducer: sendComunicatoReducer,
     // manageChannels
