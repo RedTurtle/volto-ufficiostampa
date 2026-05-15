@@ -66,14 +66,16 @@ const SendMenu = (props) => {
         />,
       );
       dispatch(resetConvertToNews());
-      // TODO: sostituire con l'url tornato dal BE: convertStatus?.result?.url
-      window.location.href = 'https://example.com';
+      window.location.href = convertStatus?.result?.url;
     } else {
       toast.error(
         <Toast
           error
           title={intl.formatMessage(messages.error_title)}
-          content={intl.formatMessage(messages.error_text)}
+          content={
+            convertStatus?.error.response.body.message ||
+            intl.formatMessage(messages.error_text)
+          }
         />,
       );
       dispatch(resetConvertToNews());
@@ -112,7 +114,9 @@ const SendMenu = (props) => {
           <li>
             <button
               className="ufficiostampa-toolbar-action"
-              onClick={() => dispatch(convertToNews(content['@id']))}
+              onClick={() =>
+                dispatch(convertToNews(flattenToAppURL(content['@id'])))
+              }
             >
               <div>
                 <span className="pastanaga-menu-label">
