@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { convertToNews, resetConvertToNews } from '../../actions';
+import config from '@plone/volto/registry';
 
 const messages = defineMessages({
   convert_to_news: {
@@ -106,7 +107,7 @@ const SendMenu = (props) => {
           </Plug>
         );
       })}
-      {isComunicato && (
+      {isComunicato && config.settings.UfficioStampa?.convertToNews && (
         <Plug
           pluggable="toolbar-more-manage-content"
           id="ufficiostampa-convert-to-news"

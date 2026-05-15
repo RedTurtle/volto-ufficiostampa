@@ -106,6 +106,9 @@ const applyConfig = (config) => {
     '/@send-comunicato',
     '/dettaglio-comunicato-archive/',
   ];
+  config.settings.UfficioStampa = {
+    convertToNews: false,
+  };
   config.addonReducers = {
     ...config.addonReducers,
     convertToNews: convertToNewsReducer,
