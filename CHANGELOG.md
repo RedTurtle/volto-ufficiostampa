@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.0](https://github.com/RedTurtle/volto-ufficiostampa/compare/1.4.0...1.5.0) (2026-06-03)
+
+### Features
+
+* convert to news ([#7](https://github.com/RedTurtle/volto-ufficiostampa/issues/7)) ([2d1fa57](https://github.com/RedTurtle/volto-ufficiostampa/commit/2d1fa5708cc032d5854598ae4043be68f01e9eb0))
+
+### Maintenance
+
+* release ([5f8cbea](https://github.com/RedTurtle/volto-ufficiostampa/commit/5f8cbea37bb6e5867d91d5640bda5a2789983155))
+* release ([b70f144](https://github.com/RedTurtle/volto-ufficiostampa/commit/b70f144b286672ea73e48fb00958398e74cf6531))
+* release ([a210aef](https://github.com/RedTurtle/volto-ufficiostampa/commit/a210aef8cef934ce3d9c2ec5dbf22b6b179decd9))
+
 ## [1.5.0-alpha.0](https://github.com/RedTurtle/volto-ufficiostampa/compare/1.4.0...1.5.0-alpha.0) (2026-05-22)
 
 ### Features
