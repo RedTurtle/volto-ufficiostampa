@@ -8,6 +8,7 @@ import {
 } from './components';
 
 import {
+  convertToNewsReducer,
   sendComunicatoSchemaReducer,
   sendComunicatoReducer,
   getSubscriptionsReducer,
@@ -105,8 +106,12 @@ const applyConfig = (config) => {
     '/@send-comunicato',
     '/dettaglio-comunicato-archive/',
   ];
+  config.settings.UfficioStampa = {
+    convertToNews: false,
+  };
   config.addonReducers = {
     ...config.addonReducers,
+    convertToNews: convertToNewsReducer,
     comunicatoSchemaReducer: sendComunicatoSchemaReducer,
     comunicatoSendReducer: sendComunicatoReducer,
     // manageChannels

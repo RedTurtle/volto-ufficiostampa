@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.5.0-alpha.0](https://github.com/RedTurtle/volto-ufficiostampa/compare/1.4.0...1.5.0-alpha.0) (2026-05-22)
+
+### Features
+
+* convert to news implemented ([bc8b0de](https://github.com/RedTurtle/volto-ufficiostampa/commit/bc8b0dee47d44a67e75a677d12d28bb99a3f042c))
+
+### Bug Fixes
+
+* allineamento con BE e gestione errore ([8da433d](https://github.com/RedTurtle/volto-ufficiostampa/commit/8da433d80668a0f9d1ece355647245a714addac5))
+* settings enabled/disabled+ ([430485d](https://github.com/RedTurtle/volto-ufficiostampa/commit/430485d387abc6f1a0ba01ea904fda89024bb045))
+
+### Maintenance
+
+* locales ([f2d40f4](https://github.com/RedTurtle/volto-ufficiostampa/commit/f2d40f49297b617e3c6baffb65247bb4c765fdbd))
+
 ## [1.4.0](https://github.com/RedTurtle/volto-ufficiostampa/compare/1.3.1...1.4.0) (2026-01-26)
 
 ### Features

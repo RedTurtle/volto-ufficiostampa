@@ -1,3 +1,4 @@
+export const CONVERT_TO_NEWS = 'CONVERT_TO_NEWS';
 export const GET_SENDCOMUNICATO_SCHEMA = 'GET_SENDCOMUNICATO_SCHEMA';
 export const GET_SENDCOMUNICATO_SCHEMA_RESET =
   'GET_SENDCOMUNICATO_SCHEMA_RESET';
@@ -129,6 +130,20 @@ export function getSendHistory(data) {
       params: data,
     },
   };
+}
+
+export function convertToNews(url) {
+  return {
+    type: CONVERT_TO_NEWS,
+    request: {
+      op: 'post',
+      path: `${url}/@converti-news`,
+    },
+  };
+}
+
+export function resetConvertToNews() {
+  return { type: `${CONVERT_TO_NEWS}_RESET` };
 }
 
 export function deleteSendHistory(data) {

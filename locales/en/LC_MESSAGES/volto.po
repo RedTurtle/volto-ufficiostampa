@@ -581,6 +581,31 @@ msgstr ""
 msgid "ufficiostampa_comunicato_type"
 msgstr ""
 
+#. Default: "Si è verificato un errore durante la creazione della notizia."
+#: components/Menu/Menu
+msgid "ufficiostampa_convert_to_news_error_text"
+msgstr ""
+
+#. Default: "Errore"
+#: components/Menu/Menu
+msgid "ufficiostampa_convert_to_news_error_title"
+msgstr ""
+
+#. Default: "Crea notizia"
+#: components/Menu/Menu
+msgid "ufficiostampa_convert_to_news_label"
+msgstr ""
+
+#. Default: "La notizia è stata creata con successo."
+#: components/Menu/Menu
+msgid "ufficiostampa_convert_to_news_success_text"
+msgstr ""
+
+#. Default: "Notizia creata"
+#: components/Menu/Menu
+msgid "ufficiostampa_convert_to_news_success_title"
+msgstr ""
+
 #. Default: "Filter title"
 #: components/manage/SendHistoryPanel/messages
 msgid "ufficiostampa_history_panel_filter_title"
