@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.5.1](https://github.com/RedTurtle/volto-ufficiostampa/compare/1.5.0...1.5.1) (2026-06-08)
+
+### Bug Fixes
+
+* search comunicati by date ([8b61da9](https://github.com/RedTurtle/volto-ufficiostampa/commit/8b61da960a46da1dd05373ddc00eb45f78467d2f))
+
 ## [1.5.0](https://github.com/RedTurtle/volto-ufficiostampa/compare/1.4.0...1.5.0) (2026-06-03)
 
 ### Features
