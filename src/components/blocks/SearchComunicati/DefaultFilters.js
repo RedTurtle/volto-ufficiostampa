@@ -91,7 +91,7 @@ const DefaultFilters = (dispatchFilter) => {
         if (value?.startDate || value?.endDate) {
           if (value?.startDate) {
             let start_v = value.startDate.clone();
-            let start = start_v?.startOf('day')?.utc()?.format(date_fmt);
+            let start = start_v?.startOf('day')?.format(date_fmt);
             query.push({
               i: 'created.query',
               v: start,
@@ -99,7 +99,7 @@ const DefaultFilters = (dispatchFilter) => {
           }
           if (value?.endDate) {
             let end_v = value.endDate.clone();
-            let end = end_v.add(1, 'd').startOf('day')?.utc().format(date_fmt);
+            let end = end_v.add(1, 'd').startOf('day')?.format(date_fmt);
             query.push({
               i: 'created.query',
               v: end,
